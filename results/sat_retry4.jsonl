@@ -1,0 +1,5 @@
+{"core": 432, "status": "UNSAT", "seconds": 1.52, "solver": "cadical195", "stats": {"restarts": 229, "conflicts": 10074, "decisions": 16099, "propagations": 22022991}, "symbols": 21, "covers4": 230, "covers5": 3643}
+{"core": 420, "status": "UNSAT", "seconds": 1.617, "solver": "cadical195", "stats": {"restarts": 242, "conflicts": 12048, "decisions": 19474, "propagations": 26351564}, "symbols": 22, "covers4": 227, "covers5": 3798}
+{"core": 431, "status": "UNSAT", "seconds": 2.149, "solver": "cadical195", "stats": {"restarts": 391, "conflicts": 15053, "decisions": 26095, "propagations": 33842367}, "symbols": 21, "covers4": 229, "covers5": 3635}
+{"core": 452, "status": "UNSAT", "seconds": 2.184, "solver": "cadical195", "stats": {"restarts": 475, "conflicts": 15576, "decisions": 27937, "propagations": 39780011}, "symbols": 22, "covers4": 207, "covers5": 3660}
+{"core": 461, "status": "UNSAT", "seconds": 2.131, "solver": "cadical195", "stats": {"restarts": 255, "conflicts": 16193, "decisions": 26166, "propagations": 34819233}, "symbols": 22, "covers4": 207, "covers5": 3669}

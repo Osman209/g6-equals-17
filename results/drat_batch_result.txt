@@ -1,0 +1,10 @@
+Complete DRAT certification batch
+
+VERIFIED: 462
+SKIPPED : 1
+FAILED  : 0
+
+Interpretation:
+core 0 had already been independently verified before the batch.
+Combined verified cores: 463 / 463.
+Combined failures: 0.

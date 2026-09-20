@@ -1,0 +1,3451 @@
+{
+  "cores": 463,
+  "counts": {
+    "UNSAT": 463
+  },
+  "all_cores_unsat": true,
+  "sources": [
+    {
+      "file": "sat_results_cadical195_0.jsonl",
+      "rows": 463,
+      "statuses": {
+        "UNSAT": 460,
+        "UNKNOWN": 3
+      }
+    },
+    {
+      "file": "sat_results_glucose4_0.jsonl",
+      "rows": 10,
+      "statuses": {
+        "UNSAT": 10
+      }
+    },
+    {
+      "file": "sat_retry.jsonl",
+      "rows": 78,
+      "statuses": {
+        "UNSAT": 78
+      }
+    },
+    {
+      "file": "sat_retry2.jsonl",
+      "rows": 37,
+      "statuses": {
+        "UNSAT": 37
+      }
+    },
+    {
+      "file": "sat_retry3.jsonl",
+      "rows": 24,
+      "statuses": {
+        "UNSAT": 24
+      }
+    },
+    {
+      "file": "sat_retry4.jsonl",
+      "rows": 5,
+      "statuses": {
+        "UNSAT": 5
+      }
+    }
+  ],
+  "records": [
+    {
+      "core": 0,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_results_glucose4_0.jsonl"
+      ]
+    },
+    {
+      "core": 1,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_results_glucose4_0.jsonl"
+      ]
+    },
+    {
+      "core": 2,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_results_glucose4_0.jsonl"
+      ]
+    },
+    {
+      "core": 3,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_results_glucose4_0.jsonl"
+      ]
+    },
+    {
+      "core": 4,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_results_glucose4_0.jsonl"
+      ]
+    },
+    {
+      "core": 5,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_results_glucose4_0.jsonl"
+      ]
+    },
+    {
+      "core": 6,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_results_glucose4_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 7,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_glucose4_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 8,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_results_glucose4_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 9,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_results_glucose4_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 10,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 11,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 12,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 13,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 14,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 15,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 16,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 17,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 18,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 19,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 20,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 21,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 22,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 23,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 24,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 25,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 26,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 27,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 28,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 29,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 30,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 31,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 32,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 33,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 34,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 35,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 36,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 37,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 38,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 39,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 40,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 41,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 42,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 43,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 44,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 45,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 46,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 47,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 48,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 49,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 50,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 51,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 52,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 53,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 54,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 55,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 56,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 57,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 58,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 59,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 60,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 61,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 62,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 63,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 64,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 65,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 66,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 67,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 68,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 69,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 70,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 71,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 72,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 73,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 74,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 75,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 76,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 77,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 78,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 79,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 80,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 81,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 82,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 83,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 84,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 85,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 86,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 87,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 88,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 89,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 90,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 91,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 92,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 93,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 94,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 95,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 96,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 97,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 98,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 99,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 100,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 101,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 102,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 103,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 104,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 105,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 106,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 107,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 108,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 109,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 110,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 111,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 112,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 113,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 114,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 115,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 116,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 117,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 118,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 119,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 120,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 121,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 122,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 123,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 124,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 125,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 126,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 127,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 128,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 129,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 130,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 131,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 132,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 133,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 134,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 135,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 136,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 137,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 138,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 139,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 140,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 141,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 142,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 143,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 144,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 145,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 146,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 147,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 148,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 149,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 150,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 151,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 152,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 153,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 154,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 155,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 156,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 157,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 158,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 159,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 160,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 161,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 162,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 163,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 164,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 165,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 166,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 167,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 168,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 169,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 170,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 171,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 172,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 173,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 174,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 175,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 176,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 177,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 178,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 179,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 180,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 181,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 182,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 183,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 184,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 185,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 186,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 187,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 188,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 189,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 190,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 191,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 192,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 193,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 194,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 195,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 196,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 197,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 198,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 199,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 200,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 201,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 202,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 203,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 204,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 205,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 206,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 207,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 208,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 209,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 210,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 211,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 212,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 213,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 214,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 215,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 216,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 217,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 218,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 219,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 220,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 221,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 222,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 223,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 224,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry.jsonl"
+      ]
+    },
+    {
+      "core": 225,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 226,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 227,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 228,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 229,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 230,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 231,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 232,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 233,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 234,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 235,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 236,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 237,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 238,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 239,
+      "status": "UNSAT",
+      "sources": [
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 240,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 241,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 242,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 243,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 244,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 245,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 246,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 247,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 248,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 249,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 250,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 251,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 252,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 253,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 254,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 255,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 256,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 257,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 258,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 259,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 260,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 261,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 262,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 263,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 264,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 265,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 266,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 267,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 268,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 269,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 270,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 271,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 272,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 273,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 274,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 275,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 276,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 277,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 278,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 279,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 280,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 281,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 282,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 283,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 284,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 285,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 286,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 287,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 288,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 289,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 290,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 291,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 292,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 293,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 294,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 295,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 296,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 297,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 298,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 299,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 300,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 301,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 302,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 303,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 304,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 305,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 306,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 307,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 308,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 309,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 310,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 311,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 312,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 313,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 314,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 315,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 316,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 317,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 318,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 319,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 320,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 321,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry2.jsonl"
+      ]
+    },
+    {
+      "core": 322,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 323,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 324,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 325,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 326,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 327,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 328,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 329,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 330,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 331,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 332,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 333,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 334,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 335,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 336,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 337,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 338,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 339,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 340,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 341,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 342,
+      "status": "UNSAT",
+      "sources": [
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 343,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 344,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 345,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 346,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 347,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 348,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 349,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 350,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 351,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 352,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 353,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 354,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 355,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 356,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 357,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 358,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 359,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 360,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 361,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 362,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 363,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 364,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 365,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 366,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 367,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 368,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 369,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 370,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 371,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 372,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 373,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 374,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 375,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 376,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 377,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 378,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 379,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 380,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 381,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 382,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 383,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 384,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 385,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 386,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 387,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 388,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 389,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 390,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 391,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 392,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 393,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 394,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 395,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 396,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 397,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 398,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 399,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 400,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry3.jsonl"
+      ]
+    },
+    {
+      "core": 401,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 402,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 403,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 404,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 405,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 406,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 407,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 408,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 409,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 410,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 411,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 412,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 413,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 414,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 415,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 416,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 417,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 418,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 419,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 420,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry4.jsonl"
+      ]
+    },
+    {
+      "core": 421,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 422,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 423,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 424,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 425,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 426,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 427,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 428,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 429,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 430,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 431,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry4.jsonl"
+      ]
+    },
+    {
+      "core": 432,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry4.jsonl"
+      ]
+    },
+    {
+      "core": 433,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 434,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 435,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 436,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 437,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 438,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 439,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 440,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 441,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 442,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 443,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 444,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 445,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 446,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 447,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 448,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 449,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 450,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 451,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 452,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry4.jsonl"
+      ]
+    },
+    {
+      "core": 453,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 454,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 455,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 456,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 457,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 458,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 459,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 460,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    },
+    {
+      "core": 461,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl",
+        "sat_retry4.jsonl"
+      ]
+    },
+    {
+      "core": 462,
+      "status": "UNSAT",
+      "sources": [
+        "sat_results_cadical195_0.jsonl"
+      ]
+    }
+  ],
+  "sha256": {
+    "eight_cores.jsonl": "6310b57497c4739c61677816048777e0fef1f18b3f0ec58d4263999dc0e732ad",
+    "search_sixteen.py": "c3ecfd7cbc831795e908bd2e69a4366a308b011c509143c2a0ca35c8a4fdcd58"
+  },
+  "qualification": "SAT-solver results, not independently checked DRAT/LRAT certificates. Mathematical reduction and encoding require review."
+}

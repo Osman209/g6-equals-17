@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "The Six-Card Cover Problem: a computer-assisted determination of g(6)"
+abstract: >-
+  A computer-assisted determination of g(6), the smallest number of blocks in a
+  pairwise intersecting 6-uniform family with transversal number 6. Families of at
+  most fifteen cards are excluded by two independent routes; sixteen cards are
+  excluded by a finite reduction to 463 canonical cores whose SAT instances are all
+  unsatisfiable with independently checked DRAT certificates; and an explicit
+  seventeen-card family on 27 symbols gives the matching upper bound. Hence
+  g(6) = 17. Research draft: no priority is claimed, and the lower bound is
+  computer-assisted and has not been independently reviewed by a human referee or a
+  proof assistant. AI tools were used throughout the work and its review.
+type: software
+authors:
+  - family-names: Osman
+    given-names: Mohamed A.
+    orcid: "https://orcid.org/0009-0004-5912-999X"
+    email: mohamedosmannn2999@gmail.com
+version: 1.0.0
+date-released: 2026-09-20
+license: MIT
+license-url: "https://opensource.org/licenses/MIT"
+keywords:
+  - intersecting hypergraph
+  - transversal number
+  - covering number
+  - Erdos-Lovasz problem
+  - extremal set theory
+  - SAT
+  - DRAT
+  - computer-assisted proof
+preferred-citation:
+  type: report
+  title: "The Six-Card Cover Problem: a computer-assisted determination of g(6)"
+  authors:
+    - family-names: Osman
+      given-names: Mohamed A.
+      orcid: "https://orcid.org/0009-0004-5912-999X"
+  year: 2026
+  institution:
+    name: Independent researcher

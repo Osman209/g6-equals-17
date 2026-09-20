@@ -1,0 +1,49 @@
+{
+  "project": "g(6)=17",
+  "date": "2026-09-20",
+  "definition": "Minimum size of a pairwise-intersecting 6-uniform family with transversal number 6.",
+  "stage_15": {
+    "status": "excluded",
+    "consequence": "g(6) >= 16",
+    "role": "historical predecessor; logically superseded by the 16-card exclusion",
+    "recorded_finite_check": {
+      "minimal_input_covers": 840,
+      "output_covers": 315,
+      "quadruple_cases": 294239817,
+      "counterexamples": 0
+    },
+    "histogram_cases": 13
+  },
+  "stage_16": {
+    "status": "excluded",
+    "consequence": "g(6) >= 17",
+    "canonical_cores": 463,
+    "fresh_solver_unsat": 463,
+    "drat_verified": 463,
+    "verification_failures": 0,
+    "hard_cores": [
+      7,
+      239,
+      342
+    ],
+    "final_certificate_batch": {
+      "newly_verified": 462,
+      "skipped_preverified": 1,
+      "failed": 0,
+      "combined_verified": 463
+    }
+  },
+  "stage_17": {
+    "status": "explicit witness",
+    "consequence": "g(6) <= 17",
+    "cards": 17,
+    "symbols": 27,
+    "uniformity": 6,
+    "pairwise_intersections_checked": 136,
+    "five_subsets_checked": 80730,
+    "five_covers": 0,
+    "tau": 6
+  },
+  "combined_conclusion": "g(6)=17",
+  "scope_note": "The 16-card lower bound is computer-assisted. DRAT checks certify the UNSAT conclusions for the generated CNFs; correctness and completeness of the mathematical reduction and CNF encoding remain part of the trusted proof layer and must be audited in the source code and proof text."
+}

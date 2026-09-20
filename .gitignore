@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+# working files, not part of a release
+REVIEW_*.md
+COMMIT_MESSAGE.txt
+NOTES_*.md
+
+# the full certificate archive is a release asset, not repository content
+certificates/
+data/cnf/core_0??.drat.bak
+data/eight_triples.jsonl
+results/g11_results.jsonl
+node_modules/

@@ -1,0 +1,26 @@
+{
+  "7": {
+    "variables": 40583,
+    "clauses": 210333,
+    "unlimited_run_conflicts": 52765,
+    "unlimited_run_seconds": 7.406,
+    "drat_bytes": 10110384,
+    "drat_verify_seconds": 6.658
+  },
+  "239": {
+    "variables": 38280,
+    "clauses": 199136,
+    "unlimited_run_conflicts": 69317,
+    "unlimited_run_seconds": 9.594,
+    "drat_bytes": 5858286,
+    "drat_verify_seconds": 2.792
+  },
+  "342": {
+    "variables": 36922,
+    "clauses": 190406,
+    "unlimited_run_conflicts": 83403,
+    "unlimited_run_seconds": 11.453,
+    "drat_bytes": 7661933,
+    "drat_verify_seconds": 7.252
+  }
+}

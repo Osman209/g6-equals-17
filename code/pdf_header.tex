@@ -1,0 +1,47 @@
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+% KaTeX spells these; plain LaTeX does not.  The papers must use \lt and \gt
+% inside math because GitHub extracts the math after markdown->HTML, so a raw
+% < is scanned as a tag and swallows the rest of the formula.
+\providecommand{\lt}{<}
+\providecommand{\gt}{>}
+
+\usepackage{booktabs,longtable,array}
+\usepackage{needspace}
+\usepackage{etoolbox}
+% Page breaks inside a small table or an ASCII figure make them unreadable.
+% Two rules, applied here rather than in the markdown so that the sources stay
+% clean for GitHub:
+%   - every verbatim block is wrapped in a minipage, so it cannot be split;
+%   - every table reserves ten lines before it starts, so a short table moves
+%     whole to the next page instead of leaving its head stranded.  A table
+%     genuinely longer than that still splits, which is what one wants.
+\BeforeBeginEnvironment{verbatim}{\par\needspace{4\baselineskip}\begin{minipage}{\linewidth}}
+\AfterEndEnvironment{verbatim}{\end{minipage}\par}
+% A table whose head lands at the foot of a page prints the head twice: pandoc
+% emits \endfirsthead and \endhead, and a break between them shows both.  Reserve
+% enough lines that a table of the sizes used here moves whole to the next page.
+\BeforeBeginEnvironment{longtable}{\needspace{18\baselineskip}}
+\usepackage{ragged2e}
+% Pandoc gives every column an equal share of the line, which squeezes a wide
+% "what it says" column into four words a line while a narrow "section" column
+% sits half empty.  Ragged-right inside table cells, tighter inter-column glue
+% and a little more row height make the same width read much better.
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.25}
+\AtBeginEnvironment{longtable}{\RaggedRight\small}
+\AtBeginEnvironment{tabular}{\RaggedRight\small}
+\usepackage[margin=1in]{geometry}
+\usepackage{newunicodechar}
+\newunicodechar{✓}{\ensuremath{\checkmark}}
+\newunicodechar{⋯}{\ensuremath{\cdots}}
+\usepackage{microtype}
+\setlength{\emergencystretch}{3em}
+\hyphenpenalty=1000
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}
+\fancyfoot[C]{\thepage}
+\fancyhead[L]{\small The Six-Card Cover Problem}
+\fancyhead[R]{\small\href{https://osman209.github.io/g6-equals-17/}{osman209.github.io/g6-equals-17}}
+\renewcommand{\headrulewidth}{0.4pt}
