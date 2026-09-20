@@ -12,7 +12,7 @@ $$g(6) = 17 .$$
 
 **Start with [`papers/overview.md`](papers/overview.md).**
 
-Companion repository: [odd-sieve-cell-system](https://github.com/Osman209/odd-sieve-cell-system).
+
 
 ---
 
