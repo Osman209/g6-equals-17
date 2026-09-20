@@ -13,3 +13,4 @@ data/cnf/core_0??.drat.bak
 data/eight_triples.jsonl
 results/g11_results.jsonl
 node_modules/
+package-lock.json
