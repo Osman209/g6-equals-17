@@ -13,6 +13,12 @@
 rests on. Use these copies; do not reconstruct either from prose.
 `code/verify_cnf_regeneration.py` checks the link between them.
 
-The full archive of all 463 CNF and DRAT pairs is about 4 GB and belongs in a release
-asset or an archive record rather than in the repository. The three shipped here let a
-reader reproduce the certification step without running a solver.
+The full certificate archive — 463 CNF files, 463 DRAT proofs, a solver log and a
+checker log for each, and 463 verification markers, 2,318 files and 2.1 GB uncompressed —
+is attached to the v1.0.1 release rather than committed here:
+
+  https://github.com/Osman209/g6-equals-17/releases/tag/v1.0.1
+
+The three pairs shipped in `cnf/` are the three hardest instances, and let a reader
+reproduce the certification step without downloading the archive and without running a
+solver.
