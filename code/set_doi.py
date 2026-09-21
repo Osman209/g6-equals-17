@@ -3,12 +3,15 @@
 
 COVERS the DOI, which appears in more than one file and must not drift between them.
 
-The DOI has to be RESERVED on the Zenodo upload form BEFORE the archive is built, because
-it is written inside the archive. Do not use the GitHub-to-Zenodo webhook: it snapshots the
-repository before minting the DOI, so the archived copy would carry a dead link, and it
-appends to whichever record it is bound to.
+Write the CONCEPT DOI, not a version DOI. The DOI goes inside the archive, so it must
+exist before the archive does; a version DOI is minted only after the version is
+published, and would in any case name a version that the next release supersedes. The
+concept DOI is fixed and always resolves to the newest version.
 
-    python code/set_doi.py 10.5281/zenodo.NNNNNNNN
+    python code/set_doi.py 10.5281/zenodo.22863217
+
+See RELEASING.md for the full procedure and for why the GitHub-to-Zenodo integration is
+safe once the concept DOI is what gets archived.
 """
 from pathlib import Path
 import json
