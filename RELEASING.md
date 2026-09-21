@@ -10,15 +10,26 @@ The DOI is written *inside* the archive, so it has to exist before the archive e
 A version DOI does not: Zenodo mints it only once the version is published. That is the
 whole difficulty, and the concept DOI is the way out of it.
 
-**Concept DOI: `10.5281/zenodo.22863217`.** It is fixed, it exists already, and it
+**Concept DOI: `10.5281/zenodo.22883809`.** It is fixed, it exists already, and it
 always resolves to the newest version. It is what `code/set_doi.py` writes and what
 `CITATION.cff` carries, so a citation never points at a superseded version.
 
+There are two record families on Zenodo, because the 1.2.0 release created a new one
+instead of adding a version to the old. The old family is not being merged or retired;
+it stays as the record of the 1.0.x deposits, and everything from 1.2.0 onwards lives
+in the new one.
+
 | DOI | points at |
 |---|---|
-| `10.5281/zenodo.22863217` | **concept** — always the latest version |
+| `10.5281/zenodo.22883809` | **concept, current** — always the latest version |
+| `10.5281/zenodo.22883810` | version 1.2.0, permanently |
+| `10.5281/zenodo.22863217` | concept of the old family — resolves to 1.0.1 |
 | `10.5281/zenodo.22863218` | version 1.0.0, permanently |
 | `10.5281/zenodo.22863582` | version 1.0.1, permanently |
+
+The 1.2.0 archive carries `22863217` inside it, from before the split was known. That
+deposit is not being reissued; the repository now carries `22883809`, so every release
+from here on is consistent.
 
 Do not write a version DOI into the archive. It is wrong the moment the next version
 exists, and under the GitHub release integration it cannot be known in advance anyway.
@@ -28,7 +39,7 @@ exists, and under the GitHub release integration it cannot be known in advance a
 The repository is synced, so publishing a GitHub release creates the next Zenodo
 version automatically.
 
-1. Run `python code/set_doi.py 10.5281/zenodo.22863217` if the concept DOI is not
+1. Run `python code/set_doi.py 10.5281/zenodo.22883809` if the concept DOI is not
    already in place.
 2. Bump `version` and `date-released` in `CITATION.cff` and `.zenodo.json`.
 3. Rebuild the site and the PDFs.
@@ -42,10 +53,24 @@ Zenodo record by hand if a deposit complete on its own is ever wanted.
 
 An earlier version of this file said to avoid the integration entirely, because it
 snapshots the repository *before* minting the version DOI and so bakes in a dead link.
-Writing the concept DOI removes that failure: the link inside the archive does not name
-a version and cannot go stale. The other caution still holds — the integration appends
-to whichever record it is bound to, so check that a release landed under concept record
-22863217 and not a new one.
+Writing the concept DOI removes most of that failure: the link inside the archive does
+not name a version and cannot go stale as versions accumulate.
+
+It does not remove all of it, and 1.2.0 is the proof. The integration deposited that
+release into a **new record family** rather than adding a version to the existing one,
+so the archive went out carrying the old family's concept DOI. Nothing inside the
+repository can detect that in advance: which record a release lands in is decided by
+Zenodo after the archive is built.
+
+So the check after publishing is not optional. Open the new Zenodo record and confirm
+its `conceptdoi` is `10.5281/zenodo.22883809`:
+
+```bash
+curl -s https://zenodo.org/api/records/<new-record-id> | grep -o '"conceptdoi":"[^"]*"'
+```
+
+If it is a different concept, the repository's DOI is now wrong for every release that
+follows. Run `set_doi.py` with the new concept DOI before the next one.
 
 `audit.py` only warns about the `RESERVED` placeholder on an ordinary push, and
 refuses it under `RELEASE_BUILD=1`. Set that variable for a real release so the
@@ -79,8 +104,18 @@ reproduced without downloading the archive.
 ## Order of operations
 
 ```text
-reserve DOI  ->  set_doi.py  ->  build_pdfs.sh  ->  build_site.py
-             ->  check_github_math.js  ->  audit.py  ->  tag  ->  upload archive
+set_doi.py  ->  bump version  ->  build_pdfs.sh  ->  build_site.py
+            ->  check_github_math.js  ->  RELEASE_BUILD=1 audit.py
+            ->  tag  ->  publish release with the archive attached
+            ->  check the new record's conceptdoi
 ```
 
-`audit.py` is the gate. Run it after the last edit, not before it.
+`audit.py` is the gate. Run it after the last edit, not before it, and run it with
+`RELEASE_BUILD=1` so working files cannot ride along: it has caught an npm install's
+leftovers and the uncompressed eleven-card result file, none of which `git status`
+reports, because all of them are ignored.
+
+It also refuses a document that names a file which is not there, so do not quote the
+path of a generated working file in this repository's prose.
+
+The last step is the one that is easy to skip and expensive to skip.

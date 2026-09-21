@@ -8,7 +8,7 @@ exist before the archive does; a version DOI is minted only after the version is
 published, and would in any case name a version that the next release supersedes. The
 concept DOI is fixed and always resolves to the newest version.
 
-    python code/set_doi.py 10.5281/zenodo.22863217
+    python code/set_doi.py 10.5281/zenodo.22883809
 
 See RELEASING.md for the full procedure and for why the GitHub-to-Zenodo integration is
 safe once the concept DOI is what gets archived.

@@ -242,6 +242,6 @@ re-run settled and what it could not.
 
 ## Citation
 
-DOI: [10.5281/zenodo.22863217](https://doi.org/10.5281/zenodo.22863217)
+DOI: [10.5281/zenodo.22883809](https://doi.org/10.5281/zenodo.22883809)
 
 See [`CITATION.cff`](CITATION.cff).

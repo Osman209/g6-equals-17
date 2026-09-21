@@ -21,7 +21,7 @@ import shutil
 REPO = "https://github.com/Osman209/g6-equals-17"
 SITE = "https://osman209.github.io/g6-equals-17"
 ORCID = "0009-0004-5912-999X"
-DOI = "10.5281/zenodo.22863217"
+DOI = "10.5281/zenodo.22883809"
 DATE = "2026-09-20"
 
 CSS = """<style>body{max-width:52rem;margin:2.5rem auto;padding:0 1.2rem;font:16px/1.6 Georgia,"DejaVu Serif",serif;color:#1a1a1a}
