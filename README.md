@@ -1,6 +1,6 @@
 # The six-card cover problem
 
-*The case $r = 6$ of the Erdős–Lovász cover number problem.*
+*The case r = 6 of the Erdős–Lovász cover number problem.*
 
 A reproducible, computer-assisted determination of $g(6)$, the smallest number of blocks
 in a pairwise intersecting 6-uniform family whose transversal number is 6.
@@ -14,7 +14,7 @@ favourite combinatorial problems and offered \$500 for a linear upper bound, whi
 proved in 1994. The exact values known are $g(3) = 6$, $g(4) = 9$ and $g(5) = 13$, the
 last due to Barát [arXiv:2011.04444]; the strongest published general lower bound,
 $g(r) \ge ((41-\sqrt{19})/12 - o(1))r$ [arXiv:2606.24878], gives $g(6) \ge 14$. See
-[§6 of the overview](papers/overview.md) for what that does and does not settle about
+[6 of the overview](papers/overview.md) for what that does and does not settle about
 the value determined here.
 
 > **Status.** Research draft. The upper bound is an explicit witness anyone can check in
