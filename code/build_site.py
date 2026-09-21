@@ -37,8 +37,11 @@ PAPERS = [
     dict(
         slug="overview",
         title="The Six-Card Cover Problem: an Overview",
-        sub="The chain from fifteen cards to seventeen, and what each stage actually rests on",
-        abs="One pass over the four papers. The question; the two independent routes excluding "
+        sub="The case r = 6 of the Erdos-Lovasz cover number problem: the chain from fifteen "
+            "cards to seventeen, and what each stage actually rests on",
+        abs="One pass over the four papers. The question, which is the r = 6 case of the problem "
+            "Erdos and Lovasz posed in 1974, with g(3) = 6, g(4) = 9 and g(5) = 13 known exactly; "
+            "the two independent routes excluding "
             "fifteen cards; the reduction, SAT and certificate layer excluding sixteen; the "
             "explicit seventeen-card witness; and, stated plainly, which parts are finite checks, "
             "which are certificates, and which remain reading obligations that no certificate can "

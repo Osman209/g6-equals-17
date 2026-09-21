@@ -2,6 +2,11 @@ cff-version: 1.2.0
 message: "If you use this work, please cite it as below."
 title: "The Six-Card Cover Problem: a computer-assisted determination of g(6)"
 abstract: >-
+  The case r = 6 of the Erdos-Lovasz cover number problem, posed in 1974 in the
+  paper that introduced the local lemma: the minimum number of edges g(r) in an
+  r-uniform intersecting hypergraph with cover number r. The values known exactly
+  are g(3) = 6, g(4) = 9 and g(5) = 13; the strongest published general lower
+  bound gives g(6) >= 14.
   A computer-assisted determination of g(6), the smallest number of blocks in a
   pairwise intersecting 6-uniform family with transversal number 6. Families of at
   most fifteen cards are excluded by two independent routes; sixteen cards are
