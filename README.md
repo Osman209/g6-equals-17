@@ -12,8 +12,6 @@ $$g(6) = 17 .$$
 
 **Start with [`papers/overview.md`](papers/overview.md).**
 
-
-
 ---
 
 ## The question
@@ -76,8 +74,10 @@ COVERAGE.md     one row per measured claim, pointing at the artifact that produc
 ```
 
 The full archive of 463 CNF and DRAT pairs is large. Three representative pairs — the
-three hardest instances — ship in `data/cnf/`; the rest belong in a release asset or an
-archive record.
+three hardest instances — ship in `data/cnf/`; the rest are published as a release
+asset, [`g6-certificates-463.zip`](https://github.com/Osman209/g6-equals-17/releases),
+about 534 MB, holding all 463 CNF files, all 463 DRAT proofs, and the per-core
+`drat-trim` output and `.verified` markers.
 
 ## Running the checks
 
@@ -112,6 +112,24 @@ python code/audit.py       # the release gate; run it after the last edit
 `verify_eleven_cards.py` takes a few minutes. Do not run any verifier with `python -O`,
 which disables the assertions they rely on.
 
+Two scripts regenerate files that are also shipped, and by default write over them:
+`enumerate_eight_cores.py` rewrites `data/eight_cores.jsonl`, and `search_sixteen.py`
+rewrites `results/sat_results_<solver>_<start>.jsonl`. That is intended — regenerating
+in place is what makes the diff meaningful — but it leaves a working tree that `git
+status` reports as dirty. Pass `--out` to write somewhere else and leave the checkout
+untouched:
+
+```bash
+python code/enumerate_eight_cores.py --out /tmp/cores.jsonl
+python code/search_sixteen.py --start 0 --stop 5 --out /tmp/sat.jsonl
+```
+
+Regenerating `data/eight_cores.jsonl` in place produces a file whose content is
+identical to the shipped one. The repository stores it with LF endings; Python's text
+mode writes CRLF on Windows, so a regenerated copy there differs from the stored blob
+by one byte per line and by nothing else. Compare with line endings normalised before
+concluding anything from a diff.
+
 Two checks need `python-sat` (`pip install python-sat`):
 
 ```bash
@@ -127,6 +145,31 @@ drat-trim data/cnf/core_007.cnf data/cnf/core_007.drat
 ```
 
 The expected last lines are `s VERIFIED`.
+
+### Checking certificates on Windows
+
+The DRAT files are in the binary proof format. Two portability problems make an
+out-of-the-box Windows build report a **false** `s NOT VERIFIED`, and only one of
+them announces itself:
+
+```bash
+gcc drat-trim.c -std=c99 -O2 -Dgetc_unlocked=getc -o drat-trim.exe
+```
+
+1. `getc_unlocked` is POSIX and absent on Windows, so the build fails. The define
+   above is enough; it changes no checking logic.
+2. `drat-trim.c` opens the proof file in text mode (`fopen (argv[2], "r")`). On
+   Windows a byte `0x1A` inside binary proof data is treated as end-of-file, so
+   parsing stops early and the checker reports `s NOT VERIFIED` **without any
+   warning**. Change both proof-file opens to binary mode (`"rb"`).
+
+Without fix 2 the archive appears to fail: `core_003.drat`, for example, has its
+first `0x1A` at byte 644, and an unpatched Windows build reads 645 of its 37,410
+bytes before giving up. After the fix every proof is read in full and verifies.
+
+Confirm the checker still rejects bad proofs before trusting a `VERIFIED`: an empty
+proof, a proof from a different instance, and a bare empty-clause claim must all
+return `s NOT VERIFIED`.
 
 ## Reproducing the sixteen-card search
 

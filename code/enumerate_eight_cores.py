@@ -2,7 +2,9 @@
 from pathlib import Path
 from itertools import combinations,permutations,product
 from collections import defaultdict
-import json,time
+import argparse,json,time
+_ap=argparse.ArgumentParser();_ap.add_argument('--out',default=None,help='write the cores here instead of over data/eight_cores.jsonl')
+_out=_ap.parse_args().out
 rows=[json.loads(l) for l in open(str(Path(__file__).resolve().parents[1]/'data'/'eight_triple_classes.jsonl'))];classes={};raw=0;t0=time.monotonic()
 for ri,row in enumerate(rows):
  T=[tuple(t) for t in row['triples']];degree=[sum(v in t for t in T) for v in range(8)]
@@ -35,7 +37,7 @@ for ri,row in enumerate(rows):
    chosen.append((a,b));slack[a]-=1;slack[b]-=1;dfs(k+1)
   for j in range(cap):chosen.pop();slack[a]+=1;slack[b]+=1
  dfs(0)
-with open(str(Path(__file__).resolve().parents[1]/'data'/'eight_cores.jsonl'),'w') as f:
+with open(_out or str(Path(__file__).resolve().parents[1]/'data'/'eight_cores.jsonl'),'w') as f:
  for key,mult in sorted(classes.items()):
   S=[[v for v in range(8) if mask>>v&1] for mask in key]
   f.write(json.dumps(dict(supports=S,multiplicity=mult))+'\n')

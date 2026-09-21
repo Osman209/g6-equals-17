@@ -21,8 +21,23 @@ removes them, so an `-O` run can pass on material that fails.
 | `verify_eight_orbits.py` | seconds | the seven orbits, and that every core is a genuine family |
 | `verify_cnf_regeneration.py` | seconds | the shipped CNFs are what `build()` produces |
 | `make_certificate_manifest.py` | seconds | SHA-256 manifest over the certificate archive |
+| `verify_certificate_markers.py` | seconds | presence and consistency of the certificate archive markers, [P3, §6] |
 | `verify_core.py` | seconds | a twelve-card family with tau = 5, showing the eleven-card lemma is sharp |
 
+The two certificate scripts read `certificates/`, which is a release asset rather than
+repository content. Unpack `g6-certificates-463.zip` into the repository root first.
+
+## Build and release
+
+| script | needs | purpose |
+|---|---|---|
+| `build_pdfs.sh` | pandoc, pdflatex, lmodern | rebuild `docs/papers/*.pdf` from `papers/*.md` |
+| `build_site.py` | none | rebuild `docs/` — the landing page and one abstract page per paper |
+| `check_github_math.js` | `npm install katex` | render every math span through KaTeX and inspect the output |
+| `audit.py` | none | the release gate. Run it after the LAST edit, not before it |
+| `set_doi.py` | none | write one Zenodo DOI into `build_site.py`, `CITATION.cff`, `.zenodo.json` and the README at once |
+
+`RELEASING.md` in the repository root holds the release procedure these scripts assume.
 
 ## Needs python-sat
 

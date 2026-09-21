@@ -79,9 +79,9 @@ def audit(S,model,data,require_tau6):
  return [sorted(a) for a in cards]
 
 if __name__=='__main__':
- ap=argparse.ArgumentParser();ap.add_argument('--start',type=int,default=0);ap.add_argument('--stop',type=int,default=463);ap.add_argument('--budget',type=int,default=50000);ap.add_argument('--solver',default='cadical195');ap.add_argument('--no-symmetry',action='store_true');args=ap.parse_args()
+ ap=argparse.ArgumentParser();ap.add_argument('--start',type=int,default=0);ap.add_argument('--stop',type=int,default=463);ap.add_argument('--budget',type=int,default=50000);ap.add_argument('--solver',default='cadical195');ap.add_argument('--no-symmetry',action='store_true');ap.add_argument('--out',default=None,help='write results here instead of over results/sat_results_<solver>_<start>.jsonl');args=ap.parse_args()
  root=Path(__file__).resolve().parents[1];rows=[json.loads(l) for l in (root/'data'/'eight_cores.jsonl').read_text().splitlines()]
- output=root/'results'/('sat_results_%s_%s.jsonl'%(args.solver,args.start))
+ output=Path(args.out) if args.out else root/'results'/('sat_results_%s_%s.jsonl'%(args.solver,args.start))
  with output.open('w') as f:
   for i in range(args.start,min(args.stop,len(rows))):
    S=rows[i]['supports'];start=time.monotonic();cnf,nv,data,meta=build(S,symmetry=not args.no_symmetry)

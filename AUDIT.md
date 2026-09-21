@@ -5,7 +5,11 @@ someone other than the person who produced it, and — just as importantly — w
 It is not a second proof. It is a statement of which parts a reader can stop worrying
 about and which parts still need reading rather than running.
 
-Date of the pass: 20 September 2026. Environment: Linux, Python 3.12,
+Two passes are recorded. Sections 1 to 3 are the first pass; section 4 is a second pass
+on a different operating system, which widened three of the checks from a sample to the
+whole archive.
+
+First pass: 20 September 2026. Environment: Linux, Python 3.12,
 `python-sat` 1.9.dev15 (CaDiCaL 1.9.5 backend), `drat-trim` built from source at
 `github.com/marijnheule/drat-trim` and checked against its own bundled examples before
 use.
@@ -204,3 +208,162 @@ all. See the overview, §6.
 The computational layer of the lower bound came through this pass without a discrepancy.
 The obligations that remain are the two that certificates cannot discharge, and they are
 the two the papers already name.
+
+---
+
+## 4. Second pass — 21 September 2026
+
+Environment: Windows 11, Python 3.11.9, `python-sat` 1.9.dev15 (CaDiCaL 1.9.5 backend),
+`drat-trim` built from source at commit `2e3b2dc` with the two Windows portability fixes
+recorded in §4.5. A different operating system and a different Python from the first
+pass; the same data.
+
+This pass was carried out with the assistance of an AI agent (Claude, Anthropic) driving
+the scripts and writing the cross-checks. Every number below is the output of a command,
+not a summary of one.
+
+### 4.1 The standard-library verifiers — all re-run
+
+`verify_witness_17.py`, `verify_k7.py`, `verify_histograms.py`, `verify_eleven_cards.py`,
+`enumerate_eight_maximal.py`, `enumerate_eight_triples.py`, `enumerate_eight_cores.py`,
+`verify_eight_orbits.py`, `verify_cnf_regeneration.py` and `verify_encoding_controls.py`
+were run. All returned PASS, and every reported count matched §1 line for line: 294,239,817
+quadruples with 0 counterexamples; thirteen histograms; 5,373 eleven-card instances over
+58 non-empty profiles, all UNSAT; 10,144 maximal systems; 39,768 triple systems; 772 raw
+and 463 canonical cores; seven orbits; 18/22/40 on the encoding controls.
+
+Three of those numbers were also recomputed without using the repository's own scripts:
+the per-profile instance counts in the eleven-card log sum to 5,373; the profile
+$(0,0,0,11)$ should count the partitions of 11 into parts of size at least 2, which an
+independent implementation confirms is 14, as the script reports; and the records in
+`results/` hold 463 rows with ids 0 to 462, no gap and no repeat, 460 UNSAT and 3 UNKNOWN,
+the three being cores 7, 239 and 342, each resolved to UNSAT by the retry chain.
+
+### 4.2 CNF regeneration widened from 3 cores to 463
+
+§1.5 rebuilt the three CNFs shipped in `data/cnf/`. This pass pointed the same `build()`
+at the full release archive and rebuilt every one.
+
+| | |
+|---|---|
+| archived CNFs regenerated | 463 |
+| byte-identical | **463** |
+| differing | 0 |
+| missing from the archive | 0 |
+| metadata disagreeing with `certificate_summary.jsonl` | 0 |
+
+The variable count, clause count, symbol count and the two covering-set counts were
+compared per core as well, not only the bytes.
+
+### 4.3 The SAT sweep widened from 3 cores to 463
+
+The full budgeted search was re-run and compared row by row against the shipped
+`results/sat_results_cadical195_0.jsonl`.
+
+| | this pass | recorded |
+|---|---|---|
+| rows | 463 | 463 |
+| UNSAT | 460 | 460 |
+| UNKNOWN | 3 | 3 |
+| which cores are UNKNOWN | 7, 239, 342 | 7, 239, 342 |
+| status disagreements | **none** | **none** |
+
+`variables`, `clauses`, `symbols`, `covers4` and `covers5` agreed on all 463 cores.
+No instance came back SAT in any run. The three budgeted-out cores were then rerun with
+`--budget 0` and returned UNSAT in 11.5, 15.5 and 18.0 seconds.
+
+### 4.4 DRAT certification widened from 3 proofs to 463
+
+§1.6 verified the three shipped pairs. This pass verified the whole archive.
+
+| | |
+|---|---|
+| certificates checked | 463 |
+| `s VERIFIED` | **463** |
+| `s NOT VERIFIED` | 0 |
+| proof bytes read by the checker | 614,975,086 |
+| proof bytes present on disk | 614,975,086 |
+| total checking time | 5.4 minutes, slowest proof 9.2 s |
+
+The two byte counts are reported together deliberately. A proof checker that stops early
+still prints a verdict, so "every byte was consumed" is part of the result and not a
+footnote — see §4.5.
+
+The archive markers were audited independently of the repository's own script: 463
+`.verified` files with ids exactly 0 to 462 and none malformed, 463 `verify.txt` files
+containing `s VERIFIED`, all four artefacts present for every core, and no DRAT file
+small enough to be suspicious.
+
+### 4.5 Two Windows defects in `drat-trim`, and what they would have cost
+
+Neither is a defect in this project. Both matter to anyone checking it on Windows.
+
+`getc_unlocked` is POSIX and absent on Windows, so the build fails outright. That one is
+loud and harmless.
+
+The second is not. `drat-trim.c` opens the proof file in text mode, where Windows treats
+a `0x1A` byte inside binary proof data as end-of-file. Parsing then stops early and the
+checker prints `s NOT VERIFIED` with no warning. On an unpatched build, `core_003.drat`
+had its first `0x1A` at byte 644 and 645 of its 37,410 bytes were read before the checker
+gave up. **A reviewer following the README on Windows would have seen this archive fail.**
+Opening the proof file in binary mode fixes it; the counts in §4.4 are from the fixed
+build. `README.md` now carries both fixes.
+
+### 4.6 Controls on the checker
+
+A checker that answers `VERIFIED` to everything proves nothing, so the patched binary was
+tested against bad input before its verdicts were used.
+
+| input | expected | observed |
+|---|---|---|
+| the ten bundled `drat-trim` examples | VERIFIED | VERIFIED |
+| an empty proof | NOT VERIFIED | NOT VERIFIED |
+| a proof from a different instance | NOT VERIFIED | NOT VERIFIED |
+| a bare empty-clause claim | NOT VERIFIED | NOT VERIFIED |
+
+A valid proof with its last line removed still verified. That is expected: backward
+checking can reach a conflict before the final line, so the truncation is not always
+load-bearing.
+
+### 4.7 The literature question — partly addressed, not closed
+
+§2 recorded that this was not investigated at all. It has now been looked at, and the
+distinction the overview draws in §6 holds up against the primary sources.
+
+The known exact values are $g(3) = 6$, $g(4) = 9$ and $g(5) = 13$, the last due to Barát
+[arXiv:2011.04444]. The strongest published general lower bound, $g(r) \ge ((41-\sqrt{19})/12
+- o(1))r \approx 3.053r$ [arXiv:2606.24878, June 2026], gives only $g(6) \ge 14$.
+
+The eighteen-edge construction in Barát §7 is a value of a **different** function: the
+minimum inside a projective plane, there computed in $PG(2,5)$ on 31 points. It bounds
+$g(6) \le 18$ and is not a determination of $g(6)$. No source was found that determines
+$g(6)$.
+
+This is a search, not a literature review. It cannot establish that nothing was missed,
+and the obligation stated in the overview stands.
+
+### 4.8 What this pass did not touch
+
+The two open obligations are untouched and remain exactly as §2 states them: that the
+reduction reaches every sixteen-card counterexample, and that each CNF clause family
+means what [P3, §4] says it means. Both are arguments to be read. Widening a certificate
+check from three instances to 463 does not move either one.
+
+### 4.9 Summary after the second pass
+
+| layer | status |
+|---|---|
+| 17-card upper bound | reproduced on a second platform |
+| $K_7$ lemma | re-run |
+| 11-card lemma, degree-3 branch | re-run; two counts re-derived independently |
+| reduction counts, all five steps | reproduced |
+| CNF matches the code | **463 of 463**, byte-identical |
+| SAT results | **463 of 463** reproduced, exact agreement |
+| DRAT certification | **463 of 463** verified, every byte consumed |
+| encoding is non-trivial | control reproduced |
+| literature | searched; no determination of $g(6)$ found |
+| reduction is complete | open, to be read |
+| encoding is faithful | partly open, to be read |
+
+The computational layer came through a second time, on a different platform, without a
+discrepancy. What remains open is what was open before, and it is what the papers say.
