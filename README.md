@@ -83,6 +83,7 @@ results/        SAT run records, retry chain, certificate summary
 docs/           GitHub Pages site: landing page, one abstract page and one PDF per paper
 AUDIT.md        independent re-verification log
 COVERAGE.md     one row per measured claim, pointing at the artifact that produces it
+RELEASING.md    the release procedure, and which DOI goes inside the archive
 ```
 
 The full archive of 463 CNF and DRAT pairs is large. Three representative pairs — the
