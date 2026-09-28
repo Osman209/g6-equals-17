@@ -202,7 +202,7 @@ all. See the overview, §6.
 | CNF matches the code | newly established, byte-identical |
 | 463 unsatisfiability results | independently certified on three, summary complete on all |
 | encoding is non-trivial | newly established by control |
-| reduction is complete | open, to be read |
+| reduction is complete | the maximum-degree-three branch is now enumerated and closed (§4); the 463-core branch remains open, to be read |
 | encoding is faithful | partly open, to be read |
 
 The computational layer of the lower bound came through this pass without a discrepancy.
@@ -362,8 +362,77 @@ check from three instances to 463 does not move either one.
 | DRAT certification | **463 of 463** verified, every byte consumed |
 | encoding is non-trivial | control reproduced |
 | literature | searched; no determination of $g(6)$ found |
-| reduction is complete | open, to be read |
+| reduction is complete | the maximum-degree-three branch is now enumerated and closed (§4); the 463-core branch remains open, to be read |
 | encoding is faithful | partly open, to be read |
 
 The computational layer came through a second time, on a different platform, without a
 discrepancy. What remains open is what was open before, and it is what the papers say.
+
+---
+
+## 4. Addendum, 28 September 2026: the second branch of the sixteen-card reduction
+
+A reader of [P3] found that §2 asserted "both cases are handled by the same object" and
+then handled only one of them. The case where the twelve-card kernel $G$ has no
+degree-four symbol was not treated anywhere in the papers, the code, or this log. The
+observation was correct, and the omission was in the write-up of this repository.
+
+The branch is not vacuous: the twelve-card kernel of the [P4] witness has six degree-two
+symbols and twenty degree-three symbols, so its maximum degree is three. It is an instance
+of exactly the case that was missing.
+
+The branch has now been built from scratch rather than imported, and it is [P3, §2a] and
+`code/verify_degree3_kernels.py`. What this pass did:
+
+**Derivation.** The card types $(5,1,0)$ and $(6,0,0)$ and the three values
+$c \in \lbrace 0,6,12 \rbrace$ are re-derived by the script itself and asserted, not
+assumed. The reduction to a triangle decomposition of $M = K_{12}+E-F$, one model per
+profile, is written out in [P3, §2a].
+
+**Enumeration.** Every triangle decomposition of each of the three models was enumerated
+exhaustively, filtered to $\tau(G)=5$, and reduced under $\mathrm{Aut}(M)$.
+
+| profile | distinct decompositions | with $\tau(G)=5$ | kernels up to isomorphism |
+|---|---|---|---|
+| (6, 20) | 115,200 | 69,120 | 2 |
+| (3, 22) | 1,498,752 | 558,672 | 259 |
+| (0, 24) | 17,291,520 | 3,239,040 | 80 |
+
+Each line was produced twice, by independent implementations in Python and in C, which
+agree on the kernel sets byte for byte. The (6, 20) enumeration was also run under two
+different search-pivot rules, which agree on 115,200. For each profile the orbit sizes were
+summed and checked against the number of distinct decompositions; the three totals agree
+exactly, which is what certifies that the representatives are complete.
+
+One defect was found and fixed during this pass: a pair of capacity two is served by its
+two triangles in either order, so the search reaches such a decomposition once per order.
+The first raw counts, 1,591,604 and 12,045,664, were inflated by that, and the orbit-size
+identity is what exposed it. The counts above are the deduplicated ones.
+
+**The test.** The extension criterion of [P3, Prop 2] was solved exactly on all 341
+kernels, under the degree caps $d_G(z)+h(z) \le 4$. **None admits four five-covers**, so no
+sixteen-card counterexample has a kernel of maximum degree three.
+
+**Cross-checks against the published record.** Three of the numbers that can be compared
+agree exactly with the counts in the original main paper's Table 2 and with the five-cover
+counts quoted there: 259 kernels for (3, 22), 80 for (0, 24), and 296 five-covers for the
+(6, 20) kernel. The five-cover counts 375 and 483 quoted there for the (3, 22) and (0, 24)
+kernels fall inside the ranges found here, 363–381 and 450–490. The one number that does
+**not** agree is the (6, 20) row, where Table 2 records 264 and this pass finds 2 kernels up
+to isomorphism. That disagreement is unresolved: the enumeration here is complete by the
+orbit-size identity above, and the code that produced the 264 is not in this repository and
+was not available for comparison.
+
+**The strongest check available.** The twelve-card kernel of the [P4] witness — an object
+built independently, by a different route, for the upper bound — was relabelled and located
+inside this enumeration. It is representative #0 of profile (6, 20), it has $\tau(G)=5$ and
+296 five-covers, and it admits no four-cover extension. That is consistent with it
+extending to seventeen cards by five covers and not to sixteen by four, and it is checked
+by `code/verify_degree3_kernels.py --witness`.
+
+**What this changes in the status of the result.** The lower bound is unchanged. What
+changed is that a step it depends on is now written down and checkable, where before it was
+asserted in one sentence. The obligations named in §2 of this log are unaffected: the
+completeness of the 463-core reduction and the faithfulness of the CNF encoding remain
+reading obligations, and the lower bound still has no independent human or proof-assistant
+review.

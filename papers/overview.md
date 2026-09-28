@@ -60,8 +60,10 @@ is also what forces the maximum degree to be exactly four in the sixteen-card st
 [P2] is used by [P3] while [P1] is not.
 
 **[P3] Sixteen cards.** Deleting the four cards of a degree-four symbol leaves a
-twelve-card kernel with $\tau = 5$; deleting a second degree-four symbol leaves an
-eight-card core. The cores are enumerated up to relabelling — there are 463 — and for
+twelve-card kernel with $\tau = 5$. That kernel either has a second degree-four symbol or
+does not, and the two cases are handled separately. If it does not, the kernel is one of
+341 objects of maximum degree three, enumerated and excluded one by one. If it does,
+deleting that symbol's cards leaves an eight-card core. The cores are enumerated up to relabelling — there are 463 — and for
 each one the completion problem is written as a CNF formula. All 463 are unsatisfiable,
 and each unsatisfiability has a DRAT certificate accepted by an independent checker.
 

@@ -14,6 +14,10 @@ it is a memory, not a measurement.
 | $K_7$ lemma, all four-input quadruples | `code/verify_k7.py` | 840 minimal inputs, 315 targets, 294,239,817 quadruples, 0 counterexamples; batch method compared against literal enumeration on nine bounded subcases |
 | thirteen degree histograms | `code/verify_histograms.py` | exact integer enumeration of the five necessary conditions, plus an independent integer dynamic program |
 | eleven-card lemma, degree-three branch | `code/verify_eleven_cards.py` | 5,373 generated instances over 58 profiles, exact triangle-decomposition search with the size-three matching ban, all UNSAT |
+| the three maximum-degree-three profiles, and 341 kernels | `code/verify_degree3_kernels.py`, `data/degree3_kernels_c*.json` | the card types (5,1,0) and (6,0,0) and c in {0,6,12} are re-derived; every triangle decomposition of each of the three models M = K12+E-F is enumerated, filtered to tau(G)=5, and reduced under Aut(M) |
+| no maximum-degree-three kernel extends | same | the extension criterion of [P3, Prop 2] solved exactly on all 341, under the degree caps; zero admit four covers |
+| the [P4] witness kernel is one of them | `code/verify_degree3_kernels.py --witness` | the twelve-card kernel of the seventeen-card witness is located inside the enumeration, as representative #0 of profile (6,20) |
+| the same enumeration, in C | `code/fast_enumerate.c` | re-derives the identical kernel files in minutes rather than hours |
 | maximal intersecting triple systems on 8 points | `code/enumerate_eight_maximal.py` | 10,144 families covering all eight points, sizes {21:8, 16:336, 14:1680, 12:8120} |
 | the seven orbits | `code/verify_eight_orbits.py` | each observed class is rebuilt as a full orbit from one representative; sizes 8, 280, 1680, 56, 560, 2520, 5040 |
 | 39,768 triple systems | `code/enumerate_eight_triples.py` | per-representative counts against `data/eight_triples_summary.json`; exits non-zero on any disagreement. **Reconstruction** — see the header of that file |
@@ -36,7 +40,7 @@ These are arguments, not computations, and the table does not pretend otherwise.
 | degree bounds and the no-two-degree-two-symbols lemma | [P1, §2] |
 | elimination of the thirteen histograms | [P1, §7] |
 | branches A and B of the eleven-card lemma | [P2, §2] |
-| the reduction reaches every sixteen-card counterexample | [P3, §1 to §3] |
+| the reduction reaches every sixteen-card counterexample | [P3, §1, §2, §2a, §3] |
 | each CNF clause family means what it is said to mean | [P3, §4] |
 
 `AUDIT.md` records which of these were checked by reading during the independent pass, and

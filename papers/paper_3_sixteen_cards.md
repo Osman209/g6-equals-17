@@ -64,11 +64,13 @@ symbol of $C_i \cap C_j$ has kernel degree at most two.
 
 ## 2. The second deletion
 
-The kernel $G$ may itself contain a symbol of degree four. Both cases are handled by the
-same object.
+The kernel $G$ either contains a symbol of degree four or does not, and the two cases need
+different treatment. This section handles the first; §2a handles the second. Nothing below
+is reached when $G$ has no degree-four symbol, so §2a is a necessary branch of the
+reduction and not a check on it.
 
-If $y$ is a degree-four symbol of $G$, its four cards are disjoint from the four cards of
-$x$, and deleting both leaves eight cards $H$.
+Suppose $y$ is a degree-four symbol of $G$. Its four cards are disjoint from the four cards
+of $x$, and deleting both leaves eight cards $H$.
 
 **Proposition 3.** $\tau(H) = 4$ and the maximum degree in $H$ is at most three.
 
@@ -86,6 +88,81 @@ share a symbol; together with $x$ and $y$ that is a five-cover. $\square$
 An eight-card core with these properties exists — see [P2, §5] for an explicit one — so
 this stage cannot be closed by a lemma the way eleven cards were. The cores must be
 enumerated.
+
+## 2a. The second branch: kernels of maximum degree three
+
+Now suppose $G$ has no degree-four symbol, so every symbol of $G$ has degree at most three.
+There is no $y$, no eight-card core, and none of §3 applies.
+
+The branch is not empty. The twelve-card kernel of the seventeen-card witness of [P4] has
+six degree-two symbols and twenty degree-three symbols, so its maximum degree is three. It
+is one of the kernels enumerated below, and the enumeration finds it there.
+
+**The three profiles.** Write $(t,b,s)$ for the numbers of symbols of degree three, two and
+one in a card of $G$. Then $t+b+s = 6$, and the card must meet the other eleven, so
+$2t+b \ge 11$. The only solutions are $(5,1,0)$ and $(6,0,0)$; degree-one symbols are
+absent. Let $c$ count the cards of the first type. Each of them holds exactly one
+degree-two symbol and each degree-two symbol lies in two cards, so $c$ is even and there
+are $c/2$ degree-two symbols; the degree-three incidences number $72-c$ and must be
+divisible by three. Hence $c$ is a multiple of six, so $c \in \lbrace 0,6,12 \rbrace$ and
+the profiles are
+
+| $c$ | degree-two symbols | degree-three symbols |
+|---|---|---|
+| 12 | 6 | 20 |
+| 6 | 3 | 22 |
+| 0 | 0 | 24 |
+
+**One pair multigraph per profile.** A $(6,0,0)$ card meets eleven others through six
+degree-three symbols reaching twelve, so it carries exactly one unit of intersection
+excess; a $(5,1,0)$ card reaches exactly eleven and carries none. So the excess graph $E$
+is a perfect matching on the $12-c$ cards of type $(6,0,0)$, and the degree-two graph $F$
+is a perfect matching on the $c$ cards of type $(5,1,0)$; together they form one perfect
+matching on all twelve cards. The degree-three symbols therefore decompose the pair
+multigraph
+
+$$M = K_{12} + E - F$$
+
+into triangles, where the pairs of $F$ are already served and those of $E$ are served
+twice. Up to relabelling $M$ depends only on $c$, so there are exactly three models, and a
+kernel of this branch is a triangle decomposition of one of them.
+
+**Enumeration.** Every triangle decomposition of each $M$ is enumerated, those with
+$\tau(G) \le 4$ are discarded — four symbols reach all twelve cards only as four disjoint
+triples that partition them, since $3+3+3+2 = 11 < 12$ leaves no room for a degree-two
+symbol — and the rest are reduced under $\mathrm{Aut}(M)$, which permutes the $F$-pairs
+among themselves and the $E$-pairs among themselves and may swap the two cards inside any
+pair.
+
+| profile | $\lvert \mathrm{Aut}(M) \rvert$ | distinct decompositions | with $\tau(G)=5$ | kernels up to isomorphism | five-covers per kernel |
+|---|---|---|---|---|---|
+| (6, 20) | 46,080 | 115,200 | 69,120 | 2 | 296 |
+| (3, 22) | 2,304 | 1,498,752 | 558,672 | 259 | 363 – 381 |
+| (0, 24) | 46,080 | 17,291,520 | 3,239,040 | 80 | 450 – 490 |
+
+So there are **341** kernels of maximum degree three, up to isomorphism.
+
+**The test.** On each of the 341, the extension criterion of Proposition 2 is solved
+exactly, subject to the degree caps $d_G(z) + h(z) \le 4$ of §1: four five-covers
+$C_1,\dots,C_4$ are sought whose disjointness-neighbourhoods together contain every
+five-cover of $G$. This is a set cover of the five-covers of $G$ by four neighbourhoods,
+and it is searched to exhaustion.
+
+**Lemma 2 (computer-assisted).** *No twelve-card kernel of maximum degree three admits four
+five-covers satisfying the extension criterion. Hence no sixteen-card counterexample has a
+kernel of this kind.*
+
+Zero of the 341 admits such a quadruple. Script: `code/verify_degree3_kernels.py`, with the
+kernels in `data/degree3_kernels_c12.json`, `_c6.json` and `_c0.json` and an optional C
+accelerator in `code/fast_enumerate.c`.
+
+The witness kernel of [P4] is among the two kernels of profile (6, 20), and it admits no
+four-cover extension — which is consistent with it extending to seventeen cards by five
+covers, as [P4, §4] describes, and not to sixteen by four.
+
+With §2 and §2a the two branches are exhaustive: every sixteen-card counterexample either
+has a second degree-four symbol in its kernel, and then reduces to one of the 463 cores of
+§3, or does not, and is excluded by Lemma 2.
 
 ## 3. The 463 canonical cores
 
@@ -227,10 +304,15 @@ source, the canonical data, the structural counts of §3, and the controls recor
 **Theorem 1 (computer-assisted).** *There is no pairwise intersecting 6-uniform family of
 sixteen cards with transversal number six. With [P2, Cor 1], $g(6) \ge 17$.*
 
+The two branches of §2 and §2a together exhaust the possibilities: Lemma 2 closes the
+kernels of maximum degree three, and the 463 certified contradictions close the rest.
+
 ## 8. Verification
 
 | claim | script or data |
 |---|---|
+| the three profiles, 341 kernels of maximum degree three, no extension | `code/verify_degree3_kernels.py` |
+| the same enumeration in C | `code/fast_enumerate.c` |
 | 10,144 maximal systems, sizes | `code/enumerate_eight_maximal.py` |
 | seven orbits, sizes as listed | `code/verify_eight_orbits.py` |
 | 39,768 triple systems, 129 classes | `code/classify_eight_triples.py`, `data/eight_triple_classes.jsonl` |

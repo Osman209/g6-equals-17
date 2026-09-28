@@ -1,0 +1,6 @@
+card types forced to [(5, 1, 0), (6, 0, 0)]; c forced to [0, 6, 12]
+  profile (6 degree-two, 20 degree-three): kernels 2, five-covers per kernel 296-296, four-cover extensions 0   [3s]
+  profile (3 degree-two, 22 degree-three): kernels 259, five-covers per kernel 363-381, four-cover extensions 0   [656s]
+  profile (0 degree-two, 24 degree-three): kernels 80, five-covers per kernel 450-490, four-cover extensions 0   [400s]
+  the [P4] witness kernel is representative #0 of profile (6, 20); tau(G)=5 True, five-covers 296, four-cover extension False
+PASS: 341 maximum-degree-three kernels, none admits a four-cover extension, so no sixteen-card counterexample has a kernel of this kind.

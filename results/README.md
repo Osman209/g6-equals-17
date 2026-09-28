@@ -14,3 +14,7 @@
 
 An UNKNOWN is never an exclusion. A core is only closed by an UNSAT answer that carries a
 checked DRAT proof.
+
+`degree3_kernels_check.txt` is the recorded run of `code/verify_degree3_kernels.py --witness`:
+the three profiles of [P3, §2a], their 341 kernels, the exhaustive extension test on each,
+and the location of the [P4] witness kernel inside the enumeration.

@@ -14,6 +14,7 @@ removes them, so an `-O` run can pass on material that fails.
 | `verify_k7.py` | seconds | the finite $K_7$ lemma, [P1, §3] |
 | `verify_histograms.py` | seconds | the thirteen degree histograms, [P1, §6] |
 | `verify_eleven_cards.py` | minutes | the eleven-card lemma, degree-three branch, [P2, §2] |
+| `verify_degree3_kernels.py` | ~20 min | the second branch of the reduction: 341 maximum-degree-three kernels, none extending, [P3, §2a]. `--witness` also locates the [P4] kernel inside the enumeration; `--enumerate 12` re-derives a profile from scratch |
 | `enumerate_eight_maximal.py` | seconds | step 1 of the reduction, [P3, §3] |
 | `enumerate_eight_triples.py` | minutes | step 3 of the reduction; a reconstruction, see its header |
 | `classify_eight_triples.py` | needs `eight_triples.jsonl` | step 3's canonicalisation |
@@ -38,6 +39,17 @@ repository content. Unpack `g6-certificates-463.zip` into the repository root fi
 | `set_doi.py` | none | write one Zenodo DOI into `build_site.py`, `CITATION.cff`, `.zenodo.json` and the README at once |
 
 `RELEASING.md` in the repository root holds the release procedure these scripts assume.
+
+## Needs a C compiler
+
+`fast_enumerate.c` is an optional accelerator for `verify_degree3_kernels.py`. Re-deriving
+the c = 6 and c = 0 profiles in pure Python takes hours; in C it takes minutes, and it
+writes the same kernel files.
+
+```bash
+cc -O2 -o fast_enumerate code/fast_enumerate.c
+./fast_enumerate 0 > data/degree3_kernels_c0.json
+```
 
 ## Needs python-sat
 

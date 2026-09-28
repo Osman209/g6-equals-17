@@ -40,7 +40,7 @@ $$g(6) = \min \lbrace \lvert F \rvert : F \text{ is 6-uniform, pairwise intersec
 | stage | result | consequence |
 |---|---|---|
 | at most 15 cards | excluded, by two independent routes | $g(6) \ge 16$ |
-| exactly 16 cards | 463/463 canonical instances UNSAT, 463/463 DRAT-verified | $g(6) \ge 17$ |
+| exactly 16 cards | two branches: 341 maximum-degree-three kernels, none extending; and 463/463 canonical instances UNSAT, all DRAT-verified | $g(6) \ge 17$ |
 | exactly 17 cards | explicit family; 136/136 pairs meet; 0 of 80,730 five-sets cover | $g(6) \le 17$ |
 
 ## The four papers
@@ -106,6 +106,7 @@ The rest of the standard-library checks:
 ```bash
 python code/verify_histograms.py
 python code/verify_eleven_cards.py
+python code/verify_degree3_kernels.py --witness
 python code/enumerate_eight_maximal.py
 python code/enumerate_eight_triples.py
 python code/enumerate_eight_cores.py
