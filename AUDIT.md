@@ -471,6 +471,17 @@ the two capacity inequalities, the pointwise capacity, $M \le S$, and the augmen
 arguments — were read, not reviewed independently, and are listed in [P5, §6] and in
 `COVERAGE.md`. §5 of [P5] contains a measurement on a model, not a proof, and says so.
 
+**From $r \ge 19$ to $r \ge 16$.** A later pass in the same session pushed the exclusion of
+equality down, and [P5] was rewritten in order around it. Two new tools do the work. The
+swap lemma (Lemma 8) uses only the maximality of the matching of four-element blocks: two
+cards of one deleted group cannot hold disjoint triples of $J$. It rules out $d = 0$ for
+every $r \ge 5$ and $d = 1$ for every $r \ge 11$, which replaces the divisibility argument
+at $r = 20$ and closes the case $u = 9$, $d = 0$ at $r = 16$. The anchor count (Lemmas 12
+and 13) replaces the eligible-pair argument that closed $r = 19$ and handles $u = 11$ for
+every $1 \le d \le 4$ at once; its finite side is `code/verify_anchor_count.py`, which also
+reports that at $d = 5$ both of its inequalities fail. That is the case $u = 11$, $d = 5$
+at $r = 15$, left open and described in [P5, §4.5].
+
 **A metadata defect found and fixed.** The version bump for 1.3.0 rewrote the first line of
 `CITATION.cff` from `cff-version: 1.2.0` to `cff-version: 1.3.0`. That line is the schema
 version of the Citation File Format, not the release version, and 1.3.0 is not a schema any

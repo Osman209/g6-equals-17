@@ -75,7 +75,7 @@ other three papers.
 
 **[P5] Every r.** Proposed proofs for every $r$, in the framework of Sivashankar
 (arXiv:2606.24878): the residual cover bound with constant $+3$, which gives
-$g(r) \ge 3r-3$; the exclusion of equality, which gives $g(r) \ge 3r-2$ for $r \ge 19$; a
+$g(r) \ge 3r-3$; the exclusion of equality, which gives $g(r) \ge 3r-2$ for $r \ge 16$; a
 quantitative form with a loss linear in $r$ when the remainder is large; and an account of
 where the route toward a coefficient above $3$ stands. At $r = 6$ they give only
 $g(6) \ge 15$, so [P5] adds nothing to the value above. Its finite steps are checked

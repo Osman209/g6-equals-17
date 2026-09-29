@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Driver for code/verify_rainbow.c.
 
-COVERS [P5, Lemmas 4 and 5]: the two four-family matching lemmas, exhaustively on 8, 9
+COVERS [P5, Lemmas 10 and 11]: the two four-family matching lemmas, exhaustively on 8, 9
 and 10 vertices.  Compiles the C file with the system compiler, runs it, and checks that
 both counterexample counts are zero.  It also checks the structural prediction of the
 proofs: the configurations of three size-four matchings with no rainbow triple are the

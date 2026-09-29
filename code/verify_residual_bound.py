@@ -4,7 +4,7 @@
 COVERS [P5, §2]: the inequality 4*tau(J) <= q + r + 3 for every intersecting
 r-uniform family J with maximum degree at most three, on every configuration with
 q <= 6 cards, and on the low-degree configurations with 7 <= q <= 9 cards; and the
-sharpness family of [P5, §2.6].
+sharpness family of [P5, §2.4].
 
 This is a finite check, not a proof. The theorem is proved in the paper for every q.
 
@@ -100,7 +100,7 @@ def run(q, cap=None):
 
 
 def sharpness(n):
-    """[P5, §2.6]: points 1..n, one degree-two symbol per pair.  q = n, r = n - 1,
+    """[P5, §2.4]: points 1..n, one degree-two symbol per pair.  q = n, r = n - 1,
     and a cover is an edge cover of K_n, so tau = ceil(n/2)."""
     blocks = [(1 << a) | (1 << b) for a, b in combinations(range(n), 2)]
     t = tau_of(blocks, (1 << n) - 1)

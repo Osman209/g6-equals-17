@@ -1,22 +1,23 @@
 #!/usr/bin/env python3
 """Exhaustive checks of the local coloured-graph lemmas of [P5].
 
-COVERS [P5, Lemmas 2, 3, 6, 7 and the finite steps of §3.6 and §3.9]:
+COVERS [P5, Lemmas 1, 3 and 5, the d = 0 structure of §2.3, and the u = 13, d = 5 step
+of §4.2]:
 
-  L2   S <= max(12, u+4) for every multicoloured local graph; with colour capacity
+  L1   S <= max(12, u+4) for every multicoloured local graph; with colour capacity
        2e - s <= d also S <= max(12, u+2, d+8), and the refined bound
        S <= max(u, 12, min(u+4, d+8), min(u+2, 3d+6));
   L3   (small excess) u <= 9 and 2e - s <= 1 per colour give S <= 12, S != 11, and
        S = 12 only for the three perfect matchings of a K4;
-  L6   sigma = S - (number of edges) <= 6 for every multicoloured local graph;
-  L7   with the pointwise capacity  sum_c max(deg_c(x) - 1, 0) <= d  at every vertex as
+  L5a  sigma = S - (number of edges) <= 6 for every multicoloured local graph;
+  L5b  with the pointwise capacity  sum_c max(deg_c(x) - 1, 0) <= d  at every vertex as
        well, every multicoloured graph has S <= max(12, d+8);
   d0   u <= 9, every colour a matching: at most six edges, six only as a K4, five only
        as K4 minus an edge; and K7 does not split into four such graphs;
   s5   u = 13, d = 5, both capacities: a multicoloured graph with S = 13 has sigma <= 4;
-  ep   u = 11, d = 1: at most three eligible pairs, an eligible pair forces S <= 6, and
-       the number of eligible pairs is at most 12 - S; and Lemma 3 for multicoloured
-       graphs at u = 11 (S <= 12, S != 11, S = 12 only as a K4).
+  ep   u = 11, d = 1: at most three open pairs, an open pair forces S <= 6, at most
+       12 - S open pairs, and Lemma 3 for multicoloured graphs at u = 11 (a cross-check
+       of the d = 1 case of code/verify_anchor_count.py).
 
 A local graph is a simple graph on u vertices whose edges carry one of three colours,
 two DISJOINT edges never having different colours.  Monochromatic graphs satisfy every

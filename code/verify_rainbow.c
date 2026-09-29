@@ -1,16 +1,16 @@
-/* verify_rainbow.c — the two four-family matching lemmas of [P5, Lemmas 4 and 5].
+/* verify_rainbow.c — the two four-family matching lemmas of [P5, Lemmas 10 and 11].
  *
- * COVERS [P5, §3.5]: exhaustive check on 8, 9 and 10 vertices.  Called by
+ * COVERS [P5, §4.1]: exhaustive check on 8, 9 and 10 vertices.  Called by
  * code/verify_rainbow_lemmas.py, which compiles it and checks the output.
  *
- *   Lemma 4.  Three graphs with matchings of size four and a nonempty fourth graph
+ *   Lemma 10. Three graphs with matchings of size four and a nonempty fourth graph
  *             have three disjoint edges taken from three distinct graphs.
- *   Lemma 5.  The same for matching numbers (3, 3, 4, 4).
+ *   Lemma 11. The same for matching numbers (3, 3, 4, 4).
  *
  * WLOG each graph is exactly its matching (extra edges only add choices) and the fourth
- * graph of Lemma 4 is one edge.  The first size-four matching is fixed as
- * {01, 23, 45, 67}.  Lemma 4: every pair (P2, P3) of size-four matchings and every edge
- * f.  Lemma 5: if no rainbow triple exists, every edge of the two size-three matchings
+ * graph of Lemma 10 is one edge.  The first size-four matching is fixed as
+ * {01, 23, 45, 67}.  Lemma 10: every pair (P2, P3) of size-four matchings and every edge
+ * f.  Lemma 11: if no rainbow triple exists, every edge of the two size-three matchings
  * is "safe" for the size-four pair (P, Q); so only the safe edges need to be searched.
  *
  *   cc -O2 -o verify_rainbow code/verify_rainbow.c && ./verify_rainbow 10
@@ -51,7 +51,7 @@ int main(int argc,char**argv){
   }
   printf("lemma4 n=%d matchings %d pairs %lld without-rainbow %lld counterexamples %lld\n",
          n,NM,pairs,norb,bad4);
-  /* Lemma 5 */
+  /* Lemma 11 */
   long long cfg=0,bad5=0;
   unsigned allE[64]; int nE=0;
   for(int a=0;a<n;a++) for(int b=a+1;b<n;b++) allE[nE++]=(1u<<a)|(1u<<b);

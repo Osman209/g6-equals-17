@@ -19,5 +19,5 @@ checked DRAT proof.
 the three profiles of [P3, §2a], their 341 kernels, the exhaustive extension test on each,
 and the location of the [P4] witness kernel inside the enumeration.
 
-`p5_checks.txt` is the recorded run of the five [P5] scripts, with
+`p5_checks.txt` is the recorded run of the six [P5] scripts, with
 `verify_local_graphs.py` in its `--full` form.

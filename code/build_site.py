@@ -92,11 +92,12 @@ PAPERS = [
     dict(
         slug="paper_5_every_r",
         title="Paper 5. Every r: the Residual Cover Route from 3r - 3",
-        sub="Proposed proofs that g(r) is at least 3r - 3 for every r, and at least 3r - 2 from r = 19",
+        sub="Proposed proofs that g(r) is at least 3r - 3 for every r, and at least 3r - 2 from r = 16",
         abs="In the framework of Sivashankar (arXiv:2606.24878), the cover number of the remainder "
             "of maximum degree three is bounded by 4 tau <= q + r + 3, answering his question "
             "whether +4 can be +3; hence g(r) >= 3r - 3 for every r, attained at r = 3 and 4. "
-            "Excluding the equality case gives g(r) >= 3r - 2 for every r >= 19. A quantitative "
+            "Excluding the equality case gives g(r) >= 3r - 2 for every r >= 16, with one case left "
+            "open at r = 15. A quantitative "
             "form shows a loss linear in r when the remainder is large, with a closed form at every "
             "remainder size, and a final section sets out where the route toward a coefficient "
             "above 3 stands, without claiming a theorem there. The proofs are proposed and "

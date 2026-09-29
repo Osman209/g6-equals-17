@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""A measurement, not a proof: the clean model of [P5, §5.3].
+"""A measurement, not a proof: the clean model of [P5, §6.3].
 
-COVERS [P5, §5.3]: the worst-case probability that a uniformly random perfect matching
+COVERS [P5, §6.3]: the worst-case probability that a uniformly random perfect matching
 of K_u shares an edge with each of four given edge covers, for u = 8, 10, 12 (exact over
 all perfect matchings) and u = 16, 24 (sampled, with the adversarial optimum re-evaluated
 on a fresh sample to remove the bias of searching on the sample it is scored on).

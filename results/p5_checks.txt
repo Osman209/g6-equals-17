@@ -1,4 +1,4 @@
-Recorded runs of the five [P5] scripts, 29 September 2026.
+Recorded runs of the six [P5] scripts, 29 September 2026.
 Python 3, standard library; verify_rainbow.c compiled with cc -O2.
 
 ================================================================
@@ -19,10 +19,19 @@ ok    without Lemma 5 the per-group bound is 14 and only D >= 34 follows
 ok    u = 13, d = 5, t = 7: D <= 6m + 4(7-m) <= 34 with m <= 3
 ok    u = 13, d >= 6: D <= 6t <= 36
 ok    u = 13: Lemma 7 forces d >= 5
-ok    u <= 11 leaves at r = 19, 20, 21 exactly (r,u,d,t) = [(19, 11, 1, 9), (20, 11, 0, 10)]
-ok    r = 20, u = 11, d = 0: q = 41, qr = 820 not divisible by 3
-ok    r = 19: without a K4, S <= 11m + 10(9-m) <= 94 < 99
-ok    r = 19: eligible pairs at most 10, at least 7*2 = 14
+ok    d = 0 is impossible for every r >= 5
+ok    d = 1: every deleted card has two disjoint triples
+ok    d = 1: demand 4a(r-5) >= 4(r-5) exceeds supply 2r exactly when r >= 11
+ok    r = 15, u = 9, d = 1: demand 12*10 = 120, supply 30
+ok    u = 11, d = 1, t = 9: demand 11t+16 = 115 > supply 12t+1 = 109
+ok    u = 11, d = 2, t = 8: demand 11t+16 = 104 > supply 12t+1 = 97
+ok    u = 11, d = 3, t = 7: demand 11t+16 = 93 > supply 12t+1 = 85
+ok    u = 11, d = 4, t = 6: demand 11t+16 = 82 > supply 12t+1 = 73
+ok    u = 11, d <= 4: a spanning one-coloured graph has e <= 7, hence matching number >= 4
+ok    u = 11: the budget sum(12 - S_j) <= t admits at most one star and no edge or empty graph
+ok    u <= 11 leaves at r = 16..21 only d = 0 (swap) or u = 11 with 1 <= d <= 4 (anchor)
+ok    r = 15 leaves (u,d,t) = (9,1,7) and (11,5,5)
+ok    r = 15, u = 11, d = 5: deleted cards need >= 72 degree-two uses, the remainder offers <= 130
 ok    d <= 4: every admissible (u, d, ell) with u <= 300 has max(0,ell) >= (r-40)/9
 ok    hence |H| >= ceil((28r - 67)/9) when q >= 2r - 3
       remainder q ~ 2.00 r: exact min ell/r at r=3200 is 0.1106, closed form 0.1111
@@ -153,6 +162,27 @@ lemma5 n=9 configurations-with-all-edges-safe 192 counterexamples 0
 lemma4 n=10 matchings 4725 pairs 22325625 without-rainbow 12 counterexamples 0
 lemma5 n=10 configurations-with-all-edges-safe 192 counterexamples 0
 PASS: both four-family lemmas hold on 8, 9 and 10 vertices; the obstructions are the same 12 and 192 configurations at every size.
+exit 0
+
+================================================================
+$ python3 code/verify_anchor_count.py
+================================================================
+u=11 d=1 (r=19, t=9): 11412 multicoloured graphs; supply A <= 12-S violated 0 times; anchors with S >= 11: 72, smallest G = 21  [1s]
+      shapes: S=12 on 4 vertices (2, 2, 2): G=21
+      11t + 16 = 115 > 12t + 1 = 109: True
+u=11 d=2 (r=18, t=8): 54444 multicoloured graphs; supply A <= 12-S violated 0 times; anchors with S >= 11: 72, smallest G = 21  [3s]
+      shapes: S=12 on 4 vertices (2, 2, 2): G=21
+      11t + 16 = 104 > 12t + 1 = 97: True
+u=11 d=3 (r=17, t=7): 177672 multicoloured graphs; supply A <= 12-S violated 0 times; anchors with S >= 11: 8892, smallest G = 16  [17s]
+      shapes: S=11 on 7 vertices (1, 1, 5): G=16, S=12 on 4 vertices (2, 2, 2): G=21
+      11t + 16 = 93 > 12t + 1 = 85: True
+u=11 d=4 (r=16, t=6): 433188 multicoloured graphs; supply A <= 12-S violated 0 times; anchors with S >= 11: 16956, smallest G = 16  [34s]
+      shapes: S=11 on 7 vertices (1, 1, 5): G=16, S=12 on 4 vertices (2, 2, 2): G=21, S=12 on 8 vertices (1, 1, 6): G=16
+      11t + 16 = 82 > 12t + 1 = 73: True
+u=11 d=5 (r=15, t=5): 825804 multicoloured graphs; supply A <= 12-S violated 4536 times; anchors with S >= 11: 241236, smallest G = 0  [141s]
+      shapes: S=11 on 7 vertices (1, 1, 5): G=16, S=11 on 8 vertices (0, 2, 6): G=13, S=11 on 9 vertices (0, 1, 7): G=0, S=11 on 9 vertices (1, 1, 6): G=0, S=11 on 9 vertices (1, 2, 5): G=0, S=11 on 9 vertices (1, 3, 4): G=0, S=11 on 9 vertices (2, 2, 4): G=0, S=11 on 9 vertices (2, 3, 3): G=0, S=12 on 4 vertices (2, 2, 2): G=21, S=12 on 8 vertices (1, 1, 6): G=16, S=13 on 9 vertices (1, 1, 7): G=16
+      d = 5 is the open case: a graph with S >= 11 and G = 0 exists, so the anchor count gives nothing there.
+PASS: for u = 11 and 1 <= d <= 4 every configuration has an anchor with G >= 16, and the count excludes it.
 exit 0
 
 ================================================================

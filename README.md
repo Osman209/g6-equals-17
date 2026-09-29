@@ -19,9 +19,9 @@ the value determined here.
 
 A fifth paper, [P5], turns to every $r$. It gives proposed proofs that
 $g(r) \ge 3r-3$ for every $r$, answering the question in [arXiv:2606.24878] of whether the
-residual constant $+4$ can be $+3$, and that $g(r) \ge 3r-2$ for every $r \ge 19$. These
+residual constant $+4$ can be $+3$, and that $g(r) \ge 3r-2$ for every $r \ge 16$. These
 proofs are unreviewed; their finite steps are checked exhaustively by the scripts listed
-in [P5, §6].
+in [P5, §7].
 
 > **Status.** Research draft. The upper bound is an explicit witness anyone can check in
 > seconds. The lower bound is computer-assisted and **has not been independently reviewed
@@ -57,7 +57,7 @@ $$g(6) = \min \lbrace \lvert F \rvert : F \text{ is 6-uniform, pairwise intersec
 | [P2] | [`papers/paper_2_eleven_card_lemma.md`](papers/paper_2_eleven_card_lemma.md) | every eleven-card family has a four-cover; fifteen cards in two lines |
 | [P3] | [`papers/paper_3_sixteen_cards.md`](papers/paper_3_sixteen_cards.md) | sixteen cards, via 463 cores, SAT, and DRAT certificates |
 | [P4] | [`papers/paper_4_seventeen_card_witness.md`](papers/paper_4_seventeen_card_witness.md) | the explicit seventeen-card family |
-| [P5] | [`papers/paper_5_every_r.md`](papers/paper_5_every_r.md) | every $r$: $g(r) \ge 3r-3$, and $3r-2$ for $r \ge 19$ (proposed, not reviewed) |
+| [P5] | [`papers/paper_5_every_r.md`](papers/paper_5_every_r.md) | every $r$: $g(r) \ge 3r-3$, and $3r-2$ for $r \ge 16$ (proposed, not reviewed) |
 
 The papers are cited as [P1] to [P5]. A bare bracketed number inside a paper is an
 entry in that paper's own reference list. Each paper numbers its own results from 1.
@@ -128,6 +128,7 @@ python code/verify_p5_arithmetic.py
 python code/verify_residual_bound.py
 python code/verify_local_graphs.py
 python code/verify_rainbow_lemmas.py     # compiles code/verify_rainbow.c with cc
+python code/verify_anchor_count.py
 python code/measure_matching_hits.py     # a measurement, not a proof
 ```
 
@@ -240,7 +241,7 @@ different in kind: it is a witness, and anyone can check it in a few seconds.
 
 The results of [P5] for every $r$ are proposed proofs. Their finite steps are checked
 exhaustively; the steps that are not finite have been read but not independently
-reviewed, and [P5, §6] lists them.
+reviewed, and [P5, §7] lists them.
 
 **AI assistance was used throughout, including in the review.** Large language models were
 used as tools: ChatGPT (OpenAI) for algebraic derivation, for much of the code in `code/`,
@@ -248,7 +249,8 @@ and for drafting; Claude (Anthropic) for independent re-running and auditing of 
 computations, for the encoding controls, for the reconstruction of the lost enumeration
 step, and for review and prose. For [P5], the proofs were first drafted with ChatGPT in
 sessions the author directed; Claude checked every finite step exhaustively, re-derived the
-arithmetic, shortened the exclusion of the large cases, and wrote the text. Where the two disagreed, computation settled it and the
+arithmetic, shortened the exclusion of the large cases, extended the exclusion from
+$r \ge 19$ to $r \ge 16$ with the swap lemma and the anchor count, and wrote the text. Where the two disagreed, computation settled it and the
 text records the resolution. The research direction, the objects studied, and the
 responsibility for every claim are the author's.
 
