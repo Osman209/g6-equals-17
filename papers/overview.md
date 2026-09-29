@@ -18,6 +18,7 @@ offered \$500 for a linear upper bound; Kahn proved one in 1994 (*J. Amer. Math.
 to Barát (arXiv:2011.04444), and the strongest published general lower bound,
 $g(r) \ge ((41-\sqrt{19})/12 - o(1))r$ (arXiv:2606.24878), gives only $g(6) \ge 14$. This overview concerns $r = 6$. What the literature does and does not
 already settle is §6, and it should be read before the value here is quoted anywhere.
+[P5] turns from $r = 6$ to every $r$.
 
 A family of finite sets is **6-uniform** if every member has exactly six elements, and
 **pairwise intersecting** if any two members share an element. We call a member a *card*
@@ -46,7 +47,7 @@ The first two give $g(6) \ge 17$. The third gives $g(6) \le 17$. Together,
 
 $$g(6) = 17 .$$
 
-## 3. The four papers
+## 3. The papers
 
 **[P1] Fifteen cards: the histogram route.** The original argument. Symbol degrees are
 forced into $\lbrace 2,3,4 \rbrace$; a finite lemma about edge covers of $K_7$ is checked
@@ -72,6 +73,14 @@ $\binom{17}{2} = 136$ pairs intersecting and none of the $\binom{27}{5} = 80{,}7
 five-symbol sets a transversal. This is a direct finite check and needs nothing from the
 other three papers.
 
+**[P5] Every r.** Proposed proofs for every $r$, in the framework of Sivashankar
+(arXiv:2606.24878): the residual cover bound with constant $+3$, which gives
+$g(r) \ge 3r-3$; the exclusion of equality, which gives $g(r) \ge 3r-2$ for $r \ge 19$; a
+quantitative form with a loss linear in $r$ when the remainder is large; and an account of
+where the route toward a coefficient above $3$ stands. At $r = 6$ they give only
+$g(6) \ge 15$, so [P5] adds nothing to the value above. Its finite steps are checked
+exhaustively; its other steps are unreviewed.
+
 ## 4. What carries the weight
 
 The two bounds are not of the same kind, and it is worth being plain about that.
@@ -94,7 +103,7 @@ not settle.
 
 ## 5. Citation convention
 
-The four papers of this set are cited as [P1] to [P4]. A bare bracketed number inside a
+The papers of this set are cited as [P1] to [P5]. A bare bracketed number inside a
 paper is an entry in that paper's own reference list. Each paper numbers its own results
 from 1.
 
@@ -104,6 +113,7 @@ from 1.
 | [P2] | `paper_2_eleven_card_lemma.md` |
 | [P3] | `paper_3_sixteen_cards.md` |
 | [P4] | `paper_4_seventeen_card_witness.md` |
+| [P5] | `paper_5_every_r.md` |
 
 ## 6. Literature boundary
 

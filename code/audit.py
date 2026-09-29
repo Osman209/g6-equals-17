@@ -12,7 +12,8 @@ Checks, in order:
      17 cards, 27 symbols, 463 certificate lines);
   4. the papers use GitHub-safe mathematics: no \\( or \\[ delimiters, no \\operatorname,
      no escaped braces, no \\% inside a math span, and a constant unescaped pipe count
-     within each markdown table;
+     within each markdown table; CITATION.cff keeps the schema version 1.2.0 and a
+     release version equal to .zenodo.json;
   5. no working file is present under RELEASE_BUILD=1.
 
 Exits non-zero on any problem.
@@ -177,6 +178,17 @@ else:
         bad("CITATION.cff DOI disagrees with code/build_site.py")
     if zen != site_doi:
         bad(".zenodo.json DOI disagrees with code/build_site.py")
+
+# ---------------------------------------------------------------- 4d. citation schema
+# cff-version is the schema version of the Citation File Format, not the release version.
+# A version bump once rewrote it to 1.3.0, which no parser accepts.
+cff_head = (ROOT / "CITATION.cff").read_text(encoding="utf-8")
+if not re.search(r"^cff-version: 1\.2\.0$", cff_head, re.M):
+    bad("CITATION.cff: cff-version must be the schema version 1.2.0")
+cff_ver = re.search(r"^version: (\S+)$", cff_head, re.M)
+zen_ver = json.loads((ROOT / ".zenodo.json").read_text(encoding="utf-8")).get("version")
+if cff_ver is None or cff_ver.group(1) != zen_ver:
+    bad("CITATION.cff version disagrees with .zenodo.json")
 
 # ---------------------------------------------------------------- 5. release hygiene
 if os.environ.get("RELEASE_BUILD") == "1":

@@ -1,0 +1,168 @@
+Recorded runs of the five [P5] scripts, 29 September 2026.
+Python 3, standard library; verify_rainbow.c compiled with cc -O2.
+
+================================================================
+$ python3 code/verify_p5_arithmetic.py
+================================================================
+ok    odd u <= 9, 0 <= t <= u-3, u(t+2) <= t*max(12,u+4) leave exactly [(5, 2), (7, 3), (7, 4), (9, 5), (9, 6)]
+ok    (5,2): q=11, r=5, qr=55 not divisible by 3
+ok    (9,6): six K4 in K9 would need degree 8 divisible by 3
+ok    (9,5): S >= 63 exceeds 5*12 = 60
+ok    (7,3): S >= 35 forces all three local graphs to S = 12 (11 excluded)
+ok    (7,4): 21 edges split into four parts of size <= 6 only as 6663, 6654, 6555
+ok    u >= 15: t <= 7
+ok    u >= 13 odd: (u^2-6u-3)/2 > 7(u-1)/2, i.e. u^2-13u+4 > 0
+ok    u^2-13u+4 = 4 at u = 13, increasing after
+ok    u > max(12, d+8): spanning one-coloured graphs have matching number > 4 and t >= 8
+ok    u = 13: sum nu >= 104 - D and <= 5*13 give D >= 39
+ok    without Lemma 5 the per-group bound is 14 and only D >= 34 follows
+ok    u = 13, d = 5, t = 7: D <= 6m + 4(7-m) <= 34 with m <= 3
+ok    u = 13, d >= 6: D <= 6t <= 36
+ok    u = 13: Lemma 7 forces d >= 5
+ok    u <= 11 leaves at r = 19, 20, 21 exactly (r,u,d,t) = [(19, 11, 1, 9), (20, 11, 0, 10)]
+ok    r = 20, u = 11, d = 0: q = 41, qr = 820 not divisible by 3
+ok    r = 19: without a K4, S <= 11m + 10(9-m) <= 94 < 99
+ok    r = 19: eligible pairs at most 10, at least 7*2 = 14
+ok    d <= 4: every admissible (u, d, ell) with u <= 300 has max(0,ell) >= (r-40)/9
+ok    hence |H| >= ceil((28r - 67)/9) when q >= 2r - 3
+      remainder q ~ 2.00 r: exact min ell/r at r=3200 is 0.1106, closed form 0.1111
+      remainder q ~ 1.90 r: exact min ell/r at r=3200 is 0.0788, closed form 0.0789
+      remainder q ~ 1.75 r: exact min ell/r at r=3200 is 0.0481, closed form 0.0481
+      remainder q ~ 1.50 r: exact min ell/r at r=3200 is 0.0187, closed form 0.0185
+      remainder q ~ 1.25 r: exact min ell/r at r=3200 is 0.0044, closed form 0.0042
+ok    closed form matches the exact minimum to within 0.003 at r = 3200
+ok    closed form: 1/9 at q = 2r, 0 at q = r
+ok    [2]: the two regime bounds cross at beta0 = (4+sqrt19)/3 at value (41-sqrt19)/12 = 3.05343
+      small-remainder side improved by 0.05 r: crossing at 2.8072, coefficient 3.1107
+      small-remainder side improved by 0.10 r: crossing at 2.8288, coefficient 3.1678
+      small-remainder side improved by 0.20 r: crossing at 2.8742, coefficient 3.2814
+ok    pair family q=n, r=n-1, tau=(n+1)/2 forces K >= (n+7)/2 in 5tau <= q+r+K
+PASS: every arithmetic step of [P5] checks.
+exit 0
+
+================================================================
+$ python3 code/verify_residual_bound.py
+================================================================
+q=3  systems 4  violations 0  equality cases 1  [0s]
+q=4  systems 75  violations 0  equality cases 0  [0s]
+q=5  systems 8530  violations 0  equality cases 1  [0s]
+q=6  systems 7124433  violations 0  equality cases 76  [83s]
+q=7 (point degree <= 4)  systems 181713  violations 0  equality cases 0  [9s]
+q=8 (point degree <= 4)  systems 43676  violations 0  equality cases 0  [14s]
+q=9 (point degree <= 4)  systems 840  violations 0  equality cases 0  [2s]
+sharpness n=3: q=3 r=2 tau=2, 4tau = q+r+3: True
+sharpness n=5: q=5 r=4 tau=3, 4tau = q+r+3: True
+sharpness n=7: q=7 r=6 tau=4, 4tau = q+r+3: True
+sharpness n=9: q=9 r=8 tau=5, 4tau = q+r+3: True
+sharpness n=11: q=11 r=10 tau=6, 4tau = q+r+3: True
+PASS: no violation of 4tau <= q+r+3; equality attained, as the sharpness family requires.
+exit 0
+
+================================================================
+$ python3 code/verify_local_graphs.py --full
+================================================================
+L2/L3/L6 u=3: multicoloured graphs 12, max S 6, max sigma 3  [0s]
+L2/L3/L6 u=4: multicoloured graphs 168, max S 12, max sigma 6  [0s]
+L2/L3/L6 u=5: multicoloured graphs 834, max S 12, max sigma 6  [0s]
+L2/L3/L6 u=6: multicoloured graphs 3638, max S 12, max sigma 6  [0s]
+L2/L3/L6 u=7: multicoloured graphs 15796, max S 12, max sigma 6  [0s]
+L2/L3/L6 u=8: multicoloured graphs 69180, max S 12, max sigma 6  [1s]
+L2/L3/L6 u=9: multicoloured graphs 303918, max S 13, max sigma 6  [3s]
+L2/L3/L6 u=10: multicoloured graphs 1332810, max S 14, max sigma 6  [17s]
+L2/L3/L6 u=11: multicoloured graphs 5820816, max S 15, max sigma 6  [83s]
+L2/L3/L6 u=12: multicoloured graphs 25294592, max S 16, max sigma 6  [389s]
+L7 u=4 d=0: graphs 60, max S 12, bound 12  [0s]
+L7 u=4 d=1: graphs 100, max S 12, bound 12  [0s]
+L7 u=4 d=2: graphs 152, max S 12, bound 12  [0s]
+L7 u=4 d=3: graphs 152, max S 12, bound 12  [0s]
+L7 u=4 d=4: graphs 168, max S 12, bound 12  [0s]
+L7 u=4 d=5: graphs 168, max S 12, bound 13  [0s]
+L7 u=5 d=0: graphs 162, max S 12, bound 12  [0s]
+L7 u=5 d=1: graphs 366, max S 12, bound 12  [0s]
+L7 u=5 d=2: graphs 580, max S 12, bound 12  [0s]
+L7 u=5 d=3: graphs 700, max S 12, bound 12  [0s]
+L7 u=5 d=4: graphs 748, max S 12, bound 12  [0s]
+L7 u=5 d=5: graphs 820, max S 12, bound 13  [0s]
+L7 u=6 d=0: graphs 312, max S 12, bound 12  [0s]
+L7 u=6 d=1: graphs 912, max S 12, bound 12  [0s]
+L7 u=6 d=2: graphs 1744, max S 12, bound 12  [0s]
+L7 u=6 d=3: graphs 2332, max S 12, bound 12  [0s]
+L7 u=6 d=4: graphs 2812, max S 12, bound 12  [0s]
+L7 u=6 d=5: graphs 3100, max S 12, bound 13  [0s]
+L7 u=7 d=0: graphs 510, max S 12, bound 12  [0s]
+L7 u=7 d=1: graphs 1840, max S 12, bound 12  [0s]
+L7 u=7 d=2: graphs 4380, max S 12, bound 12  [0s]
+L7 u=7 d=3: graphs 6910, max S 12, bound 12  [0s]
+L7 u=7 d=4: graphs 9184, max S 12, bound 12  [0s]
+L7 u=7 d=5: graphs 11024, max S 12, bound 13  [0s]
+L7 u=8 d=0: graphs 756, max S 12, bound 12  [0s]
+L7 u=8 d=1: graphs 3252, max S 12, bound 12  [0s]
+L7 u=8 d=2: graphs 9512, max S 12, bound 12  [0s]
+L7 u=8 d=3: graphs 18272, max S 12, bound 12  [0s]
+L7 u=8 d=4: graphs 27604, max S 12, bound 12  [0s]
+L7 u=8 d=5: graphs 36112, max S 12, bound 13  [0s]
+L7 u=9 d=0: graphs 1050, max S 12, bound 12  [0s]
+L7 u=9 d=1: graphs 5250, max S 12, bound 12  [0s]
+L7 u=9 d=2: graphs 18452, max S 12, bound 12  [0s]
+L7 u=9 d=3: graphs 43022, max S 12, bound 12  [1s]
+L7 u=9 d=4: graphs 76048, max S 12, bound 12  [1s]
+L7 u=9 d=5: graphs 110530, max S 13, bound 13  [2s]
+L7 u=10 d=0: graphs 1392, max S 12, bound 12  [0s]
+L7 u=10 d=1: graphs 7936, max S 12, bound 12  [0s]
+L7 u=10 d=2: graphs 32800, max S 12, bound 12  [1s]
+L7 u=10 d=3: graphs 91320, max S 12, bound 12  [2s]
+L7 u=10 d=4: graphs 190216, max S 12, bound 12  [4s]
+L7 u=10 d=5: graphs 314760, max S 13, bound 13  [6s]
+L7 u=11 d=0: graphs 1782, max S 12, bound 12  [0s]
+L7 u=11 d=1: graphs 11412, max S 12, bound 12  [0s]
+L7 u=11 d=2: graphs 54444, max S 12, bound 12  [1s]
+L7 u=11 d=3: graphs 177672, max S 12, bound 12  [4s]
+L7 u=11 d=4: graphs 433188, max S 12, bound 12  [10s]
+L7 u=11 d=5: graphs 825804, max S 13, bound 13  [19s]
+L7 u=12 d=0: graphs 2220, max S 12, bound 12  [0s]
+L7 u=12 d=1: graphs 15780, max S 12, bound 12  [0s]
+L7 u=12 d=2: graphs 85560, max S 12, bound 12  [2s]
+L7 u=12 d=3: graphs 321720, max S 12, bound 12  [9s]
+L7 u=12 d=4: graphs 907248, max S 12, bound 12  [26s]
+L7 u=12 d=5: graphs 1991928, max S 13, bound 13  [54s]
+L7 u=13 d=0: graphs 2706, max S 12, bound 12  [0s]
+L7 u=13 d=1: graphs 21142, max S 12, bound 12  [1s]
+L7 u=13 d=2: graphs 128612, max S 12, bound 12  [5s]
+L7 u=13 d=3: graphs 549032, max S 12, bound 12  [23s]
+L7 u=13 d=4: graphs 1767876, max S 12, bound 12  [74s]
+L7 u=13 d=5: graphs 4439952, max S 13, bound 13  [184s]
+d0 u=4: 64 graphs, at most 6 edges, six only as K4: True, five only as K4-e: True
+d0 u=5: 256 graphs, at most 6 edges, six only as K4: True, five only as K4-e: True
+d0 u=6: 726 graphs, at most 6 edges, six only as K4: True, five only as K4-e: True
+d0 u=7: 1702 graphs, at most 6 edges, six only as K4: True, five only as K4-e: True
+d0 u=8: 3648 graphs, at most 6 edges, six only as K4: True, five only as K4-e: True
+d0 u=9: 7744 graphs, at most 6 edges, six only as K4: True, five only as K4-e: True
+d0 (u,t)=(7,4): K7 splits into four such graphs: False
+ep u=11 d=1: graphs 30060, max eligible pairs 3  [2s]
+s5 u=13 d=5: graphs 4439952, with S=13: 41580, max sigma 4  [225s]
+PASS: every local lemma holds on every configuration checked.
+exit 0
+
+================================================================
+$ python3 code/verify_rainbow_lemmas.py
+================================================================
+lemma4 n=8 matchings 105 pairs 11025 without-rainbow 12 counterexamples 0
+lemma5 n=8 configurations-with-all-edges-safe 192 counterexamples 0
+lemma4 n=9 matchings 945 pairs 893025 without-rainbow 12 counterexamples 0
+lemma5 n=9 configurations-with-all-edges-safe 192 counterexamples 0
+lemma4 n=10 matchings 4725 pairs 22325625 without-rainbow 12 counterexamples 0
+lemma5 n=10 configurations-with-all-edges-safe 192 counterexamples 0
+PASS: both four-family lemmas hold on 8, 9 and 10 vertices; the obstructions are the same 12 and 192 configurations at every size.
+exit 0
+
+================================================================
+$ python3 code/measure_matching_hits.py
+================================================================
+u=8   exhaustive worst probability 0.0000
+u=10  search worst 0.0074 (exhaustive value 7/945 = 0.0074)
+u=12  search worst 0.0121 (exact over all 10,395 perfect matchings)
+u=16  search worst on its own sample 0.0067, same configuration on a fresh sample of 30,000: 0.0166
+u=24  search worst on its own sample 0.0065, same configuration on a fresh sample of 30,000: 0.0199
+independent-Poisson value (1 - e^(-1/2))^4 = 0.0240
+DONE: measurement recorded; this is not a proof of any bound.
+exit 0

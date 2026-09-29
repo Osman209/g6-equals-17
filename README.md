@@ -17,6 +17,12 @@ $g(r) \ge ((41-\sqrt{19})/12 - o(1))r$ [arXiv:2606.24878], gives $g(6) \ge 14$. 
 [section 6 of the overview](papers/overview.md) for what that does and does not settle about
 the value determined here.
 
+A fifth paper, [P5], turns to every $r$. It gives proposed proofs that
+$g(r) \ge 3r-3$ for every $r$, answering the question in [arXiv:2606.24878] of whether the
+residual constant $+4$ can be $+3$, and that $g(r) \ge 3r-2$ for every $r \ge 19$. These
+proofs are unreviewed; their finite steps are checked exhaustively by the scripts listed
+in [P5, §6].
+
 > **Status.** Research draft. The upper bound is an explicit witness anyone can check in
 > seconds. The lower bound is computer-assisted and **has not been independently reviewed
 > by a human or a proof assistant**; two obligations are open by construction and are named
@@ -43,7 +49,7 @@ $$g(6) = \min \lbrace \lvert F \rvert : F \text{ is 6-uniform, pairwise intersec
 | exactly 16 cards | two branches: 341 maximum-degree-three kernels, none extending; and 463/463 canonical instances UNSAT, all DRAT-verified | $g(6) \ge 17$ |
 | exactly 17 cards | explicit family; 136/136 pairs meet; 0 of 80,730 five-sets cover | $g(6) \le 17$ |
 
-## The four papers
+## The papers
 
 | tag | file | contents |
 |---|---|---|
@@ -51,8 +57,9 @@ $$g(6) = \min \lbrace \lvert F \rvert : F \text{ is 6-uniform, pairwise intersec
 | [P2] | [`papers/paper_2_eleven_card_lemma.md`](papers/paper_2_eleven_card_lemma.md) | every eleven-card family has a four-cover; fifteen cards in two lines |
 | [P3] | [`papers/paper_3_sixteen_cards.md`](papers/paper_3_sixteen_cards.md) | sixteen cards, via 463 cores, SAT, and DRAT certificates |
 | [P4] | [`papers/paper_4_seventeen_card_witness.md`](papers/paper_4_seventeen_card_witness.md) | the explicit seventeen-card family |
+| [P5] | [`papers/paper_5_every_r.md`](papers/paper_5_every_r.md) | every $r$: $g(r) \ge 3r-3$, and $3r-2$ for $r \ge 19$ (proposed, not reviewed) |
 
-The four papers are cited as [P1] to [P4]. A bare bracketed number inside a paper is an
+The papers are cited as [P1] to [P5]. A bare bracketed number inside a paper is an
 entry in that paper's own reference list. Each paper numbers its own results from 1.
 
 ## What is trusted, and what is not
@@ -76,7 +83,7 @@ what it settled, and what it could not.
 ## Contents
 
 ```text
-papers/         the overview and the four papers
+papers/         the overview and the five papers
 code/           enumeration, verification, SAT and certification scripts
 data/           the canonical cores, the reduction data, the witness, three CNF/DRAT pairs
 results/        SAT run records, retry chain, certificate summary
@@ -112,6 +119,16 @@ python code/enumerate_eight_triples.py
 python code/enumerate_eight_cores.py
 python code/verify_eight_orbits.py
 python code/verify_cnf_regeneration.py
+```
+
+The checks of [P5], also standard library except for one C file:
+
+```bash
+python code/verify_p5_arithmetic.py
+python code/verify_residual_bound.py
+python code/verify_local_graphs.py
+python code/verify_rainbow_lemmas.py     # compiles code/verify_rainbow.c with cc
+python code/measure_matching_hits.py     # a measurement, not a proof
 ```
 
 To rebuild the PDFs and the site:
@@ -221,11 +238,17 @@ work. Until one has, the right reading of the lower bound is *a reproducible com
 whose reductions are written down and open to review*, not *a theorem*. The upper bound is
 different in kind: it is a witness, and anyone can check it in a few seconds.
 
+The results of [P5] for every $r$ are proposed proofs. Their finite steps are checked
+exhaustively; the steps that are not finite have been read but not independently
+reviewed, and [P5, §6] lists them.
+
 **AI assistance was used throughout, including in the review.** Large language models were
 used as tools: ChatGPT (OpenAI) for algebraic derivation, for much of the code in `code/`,
 and for drafting; Claude (Anthropic) for independent re-running and auditing of the
 computations, for the encoding controls, for the reconstruction of the lost enumeration
-step, and for review and prose. Where the two disagreed, computation settled it and the
+step, and for review and prose. For [P5], the proofs were first drafted with ChatGPT in
+sessions the author directed; Claude checked every finite step exhaustively, re-derived the
+arithmetic, shortened the exclusion of the large cases, and wrote the text. Where the two disagreed, computation settled it and the
 text records the resolution. The research direction, the objects studied, and the
 responsibility for every claim are the author's.
 

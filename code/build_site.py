@@ -22,7 +22,7 @@ REPO = "https://github.com/Osman209/g6-equals-17"
 SITE = "https://osman209.github.io/g6-equals-17"
 ORCID = "0009-0004-5912-999X"
 DOI = "10.5281/zenodo.22883809"
-DATE = "2026-09-20"
+DATE = "2026-09-29"
 
 CSS = """<style>body{max-width:52rem;margin:2.5rem auto;padding:0 1.2rem;font:16px/1.6 Georgia,"DejaVu Serif",serif;color:#1a1a1a}
 h1{font-size:1.6rem;line-height:1.3;margin-bottom:.2rem}h2{font-size:1.05rem;font-weight:400;color:#555;margin-top:0}
@@ -39,7 +39,7 @@ PAPERS = [
         title="The Six-Card Cover Problem: an Overview",
         sub="The case r = 6 of the Erdos-Lovasz cover number problem: the chain from fifteen "
             "cards to seventeen, and what each stage actually rests on",
-        abs="One pass over the four papers. The question, which is the r = 6 case of the problem "
+        abs="One pass over the papers. The question, which is the r = 6 case of the problem "
             "Erdos and Lovasz posed in 1974, with g(3) = 6, g(4) = 9 and g(5) = 13 known exactly; "
             "the two independent routes excluding "
             "fifteen cards; the reduction, SAT and certificate layer excluding sixteen; the "
@@ -88,6 +88,19 @@ PAPERS = [
             "all 80,730 five-symbol subsets finds no transversal. Hence g(6) is at most 17. The "
             "check needs nothing but the standard library and uses no result from the other three "
             "papers.",
+    ),
+    dict(
+        slug="paper_5_every_r",
+        title="Paper 5. Every r: the Residual Cover Route from 3r - 3",
+        sub="Proposed proofs that g(r) is at least 3r - 3 for every r, and at least 3r - 2 from r = 19",
+        abs="In the framework of Sivashankar (arXiv:2606.24878), the cover number of the remainder "
+            "of maximum degree three is bounded by 4 tau <= q + r + 3, answering his question "
+            "whether +4 can be +3; hence g(r) >= 3r - 3 for every r, attained at r = 3 and 4. "
+            "Excluding the equality case gives g(r) >= 3r - 2 for every r >= 19. A quantitative "
+            "form shows a loss linear in r when the remainder is large, with a closed form at every "
+            "remainder size, and a final section sets out where the route toward a coefficient "
+            "above 3 stands, without claiming a theorem there. The proofs are proposed and "
+            "unreviewed; every finite step is checked exhaustively by a named script.",
     ),
 ]
 

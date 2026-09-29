@@ -24,6 +24,11 @@ removes them, so an `-O` run can pass on material that fails.
 | `make_certificate_manifest.py` | seconds | SHA-256 manifest over the certificate archive |
 | `verify_certificate_markers.py` | seconds | presence and consistency of the certificate archive markers, [P3, §6] |
 | `verify_core.py` | seconds | a twelve-card family with tau = 5, showing the eleven-card lemma is sharp |
+| `verify_p5_arithmetic.py` | seconds | every arithmetic step of [P5] |
+| `verify_residual_bound.py` | ~3 min | [P5, Theorem 1] on every small configuration, and the sharpness family |
+| `verify_local_graphs.py` | ~4 min; `--full` ~15 min | the local coloured-graph lemmas of [P5] |
+| `verify_rainbow_lemmas.py` | under a minute | [P5, Lemmas 9 and 10]; compiles `verify_rainbow.c` with `cc` |
+| `measure_matching_hits.py` | ~1 min | the measurement of [P5, §5.3]; not a proof |
 
 The two certificate scripts read `certificates/`, which is a release asset rather than
 repository content. Unpack `g6-certificates-463.zip` into the repository root first.
