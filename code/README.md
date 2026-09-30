@@ -30,6 +30,12 @@ removes them, so an `-O` run can pass on material that fails.
 | `verify_rainbow_lemmas.py` | under a minute | [P5, Lemmas 10 and 11]; compiles `verify_rainbow.c` with `cc` |
 | `verify_anchor_count.py` | ~4 min | [P5, Lemma 13 and Proposition 2], the anchor count for u = 11 |
 | `measure_matching_hits.py` | ~1 min | the measurement of [P5, §6.3]; not a proof |
+| `one_center_certificate.py` | build needs scipy | generator and exact verifier of the one-centre certificate trees |
+| `verify_one_center_certificates.py` | ~15 s | all trees in `certificates/one_centre/` (release asset) |
+| `verify_centre_model.py` | ~1 min, needs scipy | reward formula, fixed-bulk LP optima, splitting and absorption tests |
+| `coefficient_from_certificates.py` | seconds | the one-centre-model coefficient 3.0588; numerical, not a proof |
+| `gr_upper.py` | minutes to days | kernel-plus-extension upper bounds; `python3 code/gr_upper.py 6` reproduces 17 |
+| `gr7_select.py` | hours, needs python-sat | exact (SAT) selection step at r = 7 for the 38 kernels with tau = 6 |
 
 The two certificate scripts read `certificates/`, which is a release asset rather than
 repository content. Unpack `g6-certificates-463.zip` into the repository root first.

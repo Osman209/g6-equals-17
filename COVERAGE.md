@@ -36,6 +36,10 @@ it is a memory, not a measurement.
 | [P5, Lemmas 10 and 11] | `code/verify_rainbow_lemmas.py`, `code/verify_rainbow.c` | exhaustive on 8, 9 and 10 vertices; the obstructions are the same 12 and 192 configurations at every size |
 | [P5] arithmetic | `code/verify_p5_arithmetic.py` | the five cases, the exclusion arithmetic of §4, the swap-lemma counts for d = 0 and d = 1, the cases left at r = 15 to 21, the dense-remainder corollary over integer tuples, the closed form of §5 against the exact minimum at r = 3200, and the constant of arXiv:2606.24878 |
 | [P5, §6.3] measurement | `code/measure_matching_hits.py` | worst probability that a random perfect matching meets four edge covers; exhaustive at u = 8 and 10, searched at 12, 16, 24. A measurement, not a proof |
+| coefficient route (to be written into [P5]): one-centre reward bounds | `code/verify_one_center_certificates.py` with `code/one_center_certificate.py` | seventeen box certificates over the whole bulk cube, exact rational dual checks; reads the release asset `certificates/one_centre/` |
+| coefficient route: the centre model | `code/verify_centre_model.py` | the reward formula, the two fixed-bulk LP optima with dual certificates, and random tests of the splitting and absorption steps proved in the text |
+| coefficient route: 3.0588 in the one-centre model | `code/coefficient_from_certificates.py` | a numerical grid evaluation from the certified bounds; not a proof, and only inside the one-centre model |
+| g(7) by kernel plus extension | `code/gr_upper.py`, `code/gr7_select.py` | the construction that gives 4r-7 for r = 4, 5, 6; at r = 7 the SAT selection decides each of the 38 kernels with tau = 6 |
 
 ## Not covered by any script
 

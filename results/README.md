@@ -21,3 +21,8 @@ and the location of the [P4] witness kernel inside the enumeration.
 
 `p5_checks.txt` is the recorded run of the six [P5] scripts, with
 `verify_local_graphs.py` in its `--full` form.
+
+`centre_checks.txt` is the recorded run of the coefficient-route scripts
+(`verify_one_center_certificates.py`, `verify_centre_model.py`,
+`coefficient_from_certificates.py`). `one_centre_manifest.txt` holds the SHA-256 of each
+certificate tree in the release asset `certificates/one_centre/`.
