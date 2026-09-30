@@ -1,4 +1,4 @@
-# [P5] Lower bounds for g(r): 3r − 3 for every r, and 3.1020r for large r
+# [P5] Lower bounds for g(r): 3r − 3 for every r, and 3.1024r for large r
 
 Mohamed A. Osman — ORCID 0009-0004-5912-999X
 
@@ -26,7 +26,10 @@ bound on the deleted cards of the last steps of the peeling, a budget for the ma
 numbers of their traces, and a rainbow matching theorem of Correia, Pokrovskiy and
 Sudakov [5]. Together they give Theorem 4:
 $\liminf g(r)/r \ge 3+(65-36\sqrt2)/138 = 3.1020\ldots$, above the constant
-$(41-\sqrt{19})/12 \approx 3.0534$ of [2].
+$(41-\sqrt{19})/12 \approx 3.0534$ of [2]. At the extreme point of that bound about half
+of the deleted cards have traces with small matching number. Such cards still carry many
+witnesses, and using them gives Theorem 5, $\liminf g(r)/r \ge 3.1024745$, where the final
+minimisation is certified by interval arithmetic.
 
 The proofs are proposed and have not been independently reviewed. Every finite step is
 checked exhaustively by a script named in §7. No priority is claimed.
@@ -42,7 +45,7 @@ only from $r = 5$ on, and $3r-1$ only from $r = 6$ on.
 For large r, [2, §4] proves $g(r) \ge ((41-\sqrt{19})/12 - o(1))r$, about $3.053r$, for
 r beyond a threshold that is not made explicit. Theorems 1 and 2 have coefficient 3 and
 hold with explicit constants at every r. Theorem 4 is asymptotic, like [2], and raises
-the coefficient to 3.1020.
+the coefficient to 3.1020 in closed form; Theorem 5 raises it to 3.1024.
 
 **What is borrowed.** The peeling reduction, the dual triple system, the maximum matching,
 the selected witnesses, the first local support bound, and the sharpness family are from
@@ -565,7 +568,7 @@ $\lambda \ge 1-\gamma$ directly. Differentiating the quadratic,
 $c'(\gamma) = (4c+2(\gamma-1))/(20-4\gamma-54c)$, which is positive, and below $1/4$ for
 $1 \le \gamma \le 1.81$.
 
-## 6. Theorem 4: a coefficient above 3.0534
+## 6. Theorems 4 and 5: a coefficient above 3.0534
 
 Stability alone gives nothing near $q = r$. This section adds a second saving, taken from
 the deleted cards, which is largest exactly there. Together they give Theorem 4.
@@ -749,12 +752,110 @@ In both cases $\sigma$ has dropped out. The coefficient of $\lambda$ is positive
 Either way $x \ge x_*$, against $x \le x_*-\varepsilon$. $\square$
 
 At the minimum $K = 0$, that is $\sigma = (10-2\sqrt2)/69$ and $M = N/2$: the bound on
-the good cards gives nothing there, and the constant comes from §5 and the clean tail.
-To go further one needs information that excludes, or makes costly, the case in which
-about half of the clean cards have traces with small matching number, two in each group,
-while the budget of Lemma 19 is used in full.
+the good cards gives nothing there, and about half of the clean cards have traces with
+small matching number, two in each group. Section 6.6 shows that such cards still carry
+many witnesses, and uses them.
 
-The proof uses [5] and gives no explicit threshold in r, like [2].
+### 6.6 The weak traces
+
+Keep the setting and the limits of the proof of Theorem 4, and put
+
+$$\delta = z-\lambda, \qquad K_- = \max(0,-K).$$
+
+So $\delta \ge 0$ and $x \ge \frac54(\lambda+\delta)+\frac14\sigma$.
+
+**Lemma 22 (the best $\theta$).** *If $K \gt 0$ then $\delta \ge K/30$. If moreover*
+
+$$\theta_* = \frac{v+3N-\sqrt{(v+3N)^2-6vK}}{4v} \lt \frac12,$$
+
+*then*
+
+$$\delta \ge R(K) := \frac{v+3N-\sqrt{(v+3N)^2-6vK}}{6} = \frac{vK}{v+3N+\sqrt{(v+3N)^2-6vK}} \ge \frac{K}{18}.$$
+
+*Proof.* The first bound is §6.5. At any fixed $\theta \lt 1/2$ the proof of §6.5 gives
+$\delta \ge \min\left(2\theta v/3,\ (K/2-2N\theta)/(1-2\theta)\right)-o(1)$, since
+$2M = N-K/2$. The two terms are equal when $4v\theta^2-(2v+6N)\theta+3K/2 = 0$, whose
+smaller root is $\theta_*$, and there both equal $R(K)$. The last inequality uses
+$v/N \ge 3/8$. $\square$
+
+With $\lambda = c(\gamma)$ and $\sigma$ as in §6.5 this already gives
+$x \ge (15\lambda+7-3\gamma)/24+K/36$ for $K \gt 0$, so a value of x near $x_*$ forces
+$K$ near 0.
+
+Next, a bound on S that does not assume equality in §5. Write $\hat t = t/r$ and
+
+$$\bar s = \min\left(\hat t,\ \frac{(2-\gamma)\hat t+(v-2+\gamma)(\hat t+\lambda)/2}{v}\right) \quad (v \gt 2-\gamma), \qquad \bar s = \hat t \quad (v \le 2-\gamma).$$
+
+Then $S \le (\bar s+o(1))ur$: a large $F_i$ has $S_i \le u$, the others have
+$S_i \le L$ (Lemma 14(c)), $2m \le h$, every $S_i \le u+4$ (Lemma 1), and
+$L/r \to 2-\gamma$. Put
+
+$$Q = \frac N2-3\lambda-\bar s .$$
+
+**Lemma 23 (weak traces).**
+
+$$\delta \ge \min\left(\frac v{16},\ \frac{v(Q-K_-)_+}{2+9v+9N}\right).$$
+
+*Proof.* We may assume $\delta \lt v/16$. Fix $\alpha \gt 2\delta/v$ with $\alpha \lt 1/8$
+(when $\delta = 0$, any small $\alpha$, and let $\alpha \to 0$ at the end). Call a clean card
+*weak* if $\nu_A \lt \alpha u$ and *strong* if $\nu_A \ge u/4$.
+
+*Groups with three cards that are not weak.* Let $J_3 r$ be their number. Meeting three
+such cards in each of $\min(J_3 r, \alpha u/3)$ of these groups by Lemma 20, Lemma 16 gives
+$\delta \ge 2\min(J_3, \alpha v/3)-o(1)$. As $2\alpha v/3 \gt \delta$, $J_3 \le \delta/2+o(1)$.
+
+*Groups of the wrong shape.* Call a group *good* if it has two strong cards and two weak
+ones. A group with at most two cards that are not weak has $\sum \nu_A/u \le 1+2\alpha$ if
+it is good and at most $\frac34+2\alpha$ if not; a group with three such cards has at most
+2. Lemma 19 gives $\frac1r\sum_A \nu_A/u \ge \frac N4+\frac K8-o(1)$. There are $Nr/4$ groups,
+so the number $Zr$ of groups that are not good satisfies
+
+$$Z \le 2N\alpha+\frac52\delta+\frac12 K_{-}+o(1).$$
+
+*The witnesses of the weak cards.* By Lemma 17 the weak cards of the good groups, $(N/2-2Z)r$
+of them, miss at most $S+3u\ell$ vertices in all. Each has $e(L_A) \ge s_A-\nu_A \ge s_A-\alpha u$.
+So their traces have at least $(Q-2Z-\alpha N/2-o(1))ur$ edges in all.
+
+*One weak card per good group.* Give each good group one colour, carried by the union of
+the traces of its two weak cards. A colour has at most $2r$ edges, and at most $2(u-1)$
+coloured edges meet a vertex, since a witness lies in at most two clean cards. Take a
+maximal set of disjoint edges of distinct colours, $L_w$ of them. Every edge of an unused
+colour meets one of their $2L_w$ vertices, so the number of coloured edges, at least half
+the total above, is at most $2rL_w+4uL_w$.
+
+*The strong cards.* Keep $L' = \min(L_w, \lfloor u/32 \rfloor)$ of these edges. Remove
+their $2L'$ vertices from the traces of the $2L'$ strong cards of the same groups; each
+keeps a matching of at least $u/4-2L' \ge 2L'+20(2L')^{15/16}$ edges for large r. Lemma 20
+meets all of them with disjoint pairs, which together with the $L'$ edges extend to one
+pairing of U. Its natural cover meets three cards in each of $L'$ groups, and Lemma 16
+gives $\delta \ge 2L'/r-o(1)$.
+
+Putting the steps together, with $\alpha \downarrow 2\delta/v$,
+
+$$\delta \ge \min\left(\frac v{16},\ \frac{v}{2+4v}\left(Q-K_--\delta\left(5+\frac{9N}{v}\right)\right)_+\right),$$
+
+and moving the $\delta$ term to the left gives the lemma. $\square$
+
+**Theorem 5.** $\displaystyle \liminf_{r \to \infty} \frac{g(r)}{r} \ge 3.1024745 .$
+
+*Proof.* Suppose not, and take the limits of §6.5 with $x \lt 0.1024745$. Then
+$1 \le \gamma \le 2$ (for $\gamma \lt 1$, §6.5 gives $x \ge 1/6$), $c(\gamma) \le \lambda \le 0.082$ and
+$0 \le \sigma \le 0.41$, and
+
+$$x \ge \frac54(\lambda+\max(\delta_1,\delta_2))+\frac\sigma4,$$
+
+where $\delta_1$ is the bound of Lemma 22 (0 when $K \le 0$) and $\delta_2$ that of Lemma 23.
+The script `code/verify_weak_trace_bound.py` shows, by branch and bound over this box with
+outward-rounded interval arithmetic, that the right side is at least 0.1024745 everywhere.
+This is a contradiction. $\square$
+
+The numerical minimum of the right side is $0.10247458307\ldots$, at
+$\gamma \approx 1.856983$, $\lambda = c(\gamma) \approx 0.068491$, $\sigma \approx 0.066398$, where
+$\delta_1 = \delta_2 \approx 0.00020866$. There $K \gt 0$ and $Q \gt 0$: neither saving is zero,
+and the two are in balance. The constant has no closed form that we know of; it is
+certified to seven decimals, not computed exactly.
+
+The proofs of Theorems 4 and 5 use [5] and give no explicit threshold in r, like [2].
 
 ## 7. Verification
 
@@ -765,13 +866,14 @@ The proof uses [5] and gives no explicit threshold in r, like [2].
 | Lemmas 10 and 11 on 8, 9 and 10 vertices | `code/verify_rainbow_lemmas.py`, `code/verify_rainbow.c` |
 | Lemma 13, the anchor values, and the failure at $d = 5$ reported in §4.5 | `code/verify_anchor_count.py` |
 | every arithmetic step of §2.3, §3.4, §4, §5 and §6, and the constant of [2] | `code/verify_p5_arithmetic.py` |
-| the algebra of Lemma 19 and Theorem 4: the budget identity, $K = 2(N-2M)$, the second term of Lemma 21, the reduction of both cases, the root argument for $u \le L$, convexity of c, $c'(\gamma_*) = 1/5$, $c(\gamma_*)$, $\sigma_*$ and the constant | `code/verify_rainbow_constant.py` |
+| the algebra of Lemma 19 and Theorem 4: the budget identity, $K = 2(N-2M)$, the second term of Lemma 21, the reduction of both cases, the root argument for $u \le L$, convexity of c, $c'(\gamma_*) = 1/5$, $c(\gamma_*)$, $\sigma_*$ and the constant; the optimal $\theta$ and $R(K) \ge K/18$ of Lemma 22; the counts of Lemma 23 | `code/verify_rainbow_constant.py` |
+| Theorem 5: the lower bound 0.1024745 over the whole domain, by branch and bound with outward-rounded interval arithmetic | `code/verify_weak_trace_bound.py` |
 
 The runs are recorded in `results/p5_checks.txt`. These are finite checks of the finite
 lemmas. The steps that are not finite, namely (2.1), (2.2), Lemma 4, the inequality
 $M \le S$, the swap lemma, the augmentation arguments of Lemmas 6, 9, 12 and 14, and
-Lemmas 15 to 21, have been read, the last group in a separate review session, but
-not independently reviewed. Theorem 4 also rests on the published theorem of [5].
+Lemmas 15 to 23, have been read, Lemmas 15 to 21 in a separate review session, but
+not independently reviewed. Theorems 4 and 5 also rest on the published theorem of [5].
 
 ---
 

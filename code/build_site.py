@@ -91,8 +91,8 @@ PAPERS = [
     ),
     dict(
         slug="paper_5_every_r",
-        title="Paper 5. Lower Bounds for g(r): 3r - 3 for Every r, and 3.1020r for Large r",
-        sub="Proposed proofs that g(r) is at least 3r - 3 for every r, at least 3r - 2 from r = 16, and asymptotically at least 3.1020r",
+        title="Paper 5. Lower Bounds for g(r): 3r - 3 for Every r, and 3.1024r for Large r",
+        sub="Proposed proofs that g(r) is at least 3r - 3 for every r, at least 3r - 2 from r = 16, and asymptotically at least 3.1024r",
         abs="In the framework of Sivashankar (arXiv:2606.24878), the cover number of the remainder "
             "of maximum degree three is bounded by 4 tau <= q + r + 3, answering his question "
             "whether +4 can be +3; hence g(r) >= 3r - 3 for every r, attained at r = 3 and 4. "
@@ -101,7 +101,7 @@ PAPERS = [
             "form shows a gain linear in r when the remainder is large, with a closed form at every "
             "remainder size. A second saving from the deleted cards, using a bound on the last "
             "steps of the peeling, a budget for the matching numbers of the traces of the deleted cards, and a rainbow matching theorem of Correia, Pokrovskiy and "
-            "Sudakov, gives liminf g(r)/r >= 3 + (65 - 36 sqrt 2)/138 = 3.1020..., above "
+            "Sudakov, gives liminf g(r)/r >= 3 + (65 - 36 sqrt 2)/138 = 3.1020...; using the witnesses of the deleted cards whose traces have small matching number raises this to 3.1024745, with the last minimisation certified by interval arithmetic. Both are above "
             "the constant 3.0534 of Sivashankar. The proofs are proposed and "
             "unreviewed; every finite step is checked exhaustively by a named script.",
     ),

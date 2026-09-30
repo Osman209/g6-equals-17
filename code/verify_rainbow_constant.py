@@ -50,6 +50,39 @@ assert sp.simplify(caseA - target) == 0
 caseB = sp.Rational(5, 4)*lam + ((7 - 3*g - 15*lam)/6)/4       # K <= 0, sigma at its floor
 assert sp.simplify(caseB - target) == 0
 
+# --- Lemma 22: the best theta -----------------------------------------------------
+Kp = sp.symbols('Kp', positive=True)
+thv = sp.symbols('thv', positive=True)
+ts = (vs + 3*Ns - sp.sqrt((vs + 3*Ns)**2 - 6*vs*Kp))/(4*vs)
+assert sp.simplify(sp.expand(4*vs*ts**2 - (2*vs + 6*Ns)*ts + sp.Rational(3, 2)*Kp)) == 0
+first = sp.Rational(2, 3)*ts*vs
+second2 = (Kp/2 - 2*Ns*ts)/(1 - 2*ts)
+assert abs(sp.N((first - second2).subs({vs: sp.Rational(47, 100), Ns: sp.Rational(108, 100), Kp: sp.Rational(3, 1000)}), 40)) < 1e-30
+Rk = (vs + 3*Ns - sp.sqrt((vs + 3*Ns)**2 - 6*vs*Kp))/6
+assert sp.simplify(first - Rk) == 0
+assert sp.simplify(Rk*(vs + 3*Ns + sp.sqrt((vs + 3*Ns)**2 - 6*vs*Kp)) - vs*Kp) == 0
+# R >= vK/(2(v+3N)) >= K/18 when v/N >= 3/8, i.e. v/(v+3N) >= 1/9
+assert Fr(3, 8)/(Fr(3, 8) + 3) == Fr(1, 9)
+# with delta = K/18: x >= base + K/36
+assert sp.simplify(sp.Rational(5, 4)*(lam + Kexpr/18) + sig/4 - target - Kexpr/36) == 0
+
+# --- Lemma 23: the counts ----------------------------------------------------------
+al, de, J3, Zp, Km_, Qs = sp.symbols('alpha delta J3 Zp K_m Q', real=True)
+# N/4 + K/8 <= (N/4)(1+2 alpha) + J3 (2 - 1 - 2alpha) + Zp(3/4 + 2 alpha - 1 - 2 alpha)
+slack = (Ns/4)*(1 + 2*al) + J3*(1 - 2*al) - Zp/4 - (Ns/4 - Km_/8)   # K = -K_m worst case
+Zp_max = sp.solve(sp.Eq(slack, 0), Zp)[0]
+Ztot = sp.expand((Zp_max + J3).subs(J3, de/2))
+# dropping the -2 alpha J3 term only enlarges the bound
+assert sp.simplify(Ztot - (2*Ns*al + sp.Rational(5, 2)*de + Km_/2 - 4*al*de)) == 0
+Zb = 2*Ns*al + sp.Rational(5, 2)*de + Km_/2
+letters = (Qs - 2*Zb - al*Ns/2).subs(al, 2*de/vs)
+assert sp.simplify(letters - (Qs - Km_ - de*(5 + 9*Ns/vs))) == 0
+# delta (2 + 4v) >= v (Q - K_m - delta (5 + 9N/v))  <=>  delta (2 + 9v + 9N) >= v (Q - K_m)
+assert sp.simplify(sp.expand(de*(2 + 4*vs) + vs*de*(5 + 9*Ns/vs) - de*(2 + 9*vs + 9*Ns))) == 0
+# greedy: L >= letters u r / (2 (2r + 4u)), and 2L/r = letters v/(2 + 4v)
+Lr = (Qs*vs)/(2*(2 + 4*vs))
+assert sp.simplify(2*Lr - Qs*vs/(2 + 4*vs)) == 0
+
 # --- c(gamma) of (5.2) ----------------------------------------------------------------
 a = sp.symbols('a', real=True)
 c = lambda G_: (20 - 4*G_ - sp.sqrt((20 - 4*G_)**2 - 108*(G_ - 1)**2))/54

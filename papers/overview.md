@@ -77,7 +77,7 @@ other three papers.
 (arXiv:2606.24878): the residual cover bound with constant $+3$, which gives
 $g(r) \ge 3r-3$; the exclusion of equality, which gives $g(r) \ge 3r-2$ for $r \ge 16$; a
 quantitative form with a gain linear in $r$ when the remainder is large; and a new
-asymptotic lower bound, $\liminf g(r)/r \ge 3.1020\ldots$, above the constant $3.0534$
+asymptotic lower bound, $\liminf g(r)/r \ge 3.1024745$, above the constant $3.0534$
 of that preprint. At $r = 6$ they give only
 $g(6) \ge 15$, so [P5] adds nothing to the value above. Its finite steps are checked
 exhaustively; its other steps are unreviewed.

@@ -201,3 +201,8 @@ $ python3 code/verify_rainbow_constant.py   # recorded 2026-10-01
 PASS: gamma_* = 1.8210406321, c_* = 0.0608842047, sigma_* = 0.1039358388
 PASS: closed form checks; constant 3 + x_* = 3.102089215613
 exit 0
+
+$ python3 code/verify_weak_trace_bound.py   # recorded 2026-10-01
+PASS: x >= 0.1024745 on the whole domain, 608923 boxes, 18s
+exit 0
+(forced failure: with X_T = 0.1024747, above the numerical minimum 0.10247458, it stops with FAIL near gamma = 1.8575 and exits 1)
