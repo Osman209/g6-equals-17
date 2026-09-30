@@ -1,4 +1,4 @@
-# [P5] Lower bounds for g(r): 3r − 3 for every r, and 3.0711r for large r
+# [P5] Lower bounds for g(r): 3r − 3 for every r, and 3.1020r for large r
 
 Mohamed A. Osman — ORCID 0009-0004-5912-999X
 
@@ -22,9 +22,10 @@ for the remaining ones. At $r = 15$ one case survives all three, and §4.5 says 
 Section 5 turns the exclusion of equality into a quantitative statement (Theorem 3),
 with a gain linear in r when the remainder is large. Section 6 adds a second saving,
 taken from the deleted cards, that is largest when the remainder is small. It uses a
-bound on the deleted cards of the last steps of the peeling and a rainbow matching theorem
-of Correia, Pokrovskiy and Sudakov [5]. Together they give Theorem 4:
-$\liminf g(r)/r \ge 3+5(133-2\sqrt{3185})/1414 = 3.0711\ldots$, above the constant
+bound on the deleted cards of the last steps of the peeling, a budget for the matching
+numbers of their traces, and a rainbow matching theorem of Correia, Pokrovskiy and
+Sudakov [5]. Together they give Theorem 4:
+$\liminf g(r)/r \ge 3+(65-36\sqrt2)/138 = 3.1020\ldots$, above the constant
 $(41-\sqrt{19})/12 \approx 3.0534$ of [2].
 
 The proofs are proposed and have not been independently reviewed. Every finite step is
@@ -41,7 +42,7 @@ only from $r = 5$ on, and $3r-1$ only from $r = 6$ on.
 For large r, [2, §4] proves $g(r) \ge ((41-\sqrt{19})/12 - o(1))r$, about $3.053r$, for
 r beyond a threshold that is not made explicit. Theorems 1 and 2 have coefficient 3 and
 hold with explicit constants at every r. Theorem 4 is asymptotic, like [2], and raises
-the coefficient to 3.0711.
+the coefficient to 3.1020.
 
 **What is borrowed.** The peeling reduction, the dual triple system, the maximum matching,
 the selected witnesses, the first local support bound, and the sharpness family are from
@@ -582,19 +583,22 @@ $$n = 3r-3+E+B+4C. \qquad\text{(6.1)}$$
 
 The maximum degree never increases, so after the last step that deletes five or more cards
 every step deletes exactly four. Call these the *clean* steps, their cards the clean
-cards, $N_c$ in number, and each step's four cards a clean *group*. At most E steps
-delete five or more cards, so at most $5E$ cards are not clean and $N_c \ge n-q-5E$. Let
-$H'$ be J together with the clean cards; it has maximum degree at most four.
+cards, $N_c$ in number, and each step's four cards a clean *group*. Let $k_0$ be the
+number of the other steps. Each of them deletes at least five cards, so $E \ge k_0$, and
+all of the excess E falls in them, so they delete $4k_0+E$ cards. With (6.1) and
+$G := B+4C$ this gives
 
-**Lemma 15 (clean tail).** $N_c \le 3r-q+1$. *Hence $n \le 3r+1+5E$, and with (6.1),
-$E \ge (B+4C-4)/4$.*
+$$N_c = 3r-3-q+G-4k_0. \qquad\text{(6.2)}$$
+
+Let $H'$ be J together with the clean cards; it has maximum degree at most four.
+
+**Lemma 15 (clean tail).** $N_c \le 3r-q+1$. *Hence $G \le 4k_0+4$.*
 
 *Proof.* Let A be a clean card with group symbol g. Every other symbol v of A has
 some degree $j_v$ in J, and $j_v+1 \le 4$. The card A meets all q cards of J, so
 $\sum_{v \ne g} j_v \ge q$. It meets the $N_c-4$ clean cards outside its group, never
 through g, and v lies in at most $3-j_v$ clean cards other than A. Adding,
-$q+N_c-4 \le 3(r-1)$. With no clean card the bound $n \le q+5E \le 2r+1+5E$ holds
-directly. $\square$
+$q+N_c-4 \le 3(r-1)$. The second claim is (6.2). $\square$
 
 ### 6.2 Saving group symbols
 
@@ -611,16 +615,15 @@ symbols of the $b_4$ groups. Pair the $b_3$ others: their two missed cards meet,
 common symbol replaces two group symbols. The result still covers H, so it has at least
 r symbols. $\square$
 
-So $G := B+4C \ge \ell+4(b_4+\lfloor b_3/2 \rfloor)$.
+So $G \ge \ell+4(b_4+\lfloor b_3/2 \rfloor)$, and in particular $G \ge \ell$.
 
-### 6.3 Traces
+### 6.3 Traces and the budget
 
 For a clean card A its *trace* $L_A$ is the graph on U with an edge $xy$ whenever the
-witness $w_{xy}$ lies in A. Let $s_A$ be its number of non-isolated vertices, and $c_A$
-the number of components of a minimum edge cover of them, a star forest with $s_A-c_A$
-edges. So $e(L_A) \ge s_A-c_A$, and one edge per star gives
-$c_A \le \nu(L_A) \le \lfloor u/2 \rfloor$. Let $M_0 = \sum_A (u-s_A)$ count the missed
-vertices.
+witness $w_{xy}$ lies in A. Let $s_A$ be its number of non-isolated vertices and $\nu_A$
+its matching number. A minimum edge cover of the non-isolated vertices is a star forest,
+and one edge from each star is a matching, so $\nu_A \ge s_A-e(L_A)$. Also
+$\nu_A \le \lfloor u/2 \rfloor$. Let $M_0 = \sum_A (u-s_A)$ count the missed vertices.
 
 **Lemma 17.** $M_0 \le S+3u\ell$.
 
@@ -630,15 +633,29 @@ $j_v \ge 1$ and lies in at most $4-j_v$ clean cards. These symbols reach the $3t
 of C that the witnesses miss, so $\sum_v (j_v-1) \ge 3t-S_x$, and the number of such A
 is at most $\sum_v (4-j_v) \le 3h-(3t-S_x) = S_x+3\ell$. $\square$
 
-**Lemma 18 (budget).** $\sum_A (u-c_A) \le u(u-1)+t(u+4)/2+3u\ell$, *the sum over clean
-cards.*
+Let $T = \sum_i e(F_i)$ and $D = S-T = \sum_i (S_i-e(F_i))$.
 
-*Proof.* The left side is $M_0 + \sum_A (s_A-c_A) \le M_0+\sum_A e(L_A)$. Each witness
-serves one pair and lies in at most $4-j$ clean cards, where j is its degree in J. With
-$P_2$ and $P_3$ witnesses of degree two and three, $P_2+P_3 = u(u-1)/2$, so
-$\sum_A e(L_A) \le 2P_2+P_3 = u(u-1)-P_3$. Each $S_x$ is at most the number of degree-three
-witnesses at x, so $S \le 2P_3$. With Lemma 17 the left side is at most
-$u(u-1)+S/2+3u\ell$, and $S \le t(u+4)$ by Lemma 1 for $u \ge 8$. $\square$
+**Lemma 18.** $D \le 6t+uh/4$.
+
+*Proof.* An $F_i$ with more than one colour has $S_i-e(F_i) \le 6$: the proof of the
+second bound of Lemma 5 uses only that disjoint edges have the same colour, which
+Lemma 14(b) gives here. A one-coloured $F_i$ has $S_i-e(F_i) = s-e$, at most its number
+of components, which is at most its matching number: at most three if it is not large,
+and at most $\lfloor u/2 \rfloor$ if it is. With m large graphs,
+$D \le 6(t-m)+m\lfloor u/2 \rfloor$, and $2m \le h$ by Lemma 14(d). $\square$
+
+**Lemma 19 (budget).** *Summed over the clean cards,*
+
+$$\sum_A \left(1-\frac{2\nu_A}{u}\right) \le 3\ell+4+4k_0-G+\frac h2+\frac{12t}{u}.$$
+
+*Proof.* By $\nu_A \ge s_A-e(L_A)$, the sum of $u-2\nu_A$ is at most
+$2M_0-N_cu+2\sum_A e(L_A)$. A witness of degree j in J lies in at most $4-j$ clean
+cards. The witnesses of degree three are exactly the edges of the $F_i$, T in number, so
+$\sum_A e(L_A) \le u(u-1)-T$. With Lemma 17 the sum is at most
+$2D+6u\ell+2u(u-1)-N_cu$. Divide by u, use Lemma 18, and substitute (6.2) with
+$q = 3t+u$ and $t = r-u+1-\ell$. $\square$
+
+Every term on the left lies in $[0,1]$.
 
 ### 6.4 Hitting many cards at once
 
@@ -646,27 +663,24 @@ $u(u-1)+S/2+3u\ell$, and $S \le t(u+4)$ by Lemma 1 for $u \ge 8$. $\square$
 multigraph in which every colour class is a matching of at least $N+20N^{15/16}$ edges has
 a rainbow matching using every colour.*
 
-**Lemma 19.** *Let N be large and let $\mathcal A$ be a set of N clean cards with
-$\nu(L_A) \ge N+20N^{15/16}$ for each. Then one natural cover meets every card of
+**Lemma 20.** *Let N be large and let $\mathcal A$ be a set of N clean cards with
+$\nu_A \ge N+20N^{15/16}$ for each. Then one natural cover meets every card of
 $\mathcal A$.*
 
 *Proof.* Give a maximum matching of each $L_A$ the colour A; a pair that serves two cards
 becomes two parallel edges. The rainbow matching gives disjoint pairs, one per card, and
 the witness of the pair coloured A lies in A. Extend to a pairing of U. $\square$
 
-**Lemma 20 (allocation).** *Fix $0 \lt \theta \lt 1/2$ and call a clean card good if
-$c_A \ge \theta u$. Let b be the number of the others. Then*
-
-$$b \le \frac{\mathrm{Bud} - N_c u/2}{(1/2-\theta)u},$$
-
-*with $\mathrm{Bud}$ the right side of Lemma 18, and if any N good cards can be met at
-once, some natural cover has*
+**Lemma 21 (allocation).** *Fix $0 \lt \theta \lt 1/2$ and call a clean card good if
+$\nu_A \ge \theta u$. Let b be the number of the others. Then $b(1-2\theta)$ is at most
+the right side of Lemma 19, and if any N good cards can be met at once, some natural
+cover has*
 
 $$b_4+\lfloor b_3/2 \rfloor \ge \min\left(\frac N6,\ \frac{N_c}{4}-\frac b2\right)-1.$$
 
-*Proof.* Every clean card has $u-c_A \ge u/2$, and the others more than $(1-\theta)u$; sum
-and use Lemma 18. For the second claim let $g_4$ groups have no bad card and $g_3$ exactly
-one, so $b \ge g_3+2(N_c/4-g_4-g_3)$. If $g_4 \ge N/4$, meet all four cards of
+*Proof.* A card that is not good has $1-2\nu_A/u \gt 1-2\theta$; use Lemma 19. For the
+second claim let $g_4$ groups have no bad card and $g_3$ exactly one, so
+$b \ge g_3+2(N_c/4-g_4-g_3)$. If $g_4 \ge N/4$, meet all four cards of
 $\lfloor N/4 \rfloor$ such groups. Otherwise meet all cards of the $g_4$ groups and three
 good cards of $\min(g_3, \lfloor (N-4g_4)/3 \rfloor)$ others. Since
 $g_3 \ge N_c/2-b-2g_4$, this saves at least $g_4+\frac12\min(N_c/2-b-2g_4,\ (N-4g_4)/3)-1$,
@@ -674,50 +688,71 @@ which is at least $\min(N_c/4-b/2,\ N/6+g_4/3)-1$. $\square$
 
 ### 6.5 The theorem
 
-$$x_* = \frac{5(133-2\sqrt{3185})}{1414} = 0.07117535\ldots$$
+$$x_* = \frac{65-36\sqrt2}{138} = 0.10208921\ldots$$
 
-**Theorem 4.** $\displaystyle \liminf_{r \to \infty} \frac{g(r)}{r} \ge 3+x_* = 3.07117535\ldots$
+**Theorem 4.** $\displaystyle \liminf_{r \to \infty} \frac{g(r)}{r} \ge 3+x_* = 3.10208921\ldots$
 
-As a decimal coefficient this is 3.0711, rounded down. It improves the constant
+As a decimal coefficient this is 3.1020, rounded down. It improves the constant
 $(41-\sqrt{19})/12 \approx 3.0534$ of [2].
 
 *Proof.* Suppose not. Take $\varepsilon \gt 0$ and families with $r \to \infty$ and
 $n/r \le 3+x_*-\varepsilon$, and pass to a subsequence along which the normalised
-quantities converge. If J is empty the group symbols cover H, so $n \ge 4r$. Write
+quantities below converge. If J is empty the group symbols cover H, so $n \ge 4r$. Write
 
-$$x = \frac nr-3,\quad z = \frac Gr,\quad \lambda = \frac{\ell}{r},\quad \gamma = \frac qr,\quad v = \frac ur = \frac{3-\gamma-3\lambda}{2},\quad \mu = \frac{N_c}{r}.$$
+$$x = \frac nr-3,\quad z = \frac Gr,\quad \lambda = \frac{\ell}{r},\quad \gamma = \frac qr,\quad \sigma = \frac{4k_0-G}{r},\quad v = \frac ur = \frac{3-\gamma-3\lambda}{2},$$
 
-In the limit: $x = E/r+z$; $z \ge \lambda$ (Lemma 16); $z \le \frac45 x$ (Lemma 15);
-$\mu \ge 3-\gamma-4x+5z$; $\lambda \ge c(\gamma)$ for $\gamma \ge 1$ and
-$\lambda \ge 1-\gamma$ for $\gamma \lt 1$ (§5); and $t/r = (\gamma-1+\lambda)/2$. Hence
-$0 \le \lambda \le z \le \frac45 x \lt 0.057$, $\gamma \lt 1.801$ and $v \gt 0.514$.
+and $t/r = (\gamma-1+\lambda)/2$, $h/r = (\gamma-1+3\lambda)/2$. In the limit:
 
-Take $\theta_0 = 3(z-\lambda)/(2v) \lt 1/2$, so that $\theta_0 u/6 = (z-\lambda)r/4$. Putting
-the bound on b of Lemma 20 at $\theta_0$ into its second term, with the bound on $\mu$,
-that term exceeds $(z-\lambda)r/4$ exactly when
+- $\sigma \ge 0$ (Lemma 15), $x = E/r+z \ge k_0/r+z$, so $x \ge \frac54 z+\frac14\sigma$;
+- $z \ge \lambda$ (Lemma 16), and so $\lambda \le z \le \frac45 x \lt \frac1{12}$;
+- $\lambda \ge c(\gamma)$ for $1 \le \gamma \le 2$ and $\lambda \ge 1-\gamma$ for
+  $\gamma \lt 1$ (§5; $\gamma \le 2$ since $d \ge 0$);
+- by (6.2), $N_c/r$ tends to $N := 3-\gamma-\sigma$;
+- by Lemma 19, $\frac1r\sum_A(1-2\nu_A/u)$ has limit at most
+  $M := \sigma+\frac14(\gamma-1+15\lambda)$.
 
-$$F = 4-2\gamma-12x+14z-6\lambda-\frac{3(z-\lambda)(3-\gamma-4x+4z+\lambda)}{v} \gt 0 .$$
+Since $\lambda \lt 1/12$, $\gamma \le 2$ and $\sigma \ge 0$, we have $v \gt 0.37$ and
+$v/N \ge 3/8$. Put
 
-Now $\partial F/\partial z = 8+(12x-24z)/v \gt 0$ on this range, so
-$F \ge 4-2\gamma-12x+8\lambda$.
+$$K = 2(N-2M) = 7-3\gamma-15\lambda-6\sigma .$$
 
-- If $\gamma \ge 1$: $c(\gamma) \le \lambda \lt \frac45 x_* = c(\gamma_*)$, where
-  $\gamma_* = (69+2\sqrt{3185})/101$ is the root of $101\gamma^2-138\gamma-79 = 0$, equivalently
-  $c(\gamma_*) = (4-2\gamma_*)/7$. So $\gamma \lt \gamma_*$. As $c' \lt 1/4$, the function
-  $4-2\gamma+8c(\gamma)$ decreases on $[1,\gamma_*]$, and it equals $15c(\gamma_*) = 12x_*$
-  at $\gamma_*$. So $F \ge 12(x_*-x) \gt 0$.
-- If $\gamma \lt 1$: $\lambda \ge 1-\gamma$ gives $F \ge 12-10\gamma-12x \gt 0$.
+We show $x \ge (15\lambda+7-3\gamma)/24$.
 
-So F is bounded below by a positive constant. Take a fixed $\theta$ slightly above
-$\theta_0$. Then both terms of Lemma 20 exceed $(z-\lambda)r/4$ by a constant times r.
-Apply Lemma 19 with $N = \lfloor \theta u-20(\theta u)^{15/16} \rfloor$ good cards; good
-cards have $\nu(L_A) \ge c_A \ge \theta u$. Some natural cover then gives $b_4+\lfloor b_3/2 \rfloor \ge (z-\lambda)r/4+\kappa r$ for
-a constant $\kappa \gt 0$, so by Lemma 16 and $B \ge \ell+4s$,
-$G \ge \ell+(z-\lambda)r+4\kappa r-O(1) = G+4\kappa r-o(r)$, which fails for large r.
-$\square$
+*If $K \le 0$*, then $\sigma \ge (7-3\gamma-15\lambda)/6$, and $x \ge \frac54\lambda+\frac14\sigma$
+gives the claim.
 
-At the extreme point $\gamma = \gamma_*$ the bound comes from §5 alone: $G = \ell$,
-$E = \ell/4$ and $n/r = 3+\frac54 c(\gamma_*)$. Near $q = r$ it comes from Lemma 20.
+*If $K \gt 0$*, fix $\theta = K/(20v)$. Since the left side of Lemma 19 is non-negative,
+$M \ge 0$, so $K \le 2N$ and $\theta \le 2N/(20v) \le 4/15$. Apply Lemma 20 with
+$N' = \lfloor \theta u-20(\theta u)^{15/16} \rfloor$, which tends to infinity, and then
+Lemmas 21 and 16. Dividing by r, and writing $2M = N-K/2$,
+
+$$z-\lambda \ge \min\left(\frac{2\theta v}{3},\ N-\frac{2M}{1-2\theta}\right)-o(1).$$
+
+The first term equals $K/30$. The second equals
+
+$$\frac{K\left(\frac12-\frac{N}{10v}\right)}{1-\frac{K}{10v}} \ge \frac{7K}{30},$$
+
+since $N/v \le 8/3$ and the denominator lies in $(0,1]$. So $z \ge \lambda+K/30$, and
+
+$$x \ge \frac54\left(\lambda+\frac{K}{30}\right)+\frac{\sigma}{4} = \frac{15\lambda+7-3\gamma}{24}.$$
+
+In both cases $\sigma$ has dropped out. The coefficient of $\lambda$ is positive, so:
+
+- If $1 \le \gamma \le 2$: $x \ge f(\gamma) := (15c(\gamma)+7-3\gamma)/24$. The square root
+  in (5.2) is the geometric mean of $20-4\gamma \pm \sqrt{108}(\gamma-1)$, two affine
+  functions positive on $[1,2]$, so it is concave and c is convex. Hence f is convex,
+  and its minimum is where $c'(\gamma) = 1/5$, namely at
+  $\gamma_* = (21+74\sqrt2)/69 = 1.82104\ldots$, with $c(\gamma_*) = (24-14\sqrt2)/69$
+  and $f(\gamma_*) = x_*$.
+- If $\gamma \lt 1$: $\lambda \ge 1-\gamma$ gives $x \ge (22-18\gamma)/24 \ge 1/6 \gt x_*$.
+
+Either way $x \ge x_*$, against $x \le x_*-\varepsilon$. $\square$
+
+At the minimum $K = 0$, that is $\sigma = (10-2\sqrt2)/69$ and $M = N/2$: the bound on
+the good cards gives nothing there, and the constant comes from §5 and the clean tail.
+To go further one needs information that excludes, or makes costly, the case in which
+about half of the clean cards have traces with small matching number, two in each group,
+while the budget of Lemma 19 is used in full.
 
 The proof uses [5] and gives no explicit threshold in r, like [2].
 
@@ -730,12 +765,12 @@ The proof uses [5] and gives no explicit threshold in r, like [2].
 | Lemmas 10 and 11 on 8, 9 and 10 vertices | `code/verify_rainbow_lemmas.py`, `code/verify_rainbow.c` |
 | Lemma 13, the anchor values, and the failure at $d = 5$ reported in §4.5 | `code/verify_anchor_count.py` |
 | every arithmetic step of §2.3, §3.4, §4, §5 and §6, and the constant of [2] | `code/verify_p5_arithmetic.py` |
-| the algebra of Theorem 4: the function F, its derivative, $\gamma_*$, $c(\gamma_*)$, the root argument for $u \le L$, the bound on $c'$, and the constant | `code/verify_rainbow_constant.py` |
+| the algebra of Lemma 19 and Theorem 4: the budget identity, $K = 2(N-2M)$, the second term of Lemma 21, the reduction of both cases, the root argument for $u \le L$, convexity of c, $c'(\gamma_*) = 1/5$, $c(\gamma_*)$, $\sigma_*$ and the constant | `code/verify_rainbow_constant.py` |
 
 The runs are recorded in `results/p5_checks.txt`. These are finite checks of the finite
 lemmas. The steps that are not finite, namely (2.1), (2.2), Lemma 4, the inequality
 $M \le S$, the swap lemma, the augmentation arguments of Lemmas 6, 9, 12 and 14, and
-Lemmas 15 to 20, have been read, the last group twice in a separate review session, but
+Lemmas 15 to 21, have been read, the last group in a separate review session, but
 not independently reviewed. Theorem 4 also rests on the published theorem of [5].
 
 ---

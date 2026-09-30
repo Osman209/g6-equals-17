@@ -197,6 +197,7 @@ independent-Poisson value (1 - e^(-1/2))^4 = 0.0240
 DONE: measurement recorded; this is not a proof of any bound.
 exit 0
 
-$ python3 code/verify_rainbow_constant.py   # recorded 2026-09-30
-PASS: closed form checks; constant 3 + x_* = 3.071175358995
+$ python3 code/verify_rainbow_constant.py   # recorded 2026-10-01
+PASS: gamma_* = 1.8210406321, c_* = 0.0608842047, sigma_* = 0.1039358388
+PASS: closed form checks; constant 3 + x_* = 3.102089215613
 exit 0

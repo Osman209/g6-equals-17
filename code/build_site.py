@@ -22,7 +22,7 @@ REPO = "https://github.com/Osman209/g6-equals-17"
 SITE = "https://osman209.github.io/g6-equals-17"
 ORCID = "0009-0004-5912-999X"
 DOI = "10.5281/zenodo.22883809"
-DATE = "2026-09-30"
+DATE = "2026-10-01"
 
 CSS = """<style>body{max-width:52rem;margin:2.5rem auto;padding:0 1.2rem;font:16px/1.6 Georgia,"DejaVu Serif",serif;color:#1a1a1a}
 h1{font-size:1.6rem;line-height:1.3;margin-bottom:.2rem}h2{font-size:1.05rem;font-weight:400;color:#555;margin-top:0}
@@ -91,8 +91,8 @@ PAPERS = [
     ),
     dict(
         slug="paper_5_every_r",
-        title="Paper 5. Lower Bounds for g(r): 3r - 3 for Every r, and 3.0711r for Large r",
-        sub="Proposed proofs that g(r) is at least 3r - 3 for every r, at least 3r - 2 from r = 16, and asymptotically at least 3.0711r",
+        title="Paper 5. Lower Bounds for g(r): 3r - 3 for Every r, and 3.1020r for Large r",
+        sub="Proposed proofs that g(r) is at least 3r - 3 for every r, at least 3r - 2 from r = 16, and asymptotically at least 3.1020r",
         abs="In the framework of Sivashankar (arXiv:2606.24878), the cover number of the remainder "
             "of maximum degree three is bounded by 4 tau <= q + r + 3, answering his question "
             "whether +4 can be +3; hence g(r) >= 3r - 3 for every r, attained at r = 3 and 4. "
@@ -100,8 +100,8 @@ PAPERS = [
             "open at r = 15. A quantitative "
             "form shows a gain linear in r when the remainder is large, with a closed form at every "
             "remainder size. A second saving from the deleted cards, using a bound on the last "
-            "steps of the peeling and a rainbow matching theorem of Correia, Pokrovskiy and "
-            "Sudakov, gives liminf g(r)/r >= 3 + 5(133 - 2 sqrt 3185)/1414 = 3.0711..., above "
+            "steps of the peeling, a budget for the matching numbers of the traces of the deleted cards, and a rainbow matching theorem of Correia, Pokrovskiy and "
+            "Sudakov, gives liminf g(r)/r >= 3 + (65 - 36 sqrt 2)/138 = 3.1020..., above "
             "the constant 3.0534 of Sivashankar. The proofs are proposed and "
             "unreviewed; every finite step is checked exhaustively by a named script.",
     ),
