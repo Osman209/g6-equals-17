@@ -764,19 +764,18 @@ $$\delta = z-\lambda, \qquad K_- = \max(0,-K).$$
 
 So $\delta \ge 0$ and $x \ge \frac54(\lambda+\delta)+\frac14\sigma$.
 
-**Lemma 22 (the best $\theta$).** *If $K \gt 0$ then $\delta \ge K/30$. If moreover*
+**Lemma 22 (the best $\theta$).** *If $K \gt 0$ then*
 
-$$\theta_* = \frac{v+3N-\sqrt{(v+3N)^2-6vK}}{4v} \lt \frac12,$$
+$$\delta \ge R(K) := \frac{v+3N-\sqrt{(v+3N)^2-6vK}}{6} = \frac{vK}{v+3N+\sqrt{(v+3N)^2-6vK}} \ge \frac{vK}{2(v+3N)} \ge \frac{K}{18}.$$
 
-*then*
-
-$$\delta \ge R(K) := \frac{v+3N-\sqrt{(v+3N)^2-6vK}}{6} = \frac{vK}{v+3N+\sqrt{(v+3N)^2-6vK}} \ge \frac{K}{18}.$$
-
-*Proof.* The first bound is §6.5. At any fixed $\theta \lt 1/2$ the proof of §6.5 gives
+*Proof.* At any fixed $\theta \lt 1/2$ the proof of §6.5 gives
 $\delta \ge \min\left(2\theta v/3,\ (K/2-2N\theta)/(1-2\theta)\right)-o(1)$, since
-$2M = N-K/2$. The two terms are equal when $4v\theta^2-(2v+6N)\theta+3K/2 = 0$, whose
-smaller root is $\theta_*$, and there both equal $R(K)$. The last inequality uses
-$v/N \ge 3/8$. $\square$
+$2M = N-K/2$. The two terms are equal when $P(\theta) = 4v\theta^2-(2v+6N)\theta+3K/2$
+vanishes. Here $P(0) = 3K/2 \gt 0$ and $P(1/2) = 3(K/2-N) \le 0$, because $M \ge 0$ gives
+$K \le 2N$. So the smaller root
+$\theta_* = \left(v+3N-\sqrt{(v+3N)^2-6vK}\right)/(4v)$ lies in $(0, 1/2]$, and there both
+terms equal $R(K)$; if $\theta_* = 1/2$, let $\theta$ increase to it. The last inequality
+uses $v/N \ge 3/8$. $\square$
 
 With $\lambda = c(\gamma)$ and $\sigma$ as in §6.5 this already gives
 $x \ge (15\lambda+7-3\gamma)/24+K/36$ for $K \gt 0$, so a value of x near $x_*$ forces
@@ -846,14 +845,15 @@ $$x \ge \frac54(\lambda+\max(\delta_1,\delta_2))+\frac\sigma4,$$
 
 where $\delta_1$ is the bound of Lemma 22 (0 when $K \le 0$) and $\delta_2$ that of Lemma 23.
 The script `code/verify_weak_trace_bound.py` shows, by branch and bound over this box with
-outward-rounded interval arithmetic, that the right side is at least 0.1024745 everywhere.
-This is a contradiction. $\square$
+exact rational interval arithmetic, that the right side is at least 0.1024745 everywhere,
+with $\delta_1$ taken as the simpler bound $vK/(2(v+3N))$. This is a contradiction. $\square$
 
-The numerical minimum of the right side is $0.10247458307\ldots$, at
-$\gamma \approx 1.856983$, $\lambda = c(\gamma) \approx 0.068491$, $\sigma \approx 0.066398$, where
-$\delta_1 = \delta_2 \approx 0.00020866$. There $K \gt 0$ and $Q \gt 0$: neither saving is zero,
-and the two are in balance. The constant has no closed form that we know of; it is
-certified to seven decimals, not computed exactly.
+The numerical minimum of the right side is $0.10247456\ldots$ with this $\delta_1$, and
+$0.10247458\ldots$ with $R(K)$, at $\gamma \approx 1.85698$, $\lambda = c(\gamma) \approx 0.068491$,
+$\sigma \approx 0.066398$, where $\delta_1 = \delta_2 \approx 0.00020866$. There $K \gt 0$ and
+$Q \gt 0$: neither saving is zero, and the two are in balance. The constant has no closed
+form that we know of. The certificate gives seven decimals; it does not compute the minimum
+exactly.
 
 The proofs of Theorems 4 and 5 use [5] and give no explicit threshold in r, like [2].
 
@@ -867,7 +867,7 @@ The proofs of Theorems 4 and 5 use [5] and give no explicit threshold in r, like
 | Lemma 13, the anchor values, and the failure at $d = 5$ reported in §4.5 | `code/verify_anchor_count.py` |
 | every arithmetic step of §2.3, §3.4, §4, §5 and §6, and the constant of [2] | `code/verify_p5_arithmetic.py` |
 | the algebra of Lemma 19 and Theorem 4: the budget identity, $K = 2(N-2M)$, the second term of Lemma 21, the reduction of both cases, the root argument for $u \le L$, convexity of c, $c'(\gamma_*) = 1/5$, $c(\gamma_*)$, $\sigma_*$ and the constant; the optimal $\theta$ and $R(K) \ge K/18$ of Lemma 22; the counts of Lemma 23 | `code/verify_rainbow_constant.py` |
-| Theorem 5: the lower bound 0.1024745 over the whole domain, by branch and bound with outward-rounded interval arithmetic | `code/verify_weak_trace_bound.py` |
+| Theorem 5: the lower bound 0.1024745 over the whole domain, by branch and bound with exact rational interval arithmetic | `code/verify_weak_trace_bound.py` |
 
 The runs are recorded in `results/p5_checks.txt`. These are finite checks of the finite
 lemmas. The steps that are not finite, namely (2.1), (2.2), Lemma 4, the inequality

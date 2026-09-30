@@ -63,6 +63,9 @@ assert sp.simplify(first - Rk) == 0
 assert sp.simplify(Rk*(vs + 3*Ns + sp.sqrt((vs + 3*Ns)**2 - 6*vs*Kp)) - vs*Kp) == 0
 # R >= vK/(2(v+3N)) >= K/18 when v/N >= 3/8, i.e. v/(v+3N) >= 1/9
 assert Fr(3, 8)/(Fr(3, 8) + 3) == Fr(1, 9)
+# theta_* lies in (0, 1/2]: P(0) = 3K/2 > 0 and P(1/2) = 3(K/2 - N) <= 0 since K <= 2N
+Pt = lambda T: 4*vs*T**2 - (2*vs + 6*Ns)*T + sp.Rational(3, 2)*Kp
+assert sp.simplify(Pt(sp.Rational(1, 2)) - 3*(Kp/2 - Ns)) == 0
 # with delta = K/18: x >= base + K/36
 assert sp.simplify(sp.Rational(5, 4)*(lam + Kexpr/18) + sig/4 - target - Kexpr/36) == 0
 

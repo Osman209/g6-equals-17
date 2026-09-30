@@ -203,6 +203,9 @@ PASS: closed form checks; constant 3 + x_* = 3.102089215613
 exit 0
 
 $ python3 code/verify_weak_trace_bound.py   # recorded 2026-10-01
-PASS: x >= 0.1024745 on the whole domain, 608923 boxes, 18s
+PASS: x >= 204949/2000000 = 0.1024745 on the whole domain; 362290 rational leaves, 123392 empty, 485681 splits, 214s
 exit 0
-(forced failure: with X_T = 0.1024747, above the numerical minimum 0.10247458, it stops with FAIL near gamma = 1.8575 and exits 1)
+
+$ python3 code/verify_weak_trace_bound.py --target=1024746/10000000 --limit=20000   # forced failure, above the minimum
+FAIL: split limit reached, no certificate for 512373/5000000
+exit 1
