@@ -30,6 +30,17 @@ it is a memory, not a measurement.
 | 463/463 DRAT-verified | `results/certificate_summary.jsonl`, `data/cnf/` | one entry per core id 0 to 462, all verified; three CNF/DRAT pairs shipped so the step can be reproduced without a solver |
 | DRAT archive integrity | `code/make_certificate_manifest.py`, `code/verify_certificate_markers.py` | SHA-256 over the CNF, DRAT and marker files |
 | 17-card witness, $\tau = 6$ | `code/verify_witness_17.py`, `data/witness_17.json` | 17 distinct cards of size 6; 136/136 pairs; all 80,730 five-subsets by two independent methods; degree histogram; an explicit five-cover after each deletion |
+| [P5, Theorem 1] on small configurations | `code/verify_residual_bound.py` | every irredundant covering of the pairs of a q-set by 2- and 3-blocks for q <= 6 (7,124,433 at q = 6), and the low-degree ones for q = 7, 8, 9; no violation of 4 tau <= q + r + 3; the sharpness family for n = 3 to 11 |
+| [P5] local lemmas | `code/verify_local_graphs.py --full` | every multicoloured local graph up to u = 12 (Lemmas 1, 3 and sigma <= 6), up to u = 13 with d <= 5 under both capacities (Lemma 5), the d = 0 structure up to u = 9, K7 not splitting into four, and the u = 13, d = 5 step of §4.2 |
+| [P5, Lemma 13 and Proposition 2] | `code/verify_anchor_count.py` | every multicoloured local graph on 11 vertices for d = 1 to 5 under both capacities: at most 12 - S open pairs and anchor value at least 16 when S >= 11, for d <= 4; at d = 5 both fail, which is the open case of §4.5 |
+| [P5, Lemmas 10 and 11] | `code/verify_rainbow_lemmas.py`, `code/verify_rainbow.c` | exhaustive on 8, 9 and 10 vertices; the obstructions are the same 12 and 192 configurations at every size |
+| [P5] arithmetic | `code/verify_p5_arithmetic.py` | the five cases, the exclusion arithmetic of §4, the swap-lemma counts for d = 0 and d = 1, the cases left at r = 15 to 21, the dense-remainder corollary over integer tuples, the closed form of §5 against the exact minimum at r = 3200, and the constant of arXiv:2606.24878 |
+| [P5, Theorem 4] algebra | `code/verify_rainbow_constant.py` | the function F of §6.5 and its derivative, the root argument for u <= L, the bound on c', gamma_*, and the constant 3 + 5(133 - 2 sqrt 3185)/1414; symbolic, with sympy |
+| earlier probabilistic route (not in [P5]; for a separate note) | `code/measure_matching_hits.py` | worst probability that a random perfect matching meets four edge covers; exhaustive at u = 8 and 10, searched at 12, 16, 24. A measurement, not a proof |
+| earlier centre route (not in [P5]; for a separate note): one-centre reward bounds | `code/verify_one_center_certificates.py` with `code/one_center_certificate.py` | seventeen box certificates over the whole bulk cube, exact rational dual checks; reads the release asset `certificates/one_centre/` |
+| earlier centre route (not in [P5]): the centre model | `code/verify_centre_model.py` | the reward formula, the two fixed-bulk LP optima with dual certificates, and random tests of the splitting and absorption steps proved in the text |
+| earlier centre route (not in [P5]): 3.0588 in the one-centre model | `code/coefficient_from_certificates.py` | a numerical grid evaluation from the certified bounds; not a proof, and only inside the one-centre model |
+| g(7) by kernel plus extension | `code/gr_upper.py`, `code/gr7_select.py` | the construction that gives 4r-7 for r = 4, 5, 6; at r = 7 the SAT selection decides each of the 38 kernels with tau = 6 |
 
 ## Not covered by any script
 
@@ -42,6 +53,7 @@ These are arguments, not computations, and the table does not pretend otherwise.
 | branches A and B of the eleven-card lemma | [P2, §2] |
 | the reduction reaches every sixteen-card counterexample | [P3, §1, §2, §2a, §3] |
 | each CNF clause family means what it is said to mean | [P3, §4] |
+| [P5]: the capacity inequalities (2.1), (2.2), the pointwise capacity (Lemma 4), $M \le S$, the swap lemma (Lemma 8), and the augmentation arguments of Lemmas 6, 9 and 12 | [P5, §2 to §4] |
 
 `AUDIT.md` records which of these were checked by reading during the independent pass, and
 which parts of the encoding were read but not re-derived.

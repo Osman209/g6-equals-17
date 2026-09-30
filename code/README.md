@@ -24,6 +24,19 @@ removes them, so an `-O` run can pass on material that fails.
 | `make_certificate_manifest.py` | seconds | SHA-256 manifest over the certificate archive |
 | `verify_certificate_markers.py` | seconds | presence and consistency of the certificate archive markers, [P3, §6] |
 | `verify_core.py` | seconds | a twelve-card family with tau = 5, showing the eleven-card lemma is sharp |
+| `verify_p5_arithmetic.py` | seconds | every arithmetic step of [P5] |
+| `verify_residual_bound.py` | ~3 min | [P5, Theorem 1] on every small configuration, and the sharpness family |
+| `verify_local_graphs.py` | ~4 min; `--full` ~15 min | the local coloured-graph lemmas of [P5] |
+| `verify_rainbow_lemmas.py` | under a minute | [P5, Lemmas 10 and 11]; compiles `verify_rainbow.c` with `cc` |
+| `verify_anchor_count.py` | ~4 min | [P5, Lemma 13 and Proposition 2], the anchor count for u = 11 |
+| `verify_rainbow_constant.py` | seconds, needs sympy | the algebra of [P5, Theorem 4] |
+| `measure_matching_hits.py` | ~1 min | a measurement from an earlier probabilistic route, not used in [P5]; not a proof |
+| `one_center_certificate.py` | build needs scipy | generator and exact verifier of the one-centre certificate trees (earlier centre route, not used in [P5]) |
+| `verify_one_center_certificates.py` | ~15 s | all trees in `certificates/one_centre/` (release asset) |
+| `verify_centre_model.py` | ~1 min, needs scipy | reward formula, fixed-bulk LP optima, splitting and absorption tests |
+| `coefficient_from_certificates.py` | seconds | the one-centre-model coefficient 3.0588; numerical, not a proof |
+| `gr_upper.py` | minutes to days | kernel-plus-extension upper bounds; `python3 code/gr_upper.py 6` reproduces 17 |
+| `gr7_select.py` | hours, needs python-sat | exact (SAT) selection step at r = 7 for the 38 kernels with tau = 6 |
 
 The two certificate scripts read `certificates/`, which is a release asset rather than
 repository content. Unpack `g6-certificates-463.zip` into the repository root first.

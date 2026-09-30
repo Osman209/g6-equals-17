@@ -436,3 +436,55 @@ asserted in one sentence. The obligations named in §2 of this log are unaffecte
 completeness of the 463-core reduction and the faithfulness of the CNF encoding remain
 reading obligations, and the lower bound still has no independent human or proof-assistant
 review.
+
+## 5. Addendum, 29 September 2026: the fifth paper, and a metadata defect
+
+**What [P5] is.** A paper for every $r$, not for $r = 6$. It collects proposed proofs that
+were first drafted in ChatGPT sessions directed by the author: the residual cover bound
+$4\tau \le q+r+3$ for remainders of maximum degree three, which answers the question in
+Sivashankar (arXiv:2606.24878) and gives $g(r) \ge 3r-3$; a chain of equality exclusions
+that reached $g(r) \ge 3r-2$ for $r \ge 36$, then $22$, $20$ and $19$; a quantitative
+stability inequality; and an exact bookkeeping identity. At $r = 6$ none of this reaches
+the value of [P1]–[P4]; the paper stands beside them, not under them.
+
+**What was checked, and how.** Every step of the drafts that is a finite statement was
+checked exhaustively by a script written for the purpose, independently of the drafts' own
+checks: the residual bound on every configuration with at most six cards (7,124,433 at six)
+and on the low-degree configurations up to nine; every local coloured-graph lemma up to
+13 vertices; both four-family matching lemmas on 8, 9 and 10 vertices; and every
+arithmetic step. Nothing failed. The bounds that the drafts state as maxima were also
+found to be attained, so none of them was loose: the multicoloured support reaches $u+4$
+from nine vertices on, and $\max(12, d+8)$ under both capacities.
+
+The draft's own check for the $r = 19$ step (6,404 configurations modulo a relabelling)
+was re-run and agrees; the independent enumeration here, without that relabelling, finds
+30,060 configurations and the same maxima.
+
+**One change of route.** With the pointwise capacity bound in hand, the drafts' bound
+$u \le \max(12, 3d+6)$ improves to $u \le \max(12, d+8)$ (Lemma 7 of [P5]), and the
+exclusion of $u \ge 15$ then takes one line instead of two cases. [P5] uses the shorter
+route. The drafts' longer route was checked arithmetically during this pass and holds; it
+is not in the paper, and its checks are not shipped.
+
+**What was not checked.** The steps that are arguments rather than finite statements —
+the two capacity inequalities, the pointwise capacity, $M \le S$, and the augmentation
+arguments — were read, not reviewed independently, and are listed in [P5, §6] and in
+`COVERAGE.md`. §5 of [P5] contains a measurement on a model, not a proof, and says so.
+
+**From $r \ge 19$ to $r \ge 16$.** A later pass in the same session pushed the exclusion of
+equality down, and [P5] was rewritten in order around it. Two new tools do the work. The
+swap lemma (Lemma 8) uses only the maximality of the matching of four-element blocks: two
+cards of one deleted group cannot hold disjoint triples of $J$. It rules out $d = 0$ for
+every $r \ge 5$ and $d = 1$ for every $r \ge 11$, which replaces the divisibility argument
+at $r = 20$ and closes the case $u = 9$, $d = 0$ at $r = 16$. The anchor count (Lemmas 12
+and 13) replaces the eligible-pair argument that closed $r = 19$ and handles $u = 11$ for
+every $1 \le d \le 4$ at once; its finite side is `code/verify_anchor_count.py`, which also
+reports that at $d = 5$ both of its inequalities fail. That is the case $u = 11$, $d = 5$
+at $r = 15$, left open and described in [P5, §4.5].
+
+**A metadata defect found and fixed.** The version bump for 1.3.0 rewrote the first line of
+`CITATION.cff` from `cff-version: 1.2.0` to `cff-version: 1.3.0`. That line is the schema
+version of the Citation File Format, not the release version, and 1.3.0 is not a schema any
+parser accepts. It is restored, and `code/audit.py` now refuses any other value and checks
+that the release versions in `CITATION.cff` and `.zenodo.json` agree. The gate was forced to
+fail once to confirm it names the defect.

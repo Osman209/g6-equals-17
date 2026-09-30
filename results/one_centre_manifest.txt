@@ -1,0 +1,21 @@
+# SHA-256 of the one-centre certificate trees (release asset certificates/one_centre/)
+# generator: code/one_center_certificate.py build <file> <mu_max> 1 <target>; verifier: code/verify_one_center_certificates.py
+# allrho0*.json: built in an earlier session (targets 7/250, 11/500, 9/500, 11/1000, 3/500, 1/400);
+# allrhoh*.json: built 2026-09-30 with the targets listed by the verifier
+cb1f019ff362997dafba3c41ad147e985b10f438f48446231682bea6abf568ac  allrho025.json
+64ed6dc02412321a47ae9b2660179bee024f265471eae1665e8e409e2ad9b678  allrho030.json
+6561f19d625c3992f6b5c6884e2d272a381391fd692e76804c08103dd0d753dd  allrho035.json
+619785d10b30a69c4de325b49b7b04010c0abd7f82d93245e58217ea2273250b  allrho0375.json
+05bd1865836ca2efd402192bed88ac2665fdfdaa704ff743ec40f72368082f03  allrho040.json
+215d0417642862c894b082e43403bbcd003dd7a1ceb9cf6bfcb830f77db23744  allrho0425.json
+c60027384f9da987ba8f1756c0e86b7b5cf78a0cef326de4793237e467552944  allrhoh005.json
+300e207a50cedae5e7843ce14a3e367efc2f35c8ec2ec2e7df3c92f8b5d1f111  allrhoh010.json
+2da9d594954d04972b9c433a1589248bc94edcc6b1f66873b52e44dbd57f3604  allrhoh015.json
+e95cac544b05df54ba05abbc751967ebf7f72aee1c9bfb6c320d326f970a8b19  allrhoh020.json
+769e96624665fd7ec41d4b8d189826edff7a8ccfb8abfcc1818796e2b1712c35  allrhoh025.json
+eafe882ffb81d17dde005516cc8ca6f5738a9494ec52d53691e28b43183cb48c  allrhoh030.json
+15ffa47bf3ed3cf303438f38e765c1f90414a4afd3cd5c13d81d4a6769ecaaee  allrhoh035.json
+4f72266397a90241f877309c20b5812bbd01f16d703b0183815a26dc87b7ab12  allrhoh0375.json
+ec25091e24abc529747a8131f3c979cf8140f50c036da212ef3ae2287b94f075  allrhoh040.json
+4bb579b44f54ef9ed2c565033df0cae148698647330820b0e70d1c48572589c9  allrhoh0425.json
+ecfff4be0a4aeb7203246bd015ff8f380369ffd7f35e302e21494fe8fc64e2ed  allrhoh045.json
