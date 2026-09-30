@@ -91,16 +91,18 @@ PAPERS = [
     ),
     dict(
         slug="paper_5_every_r",
-        title="Paper 5. Every r: the Residual Cover Route from 3r - 3",
-        sub="Proposed proofs that g(r) is at least 3r - 3 for every r, and at least 3r - 2 from r = 16",
+        title="Paper 5. Lower Bounds for g(r): 3r - 3 for Every r, and 3.0711r for Large r",
+        sub="Proposed proofs that g(r) is at least 3r - 3 for every r, at least 3r - 2 from r = 16, and asymptotically at least 3.0711r",
         abs="In the framework of Sivashankar (arXiv:2606.24878), the cover number of the remainder "
             "of maximum degree three is bounded by 4 tau <= q + r + 3, answering his question "
             "whether +4 can be +3; hence g(r) >= 3r - 3 for every r, attained at r = 3 and 4. "
             "Excluding the equality case gives g(r) >= 3r - 2 for every r >= 16, with one case left "
             "open at r = 15. A quantitative "
-            "form shows a loss linear in r when the remainder is large, with a closed form at every "
-            "remainder size, and a final section sets out where the route toward a coefficient "
-            "above 3 stands, without claiming a theorem there. The proofs are proposed and "
+            "form shows a gain linear in r when the remainder is large, with a closed form at every "
+            "remainder size. A second saving from the deleted cards, using a bound on the last "
+            "steps of the peeling and a rainbow matching theorem of Correia, Pokrovskiy and "
+            "Sudakov, gives liminf g(r)/r >= 3 + 5(133 - 2 sqrt 3185)/1414 = 3.0711..., above "
+            "the constant 3.0534 of Sivashankar. The proofs are proposed and "
             "unreviewed; every finite step is checked exhaustively by a named script.",
     ),
 ]

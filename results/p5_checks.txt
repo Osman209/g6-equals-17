@@ -196,3 +196,7 @@ u=24  search worst on its own sample 0.0065, same configuration on a fresh sampl
 independent-Poisson value (1 - e^(-1/2))^4 = 0.0240
 DONE: measurement recorded; this is not a proof of any bound.
 exit 0
+
+$ python3 code/verify_rainbow_constant.py   # recorded 2026-09-30
+PASS: closed form checks; constant 3 + x_* = 3.071175358995
+exit 0

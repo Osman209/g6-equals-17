@@ -16,8 +16,8 @@ abstract: >-
   g(6) = 17. Research draft: no priority is claimed, and the lower bound is
   computer-assisted and has not been independently reviewed by a human referee or a
   proof assistant. AI tools were used throughout the work and its review.
-  A fifth paper gives proposed, unreviewed proofs for every r: g(r) >= 3r - 3, and
-  g(r) >= 3r - 2 for every r >= 16.
+  A fifth paper gives proposed, unreviewed proofs for every r: g(r) >= 3r - 3,
+  g(r) >= 3r - 2 for every r >= 16, and liminf g(r)/r >= 3.0711.
 type: software
 authors:
   - family-names: Osman

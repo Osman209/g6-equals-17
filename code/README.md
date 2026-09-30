@@ -29,8 +29,9 @@ removes them, so an `-O` run can pass on material that fails.
 | `verify_local_graphs.py` | ~4 min; `--full` ~15 min | the local coloured-graph lemmas of [P5] |
 | `verify_rainbow_lemmas.py` | under a minute | [P5, Lemmas 10 and 11]; compiles `verify_rainbow.c` with `cc` |
 | `verify_anchor_count.py` | ~4 min | [P5, Lemma 13 and Proposition 2], the anchor count for u = 11 |
-| `measure_matching_hits.py` | ~1 min | the measurement of [P5, §6.3]; not a proof |
-| `one_center_certificate.py` | build needs scipy | generator and exact verifier of the one-centre certificate trees |
+| `verify_rainbow_constant.py` | seconds, needs sympy | the algebra of [P5, Theorem 4] |
+| `measure_matching_hits.py` | ~1 min | a measurement from an earlier probabilistic route, not used in [P5]; not a proof |
+| `one_center_certificate.py` | build needs scipy | generator and exact verifier of the one-centre certificate trees (earlier centre route, not used in [P5]) |
 | `verify_one_center_certificates.py` | ~15 s | all trees in `certificates/one_centre/` (release asset) |
 | `verify_centre_model.py` | ~1 min, needs scipy | reward formula, fixed-bulk LP optima, splitting and absorption tests |
 | `coefficient_from_certificates.py` | seconds | the one-centre-model coefficient 3.0588; numerical, not a proof |

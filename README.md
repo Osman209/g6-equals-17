@@ -19,9 +19,11 @@ the value determined here.
 
 A fifth paper, [P5], turns to every $r$. It gives proposed proofs that
 $g(r) \ge 3r-3$ for every $r$, answering the question in [arXiv:2606.24878] of whether the
-residual constant $+4$ can be $+3$, and that $g(r) \ge 3r-2$ for every $r \ge 16$. These
-proofs are unreviewed; their finite steps are checked exhaustively by the scripts listed
-in [P5, §7].
+residual constant $+4$ can be $+3$, and that $g(r) \ge 3r-2$ for every $r \ge 16$. It
+also gives a proposed proof of a new asymptotic lower bound for the Erdős–Lovász problem,
+$\liminf g(r)/r \ge 3+5(133-2\sqrt{3185})/1414 = 3.0711\ldots$, above the constant
+$3.0534$ of the same preprint. These proofs are unreviewed; their finite steps are checked
+by the scripts listed in [P5, §7].
 
 > **Status.** Research draft. The upper bound is an explicit witness anyone can check in
 > seconds. The lower bound is computer-assisted and **has not been independently reviewed
@@ -57,7 +59,7 @@ $$g(6) = \min \lbrace \lvert F \rvert : F \text{ is 6-uniform, pairwise intersec
 | [P2] | [`papers/paper_2_eleven_card_lemma.md`](papers/paper_2_eleven_card_lemma.md) | every eleven-card family has a four-cover; fifteen cards in two lines |
 | [P3] | [`papers/paper_3_sixteen_cards.md`](papers/paper_3_sixteen_cards.md) | sixteen cards, via 463 cores, SAT, and DRAT certificates |
 | [P4] | [`papers/paper_4_seventeen_card_witness.md`](papers/paper_4_seventeen_card_witness.md) | the explicit seventeen-card family |
-| [P5] | [`papers/paper_5_every_r.md`](papers/paper_5_every_r.md) | every $r$: $g(r) \ge 3r-3$, and $3r-2$ for $r \ge 16$ (proposed, not reviewed) |
+| [P5] | [`papers/paper_5_every_r.md`](papers/paper_5_every_r.md) | every $r$: $g(r) \ge 3r-3$, $3r-2$ for $r \ge 16$, and $\liminf g(r)/r \ge 3.0711$ (proposed, not reviewed) |
 
 The papers are cited as [P1] to [P5]. A bare bracketed number inside a paper is an
 entry in that paper's own reference list. Each paper numbers its own results from 1.
@@ -121,7 +123,7 @@ python code/verify_eight_orbits.py
 python code/verify_cnf_regeneration.py
 ```
 
-The checks of [P5], also standard library except for one C file:
+The checks of [P5], standard library except for one C file and `sympy` for the last one:
 
 ```bash
 python code/verify_p5_arithmetic.py
@@ -129,7 +131,7 @@ python code/verify_residual_bound.py
 python code/verify_local_graphs.py
 python code/verify_rainbow_lemmas.py     # compiles code/verify_rainbow.c with cc
 python code/verify_anchor_count.py
-python code/measure_matching_hits.py     # a measurement, not a proof
+python code/verify_rainbow_constant.py  # the algebra of Theorem 4
 ```
 
 To rebuild the PDFs and the site:
