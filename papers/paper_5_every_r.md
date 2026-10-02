@@ -1,4 +1,4 @@
-# [P5] Lower bounds for the Erdős–Lovász cover number
+# [P5] Lower bounds for g(r) at every r: 3r − 3, and 3r − 2 from r = 16
 
 **Mohamed A. Osman** — ORCID 0009-0004-5912-999X
 
@@ -6,25 +6,13 @@ Research draft, 2 October 2026. Licence: CC BY 4.0.
 
 ## Abstract
 
-Let $g(r)$ be the minimum number of edges in an intersecting $r$-uniform hypergraph with transversal number $r$. We bound $g(r)$ by studying the incidences between a residual hypergraph of maximum degree three and groups of removed edges. A maximum matching of dual four-blocks restricts these incidences. Capacity estimates and rainbow matchings then give the proposed bound
-$$\liminf_{r\to\infty}g(r)/r\ge3.1108.$$
-An exact rational computation verifies the final minimization. The combinatorial inputs remain subject to independent review. Separate finite-parameter results are collected in the supplement.
+Let $g(r)$ be the minimum number of edges in an intersecting $r$-uniform hypergraph with transversal number $r$. Sivashankar [2] proved $g(r)\ge3r-4$ by removing the edges through vertices of high degree and bounding the transversal number of the remainder, a family of maximum degree three, by $4\tau\le q+r+4$. He asked whether $+4$ can be replaced by $+3$. Theorem 1 gives a proposed proof that it can, so $g(r)\ge3r-3$ for every $r$; the values $g(3)=6$ and $g(4)=9$ show that $3r-3$ is attained. Theorem 2 excludes the equality case for every $r\ge16$, so $g(r)\ge3r-2$ there. Every finite step is checked exhaustively by a named script. The asymptotic bound is in the companion paper [P6].
 
-## 1. The problem and the proof
+## 1. Setting
 
-A hypergraph is **intersecting** if every two edges meet. A **transversal** is a set of vertices meeting every edge; its minimum size is $\tau(H)$. We study
-$$g(r)=\min\lbrace \lvert E(H)\rvert:H\text{ is intersecting and }r\text{-uniform},\ \tau(H)=r\rbrace .$$
-An edge of an intersecting hypergraph is itself a transversal. A lower-bound proof therefore shows that a sufficiently small family has a transversal of size less than $r$.
+Let $g(r)$ be the least number of edges in an intersecting $r$-uniform hypergraph $H$ with $\tau(H)=r$. The known values are $g(3)=6$, $g(4)=9$, $g(5)=13$ [4] and $g(6)=17$ ([P1]–[P4] of this set). Against $3r$ these are $3r-3$, $3r-3$, $3r-2$ and $3r-1$.
 
-Erdős and Lovász [1] proved $g(r)\ge8r/3-3$. Sivashankar [2] proved $g(r)\ge3r-4$ and
-$$g(r)\ge\left(\frac{41-\sqrt{19}}{12}-o(1)\right)r.$$
-Our proposed conclusion is $g(r)\ge(3.1108-o(1))r$. We obtain no explicit finite threshold. This is the fifth paper of a set whose first four determine $g(6)=17$.
-
-The proof has two sources of gain. Residual stability increases the cost of covering the residual family. A residual transversal can also meet removed edges, reducing the number of additional vertices needed. Maximum four-block matchings constrain the incidences between these two parts.
-
-The supplement, `papers/paper_5_finite_supplement.md`, treats $g(r)\ge3r-3$ for every $r$ and the proposed equality exclusion for $r\ge16$. Neither result is needed for the asymptotic argument.
-
-## 2. Residual triples and a transversal
+Peeling vertices of degree at least four selects $k$ vertices and leaves a residual family $J$ of maximum degree three. Since $\lvert E(H)\rvert\ge q+4k$ and $r\le k+\tau(J)$, a bound $4\tau(J)\le q+r+C_0$ gives $\lvert E(H)\rvert\ge3r-C_0$.
 
 In the dual incidence system, hyperedges are points and vertices are blocks. Let $J$ have $q$ edges and maximum degree three. Its blocks have size at most three; every pair of points lies in a block; each point lies in exactly $r$ blocks. Distinct vertices defining the same block remain distinct incidences.
 
@@ -38,6 +26,14 @@ $$\tau(J)\le R:=t+\lceil u/2\rceil.\tag{1.2}$$
 Fix a common vertex $w_{xy}$ for each pair $x,y\in U$. Its block is $\lbrace x,y\rbrace$ or $\lbrace x,y,z\rbrace$ with $z\in W$. These **witnesses** are distinct: otherwise a block would have size at least four or be a triple inside $U$.
 
 For each $M_i$, form a graph $F_i$ on $U$: edge $xy$ has colour $z\in M_i$ if its witness block is $\lbrace x,y,z\rbrace$. Disjoint edges must have the same colour; otherwise two witness triples replace $M_i$. Write $S_i$ for the sum of the three colour supports, and $S=\sum_iS_i=\sum_xS_x$, where $S_x$ counts the distinct points of $W$ reached by witnesses at $x$.
+
+## 2. Theorem 1: the sharp residual bound
+
+**Theorem 1 (proposed).** *Every intersecting r-uniform family J with q hyperedges and maximum degree at most three satisfies $4\tau(J) \le q+r+3$.*
+
+**Corollary 1.** *$g(r) \ge 3r-3$ for every $r \ge 1$.*
+
+*Proof.* Peeling and Theorem 1. $\square$
 
 ### 2.1 Capacity and local support
 
@@ -65,374 +61,182 @@ If every colour is internally intersecting, each is a star or part of a triangle
 
 *Proof.* Put $\alpha = r-u-t+2$. If $u = 0$, (1.1) gives $\alpha \ge (r+5)/3 \gt 0$. Otherwise (1.1), (2.1) and Lemma 1, with $K = \max(12,u+4)$, give $t \le u-3+2\alpha$ and $\alpha \ge 1 - (K-u)t/(2u)$. A negative integer $\alpha$ would give $t \le u-5$ and then $\alpha \gt -1$: for $K = u+4$ the bound is $-1+10/u$, and for $K = 12$ with $u \le 8$ the needed strict inequality is $u^2-13u+60 \gt 0$, whose discriminant is negative. $\square$
 
+### 2.3 The odd equality case
 
-### 2.3 Support minus edges
+By (1.2) and Lemma 2, if u is even then $4\tau \le 4t+2u = q+(t+u) \le q+r+2$. If u is odd, $4\tau \le q+(t+u)+2$. So Theorem 1 follows once *u odd implies $r \ge u+t-1$*.
 
-The following estimate will later control the matching numbers of witness traces.
+Suppose u is odd and, by Lemma 2, $r = u+t-2$. Then $d = u-t-3 \ge 0$, and (2.1) becomes
 
-**Lemma 3.** If a local graph has more than one colour, then $S_i-e(F_i)\le6$. A monochromatic graph satisfies $S_i-e(F_i)\le\lfloor u/2\rfloor$; if its matching number is at most three, the difference is at most three.
+$$S \ge u(t+2). \qquad\text{(2.3)}$$
 
-*Proof.* Suppose one colour has two disjoint edges. The other-colour edges lie on their four endpoints. If all supports lie there, each colour contributes at most two to support minus edges. Otherwise the other colours have at most two edges in total, and the first colour has $e\ge s-2$. This gives a total at most six. If no colour has two disjoint edges, each colour is a star or part of a triangle and contributes at most one.
+If $u \ge 11$, (2.3) and Lemma 1 give $t \ge u/2$. Then $d+8 \le u+2$ and $12 \le u+2$, so every $S_i \le u+2$ and $u(t+2) \le t(u+2)$, that is $u \le t$, against $t \le u-3$.
 
-For one colour, $s-e$ is at most the number of nonisolated components. Each such component contains an edge, so their number is at most both $\lfloor u/2\rfloor$ and the matching number. $\square$
+For odd $u \le 9$, the conditions $0 \le t \le u-3$ and $u(t+2) \le t \max(12,u+4)$ leave exactly
 
-## 3. Residual stability
+$$(u,t) \in \lbrace (5,2), (7,3), (7,4), (9,5), (9,6) \rbrace ,$$
 
-When the remainder is large, its triple structure forces a positive cover deficit. The following estimate applies to any $J$ with maximum degree three. Put
+with $d = 0, 1, 0, 1, 0$ respectively.
 
-$$\ell = r-u-t+1, \qquad h = t+\ell, \qquad d = 2r-q+1 ,$$
+**Lemma 3 (small excess).** *If every colour has $2e-s \le 1$ and F has more than one colour, then $S_F \le 12$, $S_F \ne 11$, and $S_F = 12$ only when F is a properly three-coloured $K_4$. If also $u \le 9$, the same holds when F has one colour.*
 
-so that $d = u-t-1+2\ell$. Every $x \in U$ has exactly h non-witness vertices, and (1.2) gives $B := q+r+3-4\tau(J) \ge \ell$. With $L = \max(12, d+8)$, call a one-coloured local graph *large* if its matching number is at least four, and let m be their number.
+*Proof.* A connected component on $v \ge 2$ vertices has $2e-v \ge v-2$, so each colour is a matching, or one path on three vertices plus a matching. A colour with a matching of size three leaves the other colours empty, so F has one colour and $S_F \le u \le 9$. A colour of support five is $P_3$ plus an edge, and the other colours are then confined to two edges, giving at most 9. Otherwise every support is at most four. Support four forces two disjoint edges, and two cross-intersecting two-edge matchings are two perfect matchings of one $K_4$; a third colour must be the third. $\square$
 
-**Lemma 4.** *In this general setting:*
+*The cases $d = 1$.* For $(9,5)$, (2.3) asks $S \ge 63$ and Lemma 3 allows 60. For $(7,3)$, (2.3) asks 35, so all three $S_i$ are 12: three edge-disjoint copies of $K_4$ on seven vertices. Two such copies meet in one vertex and leave $K_{3,3}$ plus an isolated vertex, which holds no third $K_4$.
 
-*(a) $S_x \ge t-2\ell$ for every $x \in U$, so $S \ge u(t-2\ell)$ and $u-1-S_x \le d$.*
+*The cases $d = 0$.* Now every colour is a matching and $q = 2r+1$, so (1.1) is an equality for every hyperedge: every vertex has degree three and any two hyperedges meet once. So every witness block is a triple and the $F_i$ partition the edges of $K_u$. For $(5,2)$, $qr = 55$ is not divisible by three. For $u \le 9$ a local graph has at most six edges: one colour is a matching of at most four edges, and with several colours each is a matching of at most two, since a third disjoint edge would meet no other-colour edge. Six edges occur only as the three perfect matchings of a $K_4$, and five only as $K_4$ minus an edge. For $(9,6)$ the 36 edges of $K_9$ would split into six copies of $K_4$, needing degree 8 divisible by three. For $(7,4)$ the 21 edges of $K_7$ split into four parts of size at most six only as $6+6+6+3$, $6+6+5+4$ or $6+5+5+5$; two edge-disjoint $K_4$ leave $K_{3,3}$ plus a vertex, which excludes the first two. In the third, after one $K_4$ on four vertices, each copy of $K_4$ minus an edge contains a triangle and so takes one of the three edges among the other three vertices; it is then two of the four joined to two of the three, plus that edge. The three pairs among the three are distinct and meet, so edge-disjointness needs three disjoint pairs among four vertices, which is impossible.
 
-*(b) In every $F_i$, disjoint edges have the same colour, every colour has $2e-s \le d$, and a vertex carrying E edges in k colours has $E-k \le d$.*
+This proves Theorem 1. $\square$
 
-*(c) Every $F_i$ that is not large has $S_i \le L$.*
+### 2.4 Sharpness, and degree four
 
-*(d) $2m \le h$.*
+For odd n take points $1, \dots, n$ and one vertex for each pair ([2]). Then $q = n$, $r = n-1$, a cover is an edge cover of $K_n$, and $\tau = (n+1)/2$, so $4\tau = q+r+3$.
 
-*Proof.* (a) The h non-witness vertices of x have degree at most three in J, so each meets at most two further hyperedges, and all $3t$ hyperedges of W must be met: $3t-S_x \le 2h$.
+**Corollary 2.** *If J has maximum degree at most four, then $4\tau(J) \le q+r+3$.*
 
-(b) Two disjoint edges of different colours give two disjoint triples in place of $M_i$. A hyperedge c of $M_i$ meets the other $q-1$ hyperedges with r vertices of degree at most three, so its total over-coverage is at most $2r-(q-1) = d$; the witnesses through c cover $2e$ incidences on s vertices. The $u-1$ witnesses at x reach $S_x$ distinct hyperedges.
+*Proof.* Take a maximal matching of four-element blocks; their defining vertices cover $4a$ hyperedges and the rest has maximum degree three. $\tau \le a + (q-4a+r+3)/4$. $\square$
 
-(c) If $F_i$ has more than one colour, Lemma 1 with (b) gives $\max(12, u+2, d+8)$, and in its star case every edge passes through one vertex p, so (b) at p gives $S_i = E+k \le d+2k \le d+6$. If $F_i$ has one colour and matching number at most three, a minimum edge cover of its support is a star forest with at most three components, so $e \ge s-3$ and $2e-s \le d$ gives $S_i = s \le d+6$.
+Peeling at degree five then gives $\lvert H \rvert \ge (15r-q-15)/4$ for the size q of the remainder, which improves the additive term in the corresponding step of [2] but not its coefficient.
 
-(d) A large $F_i$ uses one colour, so its other two points of $M_i$ are met by no witness, and every x reaches these $2m$ points through its h non-witness vertices. A vertex reaching two points of one $M_i$, together with an edge of $F_i$ avoiding x, gives two triples in place of one; a vertex reaching points of $M_i$ and $M_j$, together with an edge of $F_i$ avoiding x and an edge of $F_j$ avoiding x and that edge, gives three triples in place of two. $\square$
+## 3. The equality case
 
-**Proposition 1.** *If $u \gt L$ then*
+In Sections 3–4, suppose $\lvert H \rvert = 3r-3$ and $\tau(H) = r$ with $r \ge 5$.
 
-$$\ell \ge \frac{(u-L)(u-d-1)}{3u+L}. \qquad\text{(3.1)}$$
+### 3.1 The parameters
 
-*Proof.* By Lemma 4, $u(t-2\ell) \le S \le Lt + (u-L)m \le Lt + (u-L)(t+\ell)/2$, which rearranges to $(u-L)t \le (5u-L)\ell$; substitute $t = u-d-1+2\ell$. $\square$
+If H had a vertex of degree at least five, peeling it first would give $\lvert H \rvert \ge \lvert J \rvert + 4(r-\tau(J)) + 1 \ge 3r-2$ by Theorem 1. If every degree were at most three, $3r-3 \le 2r+1$ would force $r \le 4$. So the maximum degree is four. (At $r = 3$ and $r = 4$ the bound $3r-3$ is attained, and this is where the argument stops.)
 
-**The gain at every remainder size.** Write $q = \gamma r$ with $1 \le \gamma \le 2$ and
-$\lambda = \ell/r$. In a limiting sequence, put $v=u/r=(3-\gamma-3\lambda)/2$ and $\widehat d=2-\gamma$. When $u>L$, (3.1) gives $\lambda\ge(v-\widehat d)^2/(3v+\widehat d)$. Substitution and rearrangement yield
-$$27\lambda^2-(20-4\gamma)\lambda+(\gamma-1)^2\le0.$$
-Thus $\lambda$ is at least the smaller root, so $\lambda\ge c(\gamma)-o(1)$ before taking limits, where
+Take a maximum matching of four-element blocks. Their $4a$ hyperedges form *groups* of four, and each group has its *group vertex*. Delete them and let J be the rest, of maximum degree three and $q = 3r-3-4a$ hyperedges. The a group vertices and a cover of J cover H, so $\tau(J) \ge r-a$, while Theorem 1 gives $4\tau(J) \le q+r+3 = 4(r-a)$. So Theorem 1 is an equality for J, which by §2.3 forces u odd, $\tau(J) = r-a$, $r = u+t-1$ and $q = 3t+u$. Consequently
 
-$$c(\gamma) = \frac{20-4\gamma-\sqrt{(20-4\gamma)^2-108(\gamma-1)^2}}{54}. \qquad\text{(3.2)}$$
+$$u = 2a+3, \quad t = r-2a-2, \quad d = u-t-1 \ge 0, \quad r = 2u-2-d, \qquad\text{(3.1)}$$
 
-If instead $u \le L$, then $\lambda \ge (\gamma-1)/3 - o(1)$, which is at least $c(\gamma)$: with $a = \gamma-1$, c is the smaller root of $27y^2-(16-4a)y+a^2$, whose value at $a/3$ is $\frac{16}{3}a(a-1) \le 0$. For $q \lt r$ the bound $t \ge 0$ gives $\lambda \ge 1-\gamma$ directly. 
+and (2.1) becomes $S \ge ut$. Write $H_0 = (u-1)/2$.
 
+The number $d = 2r-q+1$ measures the slack in (1.1). When $d = 0$ every vertex of a hyperedge of J has degree three in J; as d grows, vertices of degree two and one are allowed.
 
-## 4. A maximum matching of four-blocks
+### 3.2 Local bounds
 
-We choose the removed groups to permit exchanges. Their maximum cardinality constrains the clean incidences; counting the removed edges then gives the baseline for the final bound.
+**Lemma 4 (pointwise capacity).** *For $x \in U$ let $S_x$ be the number of hyperedges of W met by the witnesses at x. Then $S_x \ge t$. In one $F_i$, if x carries E edges in k colours, then $E-k \le d$.*
 
-### 4.1 Selection and bookkeeping
+*Proof.* The hyperedge x has exactly $u-1$ witnesses, so exactly $r-(u-1) = t$ other vertices. They meet at most $2t$ hyperedges of W, and all $3t$ must be met, so $3t-S_x \le 2t$. The $u-1$ witnesses at x reach $S_x$ distinct hyperedges of W, so the number of witnesses "wasted" at x is $u-1-S_x \le u-1-t = d$. Edges of one colour at x reach one hyperedge, so E edges in k colours waste $E-k$. $\square$
 
-Starting from $H$, repeatedly select a vertex of maximum current degree while that degree is at least five, and remove its incident edges. Let $b$ be the number of these steps. If their degrees are $d_1,\ldots,d_b$, put
-$$E_0=\sum_{i=1}^b(d_i-4).$$
-Then $E_0\ge b$, and the remaining hypergraph $H'$ has maximum degree at most four.
+**Lemma 5.** *Every $F_i$ with more than one colour has $S_i \le \max(12, d+8)$ and $S_i - e(F_i) \le 6$. A one-coloured $F_i$ has $S_i - e(F_i) \le H_0$.*
 
-In the dual incidence system of $H'$, choose a maximum matching of four-element blocks. Its $k_c$ blocks are the **clean groups**; their $N_c=4k_c$ points are the **clean hyperedges**. Remove them and denote the remainder by $J$. A four-block contained in $J$ could be added to the matching, so $\Delta(J)\le3$. The selected groups are disjoint, and each defining group vertex occurs only in its own four clean hyperedges within $H'$. Residual degrees are taken to be zero for vertices with no incidence in $J$.
+*Proof.* The first case of Lemma 1 already gives $\max(12,d+8)$. In the star case, $F_i$ is a star at one vertex with E edges in $k \le 3$ colours, and $S_i = E+k \le d+2k \le d+6$ by Lemma 4. For the second bound: with two disjoint edges of one colour on W, either every support lies in W and each colour has $s-e \le 2$, or at most two other-colour edges exist, contributing at most two, while the first colour has $e \ge s-2$. Otherwise every colour is a star or triangle with $s-e \le 1$. A one-coloured graph has $s-e$ at most its number of components, at most $H_0$. $\square$
 
-Set $k=b+k_c$, $q=\lvert E(J)\rvert$ and
-$$B=q+r+3-4\tau(J),\qquad \xi=k+\tau(J)-r,\qquad G=B+4\xi.$$
-The selected vertices, together with a transversal of $J$, cover $H$, so $\xi\ge0$. Direct counting gives
-$$n:=\lvert E(H)\rvert=q+4k+E_0=3r-3+E_0+G,\tag{4.1}$$
-$$N_c=3r-3-q+G-4b.\tag{4.2}$$
-**Lemma 5 (incidence capacity).** If there is a clean hyperedge, then
-$$N_c\le3r-q+1,\qquad \Omega:=3r-q-N_c+1=4+4b-G\ge0.$$
+### 3.3 Two augmentation bounds
 
-*Proof.* Fix a clean hyperedge $A$ with group vertex $g$. For $v\in A\setminus\lbrace g\rbrace$ write $j_v=\deg_J(v)$. Such a vertex meets at most $3-j_v$ other clean hyperedges. Since $A$ meets all residual hyperedges and all clean hyperedges outside its group,
-$$q\le\sum_{v\ne g}j_v,\qquad N_c-4\le\sum_{v\ne g}(3-j_v).$$
-Add the inequalities over the $r-1$ vertices other than $g$. The identity for $\Omega$ follows from (4.2). $\square$
+Call a one-coloured $F_i$ *large* if its matching number is at least four, and let m be their number.
 
-### 4.2 Natural transversals and savings
+**Lemma 6.** *$2m \le t$.*
 
-A **natural transversal** of $J$ is obtained from the $t$ matched triples and a pairing of $U$, with one additional vertex for an odd leftover point. Its size is $R=t+\lceil u/2\rceil$. Put $s=R-\tau(J)\ge0$. Then
-$$B=\ell+4s\quad(u\text{ odd}),\qquad B=\ell+2+4s\quad(u\text{ even}).$$
+*Proof.* A large $F_i$ uses one colour $z_i$; its other two points of $M_i$ are met by no witness. So every $x \in U$ must meet those $2m$ points with its t non-witness vertices. No such vertex meets two of them. Within one $M_i$, its triple and an edge of $F_i$ avoiding x would replace $M_i$ by two triples. Across $M_i$ and $M_j$, an edge of $F_i$ avoiding x and an edge of $F_j$ avoiding x and those two endpoints, which matching number four provides, give three triples in place of two. Either way the matching was not maximum. $\square$
 
-**Lemma 6 (group savings).** If a natural transversal hits all four hyperedges in $b_4$ clean groups and at least three in $b_3$ other clean groups, then
-$$G\ge\ell+4\bigl(b_4+\lfloor b_3/2\rfloor\bigr).$$
+**Lemma 7.** *$u \le \max(12, d+8)$.*
 
-*Proof.* The natural transversal and all $k$ selected group vertices form a transversal of $H$ of size $r+\xi+s$. Drop the vertices of fully hit groups. Pair groups with one missed hyperedge: the two missed hyperedges intersect, so one common vertex replaces their two group vertices. Since $\tau(H)=r$, the saving is at most $\xi+s$. Use $B\ge\ell+4s$. $\square$
+*Proof.* Suppose not. By Lemma 5 every $F_i$ with more than one colour has $S_i \lt u$, and a one-coloured $F_i$ has $S_i \le u$. Since $S \ge ut$, every $F_i$ is one-coloured and spans U. Then $2e-u \le d$ gives $e \le (u+d)/2$, and its matching number is at least $u-e \ge (u-d)/2 \gt 4$. So $m = t$, and Lemma 6 forces $t = 0$, whereas $t = u-d-1 \ge 8$. $\square$
 
-### 4.3 Limiting parameters
+### 3.4 The swap lemma
 
-To prove the main result, suppose that a sequence with $r\to\infty$ has limiting excess $x=n/r-3<0.1108$. Pass to a subsequence on which all required normalized counts converge. Use
-$$\gamma=\lim q/r,\quad \lambda=\lim\ell/r,\quad z=\lim G/r,
-\quad\sigma=\lim(4b-G)/r,\quad\delta=z-\lambda.$$
-The symbol $\sigma$ is also the limit of $\Omega/r$. Write
-$$v=\lim u/r=\frac{3-\gamma-3\lambda}{2},\quad
-\widehat t=\lim t/r=\frac{\gamma-1+\lambda}{2},\quad
-N=\lim N_c/r=3-\gamma-\sigma.$$
+The groups come from a *maximum* matching of four-element blocks. That alone constrains every deleted hyperedge.
 
-If $J$ is empty, the selected vertices cover $H$ and $n\ge4r$. Otherwise $\gamma\le2$ by (1.1), $\lambda\ge0$ by Lemma 2 and $z\ge\lambda$ by Lemma 6. Lemma 5 gives $\sigma\ge0$ when clean edges exist. If their normalized number vanishes, (4.2) gives $\sigma=3-\gamma\ge1$, and the baseline below contradicts $x<0.1108$. Thus the clean part is nonvanishing.
+**Lemma 8 (swap).** *Let $A \ne A'$ be deleted hyperedges of the same group. If $w \in A$ and $w' \in A'$ are vertices of degree three in J, their sets of hyperedges of J meet.*
 
-Consequently
-$$x\ge\frac54z+\frac\sigma4
- =\frac54(\lambda+\delta)+\frac\sigma4,
-\qquad \delta\ge0.\tag{4.3}$$
-In particular
-$$0\le\lambda<0.0887,\quad0\le\sigma<0.4432,\quad v>0,\quad N>0.$$
-Section 3 gives $\lambda\ge c(\gamma)$ on $[1,2]$, and $\lambda\ge1-\gamma$ when $\gamma<1$. The remaining arguments concern limits; statements involving $o(1)$ refer to the original sequence before taking those limits.
+*Proof.* w lies in A and in three hyperedges of J, so it has degree four in H and its block is $\lbrace A \rbrace \cup T$ with T three hyperedges of J; likewise $\lbrace A' \rbrace \cup T'$. Neither block meets another group. If $T \cap T' = \emptyset$, the two blocks are disjoint, and putting them in place of the group's own block gives $a+1$ disjoint four-element blocks, against maximum cardinality. $\square$
 
-## 5. Witness traces and rainbow savings
+Call such T a *triple* of A. Every vertex that a deleted hyperedge shares with a hyperedge of J is a vertex of J, so a deleted hyperedge meets J through triples and through vertices of degree two or one in J.
 
-A matching of witness pairs can hit prescribed clean edges without increasing the residual cover size. For a clean hyperedge $A$, its **witness trace** $L_A$ is the graph on $U$ with edge $xy$ when $w_{xy}\in A$. Let $s_A$ be its support and $\nu_A$ its matching number. The minimum-edge-cover identity on its nonisolated vertices gives
-$$\nu_A\ge s_A-e(L_A),\qquad\nu_A\le\lfloor u/2\rfloor.$$
-We reserve $\mu_A$ for the matching number of residual triples attached to $A$.
+**Proposition 1.** *In the equality setting $d \ne 0$, and $d \ne 1$ when $r \ge 11$.*
 
-### 5.1 The trace budget
+*Proof.* Take a group; it has four hyperedges.
 
-**Lemma 7.** With $M_0=\sum_A(u-s_A)$, summed over clean hyperedges,
-$$M_0\le S+3u\ell.$$
+*$d = 0$.* By §2.3, $q = 2r+1$ and every vertex of a hyperedge of J has degree three in J. So a deleted hyperedge A meets the $2r+1$ hyperedges of J through at most $r-1$ triples. Fix one, T. If the other at most $r-2$ all met T, they would reach at most $3 + 2(r-2) = 2r-1$ hyperedges; so A has a triple $T'$ disjoint from T. By Lemma 8 every triple of a group-mate $A'$ meets both T and $T'$, so reaches at most one of the $2r-5$ hyperedges outside them. With at most $r-1$ triples, $A'$ misses one, since $r-1 \lt 2r-5$ for $r \ge 5$.
 
-*Proof.* Fix $x\in U$. A clean hyperedge whose trace misses $x$ still intersects the original hyperedge $x$ through one of its $h=t+\ell$ non-witness vertices. A vertex of residual degree $j$ occurs in at most $4-j$ clean hyperedges. These non-witness vertices must reach the $3t-S_x$ points of $W$ missed by witnesses, so the total clean capacity is at most $3h-(3t-S_x)=S_x+3\ell$. Sum over $x$. $\square$
+*$d = 1$.* Now $q = 2r$, and (1.1) allows each hyperedge of J at most one vertex of degree two and none of degree one. So J has at most $q/2 = r$ vertices of degree two, each in at most two deleted hyperedges, since degrees in H are at most four: at most $2r$ incidences with deleted hyperedges. A deleted hyperedge whose triples pairwise meet reaches at most $1 + 2n_3$ hyperedges through $n_3$ triples and two through each other vertex, at most $1 + 2(r-1) \lt 2r$ in all; so every deleted hyperedge has two disjoint triples. For a group-mate $A'$ with $n_2$ vertices of degree two, the $2r-6$ hyperedges outside those two triples are reached at most once per triple and twice per vertex of degree two, so $2r-6 \le (r-1) + n_2$ and $n_2 \ge r-5$. Every deleted hyperedge is such a group-mate, so the $4a \ge 4$ deleted hyperedges need at least $4(r-5)$ incidences, more than $2r$ when $r \ge 11$. $\square$
 
-Put $T=\sum_i e(F_i)$ and $D=S-T$. Here $T$ is exactly the number of witnesses of residual degree three.
+## 4. Theorem 2: excluding equality from r = 16
 
-**Lemma 8.** We have $D\le6t+u(t+\ell)/4$.
+**Theorem 2 (proposed).** *$g(r) \ge 3r-2$ for every $r \ge 16$.*
 
-*Proof.* The multicoloured bound $S_i-e(F_i)\le6$ uses only the disjoint-edge condition in Lemma 3. A monochromatic graph with matching number at most three has $s-e\le3$; any monochromatic graph has $s-e\le\lfloor u/2\rfloor$, by counting nonisolated components. With $m$ large graphs,
-$$D\le6(t-m)+m\lfloor u/2\rfloor\le6t+u(t+\ell)/4,$$
-using $2m\le t+\ell$. $\square$
+### 4.1 The deleted hyperedges and their matching numbers
 
-**Lemma 9 (effective missing budget).**
-$$\sum_A\left(1-\frac{2\nu_A}{u}\right)
-\le3\ell+4+4b-G+\frac{t+\ell}{2}+\frac{12t}{u}.$$
+For each of the $4a$ deleted hyperedges A let $L_A$ be the graph on U whose edge $xy$ is present when $w_{xy} \in A$; write $e_A$, $s_A$, $\nu_A$ for its edges, support and matching number. Let $T = \sum_i e(F_i)$ and $D = S - T$.
 
-*Proof.* A witness of residual degree two occurs in at most two clean hyperedges, and one of degree three in at most one. Therefore
-$$\sum_A e(L_A)\le u(u-1)-T.$$
-Combine this with $\nu_A\ge s_A-e(L_A)$ and Lemma 7 to obtain
-$$\sum_A(u-2\nu_A)\le2D+6u\ell+2u(u-1)-N_cu.$$
-Divide by $u$, insert Lemma 8 and (4.2), and use $r=u+t+\ell-1$. $\square$
+A witness of degree two in J lies in at most two deleted hyperedges, one of degree three in at most one, since degrees in H are at most four; so $\sum_A e_A \le u(u-1) - T$. Let $M = \sum_A (u - s_A)$. For $x \in U$ its t non-witness vertices have room for at most $3t$ other hyperedges of H; they must meet the $3t-S_x$ hyperedges of W not met by witnesses, and every deleted hyperedge A whose graph misses x. So at most $S_x$ deleted hyperedges miss x, and $M \le S$. Using $\nu_A \ge s_A - e_A$ and $4a = 2u-6$,
 
-In the limiting domain $u$ is linear in $r$, so this gives
-$$\limsup\frac1r\sum_A\left(1-\frac{2\nu_A}{u}\right)
-\le M:=\sigma+\frac{\gamma-1+15\lambda}{4}.$$
-Define
-$$K=2(N-2M)=7-3\gamma-15\lambda-6\sigma,\qquad K_-=\max(0,-K).$$
+$$\sum_A \nu_A \ge u^2 - 5u - D. \qquad\text{(4.1)}$$
 
-### 5.2 Rainbow matchings
+**Lemma 9.** *Within one group there are no three disjoint edges from three different graphs $L_A$.*
 
-We use Correia, Pokrovskiy and Sudakov [5, Theorem 1.2 in the journal version]: for sufficiently large $m$, $m$ colour classes that are matchings of size at least $m+20m^{15/16}$ admit a full rainbow matching.
+*Proof.* Extend them to a matching of $H_0$ edges of the complete graph on U, leaving one point x. The witnesses of these edges cover U except x and meet three hyperedges of the group; one vertex of x that lies in the fourth hyperedge covers both. With the t defining vertices of W and the $a-1$ group vertices of the other groups this is a cover of H of size $H_0 + 1 + t + a - 1 = r-1$. $\square$
 
-**Lemma 10.** For fixed $\theta>0$, any prescribed set of at most $\theta u-o(r)$ clean hyperedges with $\nu_A\ge\theta u$ can be hit by one natural transversal.
+**Lemma 10.** *Three graphs each with a matching of size four and a fourth nonempty graph contain three disjoint edges from three different graphs.*
 
-*Proof.* Colour a maximum matching of $L_A$ by $A$ and apply the cited theorem. Parallel edges of different colours are permitted. Extend the rainbow matching to a pairing of $U$. Each selected witness lies in its prescribed hyperedge. An odd leftover point requires one additional vertex. The $O(r^{15/16})$ allowance is absorbed by $o(r)$. $\square$
+**Lemma 11.** *The same holds for four graphs with matching numbers at least $3, 3, 4, 4$.*
 
-**Lemma 11 (allocation).** If $b_0$ clean hyperedges have trace matching number below $\theta u$, then a natural transversal saves at least
-$$\min\left(\frac{\theta u}{6},\frac{N_c}{4}-\frac{b_0}{2}\right)-o(r)$$
-group vertices.
+*Proof of both.* Fix size-four matchings $P, Q$ in two of the graphs and suppose no such triple exists. Call an edge e of another graph *blocked* if no two disjoint edges, one from P and one from Q, avoid it; every edge of the other graphs is blocked. The edges of P and of Q avoiding a blocked edge must cross-intersect. Each side keeps at least two, and one edge cannot meet three disjoint edges, so exactly two survive on each side and they form a four-cycle, which is a component of the union of $P$ and $Q$, retaining multiplicity when an edge belongs to both matchings. Both endpoints of e lie in both supports: e must remove exactly two edges from each matching. Since the surviving four vertices already have their P and Q edges inside the cycle, no union edge leaves that component. The other graphs supply three disjoint blocked edges (a size-three matching for Lemma 11, a size-four matching for Lemma 10). Their six endpoints lie in both supports, and outside one such four-cycle there are at most four such vertices, so one of the other blocked edges touches it. Its surviving four-cycle cannot be the first cycle, because it avoids that blocked edge. Being a component of the same matching union, it is therefore a second disjoint four-cycle. So $P \cup Q$ is two disjoint four-cycles on the same eight vertices, and every blocked edge is a diagonal of one of them.
 
-*Proof.* Let $g_4$ groups have no such hyperedge and $g_3$ have exactly one. Then $g_3\ge N_c/2-b_0-2g_4$. If $g_4$ is sufficiently large, hit four hyperedges per selected group. Otherwise hit all four in the $g_4$ groups and three in the remaining selected groups. Lemma 6 gives at least the stated minimum, with bounded rounding errors and the rainbow allowance. If fewer than the prescribed number of eligible hyperedges exist, use the smaller set. $\square$
+For Lemma 11 the two size-three matchings each consist of three of the four diagonals. The first has both diagonals of one cycle and the second at least one of them; take that one for the second, the other for the first, and an edge of P in the other cycle. For Lemma 10 the three size-four matchings are the three perfect matchings of each of the two copies of $K_4$. Take an edge f of the fourth graph. If f removes two vertices of one copy, the edge on its other two vertices and an edge of a different matching in the other copy avoid f. If f removes at most one vertex of each copy, each copy keeps a triangle or all of $K_4$, which contains all three matchings, so two edges of different matchings avoid f. In every case a rainbow triple exists. $\square$
 
-By Lemma 9, $b_0(1-2\theta)$ is at most the effective missing budget. Consequently
-$$\delta\ge\min\left(\frac{2\theta v}{3},\ N-\frac{2M}{1-2\theta}\right).$$
-Balancing the two terms, or taking a limit at $\theta=1/2$, proves
-$$\delta\ge R_{\mathrm{rat}}:=\frac{K_+v}{2(v+3N)}.\tag{5.1}$$
+Order the matching numbers of one group as $v_1 \le v_2 \le v_3 \le v_4$. Greedy choice gives a rainbow triple when $v_2 \ge 1$, $v_3 \ge 3$ and $v_4 \ge 5$. With Lemmas 9–11, every group has $v_2 = 0$, or $v_3 \le 2$, or all $v_i \le 4$ with neither $v_1 \ge 1$ and $v_2 = v_3 = v_4 = 4$ nor $v_1, v_2 \ge 3$ and $v_3 = v_4 = 4$. So the sum is at most $\max(2H_0, H_0+6, 13)$, and with (4.1):
 
-### 5.3 Recovering savings from light traces
+$$D \ge \frac{u^2-6u-3}{2} \quad (u \ge 15), \qquad D \ge 39 \quad (u = 13). \qquad\text{(4.2)}$$
 
-The local support estimates give $S\le(\bar s+o(1))ur$, where
-$$\bar s=\min\left(\widehat t,\ \frac{(2-\gamma)\widehat t+(v-2+\gamma)(\widehat t+\lambda)/2}{v}\right)\quad\text{if } v\gt 2-\gamma,\qquad \bar s=\widehat t\quad\text{otherwise.}$$
-Indeed ordinary local graphs have support at most $\max(12,d+8)$, large monochromatic graphs have support at most $u$, and $2m\le t+\ell$. Put $Q=N/2-3\lambda-\bar s$.
+### 4.2 Large remainders: u is at most 11
 
-**Lemma 12 (light-trace recovery).**
-$$\delta\ge W_{\mathrm{tr}}:=
-\min\left(\frac v{16},\frac{v(Q-K_-)_+}{1+7v+9N}\right).\tag{5.2}$$
+*$u \ge 15$.* By Lemma 7, $d \ge u-8$ and $t = u-d-1 \le 7$. By Lemma 5, $D \le 7H_0 = 7(u-1)/2$. With (4.2) this gives $u^2-13u+4 \le 0$, false for $u \ge 13$.
 
-*Proof.* Assume $\delta<v/16$. Fix $\alpha>2\delta/v$ with $\alpha<1/8$. Call a trace light if $\nu_A<\alpha u$, and heavy if $\nu_A\ge u/4$. Call a group regular if it has two heavy and two light traces. If $J_3r$ groups contain at least three traces that are not light, Lemmas 10 and 6 give $\delta\ge2\min(J_3,\alpha v/3)-o(1)$, hence $J_3\le\delta/2+o(1)$.
+*$u = 13$.* Lemma 7 gives $d \ge 5$. If $d \ge 6$ then $t \le 6$ and $D \le 6t \le 36$, against (4.2). If $d = 5$ then $t = 7$ and every $S_i \le 13$, so $S \ge 91$ forces every $S_i = 13$. A one-coloured $F_i$ then has $e \le 9$ and matching number at least four, so it is large and $S_i - e \le 6$. A multicoloured $F_i$ cannot be the star case of Lemma 5, which gives at most $d+6 = 11$, so $S_i = 13 = d+8$ is the extremal case of Lemma 1: two other-colour edges $pa$, $pb$, and a first colour made of $ab$ and six edges at p, so $S_i - e = 13 - 9 = 4$. Lemma 6 gives $m \le 3$, so $D \le 6 \cdot 3 + 4 \cdot 4 = 34$, against (4.2).
 
-Every other group has total matching number at most $(1+2\alpha)u$; a nonregular one has at most $(3/4+2\alpha)u$. Groups counted by $J_3$ have at most $2u$. The effective missing budget supplies $\sum_A\nu_A/(ur)\ge N/4+K/8-o(1)$. Thus the normalized number $Z$ of nonregular groups satisfies
-$$Z\le2N\alpha+\frac52\delta+\frac12K_-+o(1).$$
-The two light traces of each regular group together contain at least $(Q-2Z-\alpha N/2-o(1))ur$ edge occurrences, by Lemma 7 and $e(L_A)\ge s_A-\nu_A$.
+So $u \le 11$.
 
-Colour these occurrences by their group, retaining parallel copies when both traces contain the same edge. Each colour has at most $2r$ occurrences and the total degree of a vertex, including multiplicity, is at most $2(u-1)$. A maximal rainbow matching of $L_w$ edges therefore satisfies
-$$\text{total occurrences}\le(2r+4u)L_w.$$
+### 4.3 u = 11: the anchor count
 
-Retain at most $u/32$ selected weak edges. Their endpoints remove at most $2L'$ edges from each heavy matching; the remaining size is at least $3u/16$, while only $2L'\le u/16$ heavy colours require completion. The rainbow theorem supplies two further hit hyperedges per chosen group. Lemma 6 then gives $\delta\ge2L'/r-o(1)$.
+Call $(x, c)$ *open* in a local graph $F_j$ if no edge of colour c meets x and every edge of the other two colours does. Let $A_j$ be the number of open pairs of $F_j$.
 
-Let $\alpha$ decrease to $2\delta/v$. The truncation would give $\delta\ge v/16$, contrary to the assumption, so
-$$\delta\ge\frac{v}{1+2v}\left(Q-K_--\delta\left(5+\frac{9N}{v}\right)\right)_+.$$
-Rearrangement gives (5.2). At $\delta=0$, let $\alpha\downarrow0$ after taking limits. If $\delta\ge v/16$, (5.2) is immediate. $\square$
+For a local graph $F_i$ and $x \in U$, let $P_x$ be the set of colours of $F_i$ with no edge at x; their points of $M_i$ are not reached by the witnesses at x. Call a pair of colours in $P_x$ *forbidden* if $F_i$ has an edge of the third colour avoiding x, and call $c \in P_x$ *good* if, for every pair f of U that avoids x and is not an edge of $F_i$, some edge of $F_i$ of a colour other than c avoids both x and f. For a set $R \subseteq P_x$ whose pairs are all forbidden, put $g_x$ equal to the size of R, minus the number of colours of $P_x$ outside R, minus the number of colours of R that are not good; take the best R, and let $G = \sum_x \max(g_x, 0)$, the *anchor value* of $F_i$.
 
-## 6. Incidence constraints from alternative four-blocks
+**Lemma 12 (demand).** *If $F_i$ has anchor value G, the other local graphs have at least $tu + G - S$ open pairs in all.*
 
-We now use exchanges of four-blocks to compare the clean edges’ demand for residual incidences with the available supply.
+*Proof.* Fix x and R. The t non-witness vertices of x must reach the $3t - S_x$ hyperedges of W that its witnesses miss, among them the points of R. No vertex reaches two points of R: its block and an edge of the third colour avoiding x would replace $M_i$ by two triples. So $\lvert R \rvert$ distinct vertices reach the points of R, each reaching at most one further hyperedge, and the other $t - \lvert R \rvert$ reach at most two each. The $\lvert R \rvert$ vertices therefore reach at least $t + \lvert R \rvert - S_x$ further hyperedges missed by the witnesses, of which at most one per colour of $P_x$ outside R lies in $M_i$.
 
-### 6.1 Exact overlap and unused capacity
+Let $\lbrace x, c, q' \rbrace$ be such a vertex with $c \in R$ good and $q' \in M_j$, $j \ne i$. No edge of colour $q'$ in $F_j$ meets x, since the witnesses at x miss $q'$. If an edge f of $F_j$ of another colour avoided x, goodness gives an edge e of $F_i$ of a colour other than c avoiding x and f, and the blocks of $\lbrace x, c, q' \rbrace$, e and f are three disjoint triples in place of $M_i$ and $M_j$. So $(x, q')$ is open in $F_j$. Distinct $q'$ give distinct pairs, and each colour of R that is not good spoils at most one. So at least $t + g_x - S_x$ open pairs come from x. Summing over the x with $g_x \gt 0$ and using $S_x \ge t$ for the rest gives $tu + G - S$. $\square$
 
-For a clean hyperedge $A$ with group vertex $g$, define
-$$R_A=\sum_{v\in A\setminus\lbrace g\rbrace }\deg_J(v)-q,\qquad
-P_A=\sum_{v\in A\setminus\lbrace g\rbrace }(3-\deg_J(v))-(N_c-4).$$
-Both quantities are nonnegative by intersectingness and degree-four capacity, and
-$$R_A+P_A=\Omega.\tag{6.1}$$
-Thus $R_A$ measures repeated residual incidences, while $P_A$ measures unused clean incidence capacity.
+Three anchors matter. A properly three-coloured $K_4$ on W has $G = 3(u-4)$: for $x \notin W$ all three colours are missing, every pair is forbidden, and every colour is good, since the other two colours form a four-cycle on W and a pair f outside $F_i$ meets W in at most one point. A spanning one-coloured large $F_i$ has $G = 2u$: for every x its two unused colours are missing, forbidden together, and good, since a matching of size four leaves an edge avoiding x and f. The graph $Y_k$, with edges $pa$ and $pb$ of two colours and a third colour made of $ab$ and k edges at p, has $G = 2(u-3)$.
 
-Let $p_A$ count vertices of residual degree three in $A$, and let $\mu_A$ be the matching number of their triples in $J$.
+**Lemma 13 (finite classification; `code/verify_anchor_count.py`).** *Let $u = 11$ and $1 \le d \le 4$. Every local graph with more than one colour has at most $12 - S_j$ open pairs, and every one with $S_j \ge 11$ has anchor value at least 16. A one-coloured graph of support s has $11 - s$ open pairs, plus two for each vertex common to all its edges.*
 
-**Lemma 13 (alternative triples).**
-$$\mu_A\ge p_A-R_A,\qquad 3p_A\le q+R_A.$$
-Triple families associated with different clean hyperedges of one group are cross-intersecting.
+The one-coloured count is direct. The script checks every multicoloured local graph on eleven vertices that satisfies (2.2) and Lemma 4: those with $S_j \ge 11$ are the $K_4$ and $Y_4$, and at $d = 4$ also $Y_5$, with anchor values 21, 16 and 16.
 
-*Proof.* If the $p_A$ triples have support $s$, then $3p_A-s\le R_A$. A maximal disjoint subfamily of size $m$ has support at most $3m+2(p_A-m)=2p_A+m$, because every other triple meets its union. Hence $m\ge p_A-R_A$. The second inequality follows from the total residual incidence count. Disjoint triples associated with two different hyperedges of the same group define two disjoint four-blocks replacing that group, contradicting maximum cardinality. $\square$
+**Proposition 2.** *In the equality setting, $u = 11$ with $1 \le d \le 4$ is impossible.*
 
-Call a clean group **strong** if some distinguished hyperedge $D$ has $\mu_D\ge10$; call it weak otherwise. Let their counts be $k_s,k_w$, with $k_s+k_w=N_c/4$. In a strong group only $D$ can have $p_A>0$: a triple meets at most three of ten disjoint triples. Every hyperedge of a weak group satisfies $p_A\le R_A+9$.
+*Proof.* Here $t = 10-d$, every $S_j \le 12$ by Lemma 5, and $S \ge 11t$. So $\sum_j (12 - S_j) \le t \le 9$ and some $S_j \ge 11$. That $F_j$ is an anchor with $G \ge 16$: by Lemma 13 if it has several colours, and otherwise it spans U with at most $(11+d)/2 \le 7$ edges, hence matching number at least four and $G = 22$. By Lemma 12 the other local graphs carry at least $11t + 16 - S$ open pairs.
 
-### 6.2 Residual degree-two vertices and eligible hyperedges
+By Lemma 13 a local graph carries at most $12 - S_j$ open pairs, except a one-coloured one whose edges share a vertex. A star with k leaves has $12 - S_j = 11 - k$ and carries one more; a single edge or an empty graph would need $12 - S_j \ge 10 \gt t$. A star needs $11 - k \le t$ and, by (2.2), $k \le d+1$, so $k = d+1$ and it uses the whole budget; at most one occurs. So the local graphs carry at most $12t - S + 1$ open pairs, and $11t + 16 \le 12t + 1$ would need $t \ge 15$. $\square$
 
-Let $B_2$ count vertices with two residual and two clean incidences, and $B_3$ those with three residual and one clean incidence. Define the **eligible hyperedges** $\mathcal E$ to be all weak-group hyperedges together with the distinguished hyperedge of each strong group. Its complement among the clean hyperedges is $\mathcal N$, the unmarked strong hyperedges (SND in the working notes).
+### 4.4 Proof of Theorem 2
 
-**Lemma 14 (eligible incidences).** Every vertex counted by $B_2$ has a clean incidence in $\mathcal E$. Every vertex counted by $B_3$ has its unique clean incidence there.
+Suppose $r \ge 16$ and $\lvert H \rvert = 3r - 3$ with $\tau(H) = r$. By §4.2, $u \le 11$, and $r = 2u - 2 - d$. If $u \le 9$ then $r \le 16 - d$, so $r = 16$, $u = 9$ and $d = 0$, excluded by Proposition 1. If $u = 11$ then $d = 20 - r \le 4$: $d = 0$ is excluded by Proposition 1 and $1 \le d \le 4$ by Proposition 2. So $\lvert H \rvert \ge 3r - 2$ by Corollary 1. $\square$
 
-*Proof.* The assertion for $B_3$ follows from Lemma 13. Suppose a $B_2$ block $\lbrace A,B,x,y\rbrace$ uses two hyperedges of $\mathcal N$. Within one strong group, a triple of its distinguished hyperedge avoiding $x,y$ gives two disjoint four-blocks replacing one. Across two strong groups, choose such a triple in the first. The pair $\lbrace x,y\rbrace$ and this triple have five residual points, so one of the ten disjoint triples in the second group avoids all of them. The three resulting four-blocks replace the two groups. Both cases contradict maximum cardinality. $\square$
+### 4.5 The remaining finite case
 
-Write $R_{\mathrm{tot}}=\sum_A R_A$, $R_s=\sum_D R_D$, $R_n=\sum_{A\in\mathcal N}R_A$ and $R_e=R_{\mathrm{tot}}-R_n$. Let $I_e,I_n$ count residual degree-one incidences on $\mathcal E,\mathcal N$. If $N_j$ counts vertices of degree $j$ in $J$, then
-$$I_e+I_n\le3N_1,\qquad B_2\le N_2\le qd/2-N_1.\tag{6.2}$$
-For the last estimate, sum $2r-\sum_{v\in x}(\deg_J(v)-1)\le d$ over residual hyperedges $x$. Vertices of residual degree one and two contribute two each; degree-three vertices contribute zero.
+At $r=15$, the parameter choices are $(u,d,t)=(9,1,7)$ and $(11,5,5)$. Proposition 1 excludes the first. The second remains open: at $d=5$, multicoloured stars can have support $u=11$ with zero anchor value, and the supply estimate in Lemma 13 no longer applies. Thus the proposed equality-exclusion argument stops at $r\ge16$ and does not settle $7\le r\le15$.
 
-Let $b_A$ count residual degree-two vertices of $A$ that occur in a second clean hyperedge. An unused additional incidence consumes one unit of $P_A$. Since $n_{2,A}+2p_A\ge q-r+1+R_A$, we obtain
-$$b_A+2p_A\ge q-r+1-\Omega+2R_A.$$
-Summing gives
-$$B_2+B_3\ge L+R_{\mathrm{tot}},\qquad L=\frac{N_c}{2}(q-r+1-\Omega).\tag{6.3}$$
-Moreover, summing Lemma 13 over strong and weak groups gives
-$$B_3\le\frac q3k_s+R_{\mathrm{tot}}-R_n-\frac23R_s+36k_w.\tag{6.4}$$
 
-### 6.3 Counting only admissible incidences
+## 5. A consequence of stability
 
-Assign each $B_2$ vertex one eligible clean incidence, and each $B_3$ vertex its unique clean incidence. Distinct vertices use distinct incidences. Thus
-$$B_2+B_3\le(N_c-3k_s)(r-1).\tag{6.5}$$
-The assignment actually uses only residual degree-two or degree-three incidences. For $A\in\mathcal E$,
-$$q+R_A=n_{1,A}+2n_{2,A}+3p_A.$$
-All degree-three clean incidences lie in $\mathcal E$, so their sum is $B_3$. Consequently
-$$2B_2+3B_3\le q(N_c-3k_s)+R_e-I_e.\tag{6.6}$$
+**Corollary 3.** *If the degree-four peeling of H leaves a remainder with $q \ge 2r-3$, then $\lvert H \rvert \ge \lceil (28r-67)/9 \rceil$.*
 
-An unmarked strong hyperedge has $p_A=0$. Its demand for used degree-two incidences is therefore
-$$b_A\ge\frac q2-\Omega+\frac32R_A-\frac12n_{1,A}.\tag{6.7}$$
-Each of these incidences leads to $\mathcal E$ by Lemma 14. Comparing the total demand with the degree-two capacity of $\mathcal E$ gives
-$$6(q-\Omega)k_s+3B_3\le qN_c+R_{\mathrm{tot}}-4R_n+I_n-I_e.\tag{6.8}$$
-Here the eligible degree-two capacity is $[q(N_c-3k_s)+R_e-I_e-3B_3]/2$, which explains the coefficient $3B_3$.
+*Proof.* Here $d \le 4$ and $L = 12$. For $u \gt 12$, (5.1) gives $\ell \ge (u-21)/3$, and with $r = 2u-d-2+3\ell$ this is $\ell \ge (r-40)/9$. For $u \le 12$, $r \le 22+3\ell$ gives the same for $r \ge 13$, and for smaller r the bound is negative. So $B\ge(r-40)/9$. For this peeling, set $E_0=n-q-4k\ge0$ and $\xi=k+\tau(J)-r\ge0$. The identity $n=3r-3+E_0+B+4\xi$ gives the claim. $\square$
 
-There is also a global bound: a $B_2$ vertex has at most one endpoint in $\mathcal N$, so $\sum_{A\in\mathcal N}b_A\le B_2$. Use (6.2), (6.7) and $I_e+I_n\le3N_1$ to obtain
-$$3(q-2\Omega)k_s+3R_n+I_e-N_1\le qd.\tag{6.9}$$
+Theorem 3 and equation (5.1) in this additional consequence refer to Proposition 1 and equation (3.1) of [P6].
 
-Finally, sum unused degree-two capacity over **all** clean hyperedges:
-$$\sum_A n_{2,A}-2B_2\le\sum_A P_A=\Omega N_c-R_{\mathrm{tot}}.$$
-The total residual incidence identity implies
-$$4B_2+3B_3\ge N_c(q-2\Omega)+3R_{\mathrm{tot}}-(I_e+I_n).$$
-Insert (6.2) and (6.4) to conclude
-$$N_c(q-2\Omega)+N_1+3R_n+2R_s\le2qd+qk_s+108k_w.\tag{6.10}$$
+## Verification
 
-### 6.4 The limiting constraints
-
-Divide the preceding inequalities by $r^2$. Denote the limits of $R_{\mathrm{tot}}/r^2,R_s/r^2,R_n/r^2,I_e/r^2,N_1/r^2$ by $\rho,\rho_s,\rho_n,\iota_e,n_1$, and write $\kappa=k_s/r$ and $L_0=N(\gamma-1-\sigma)/2$. All are nonnegative. The triple bound and (6.2)–(6.3) give
-$$\beta_3\le\gamma\kappa/3+\rho-\rho_n-2\rho_s/3,
-\qquad \beta_3\ge L_0+\rho+n_1-\gamma(2-\gamma)/2,$$
-where $\beta_3$ is the limit of $B_3/r^2$.
-
-The certificate uses the following necessary constraints:
-
-$$\frac N2(\gamma-1-\sigma)
-\le\frac{\gamma(2-\gamma)}{2}
- +\frac N4\max\left(\frac{\gamma+\sigma}{3},4\sigma\right).\tag{A}$$
-$$N[\gamma^2+6\gamma-9-(9+\gamma)\sigma]
-\le9\gamma(2-\gamma).\tag{B}$$
-$$N(5\gamma-6-6\sigma)\le5\gamma(2-\gamma).\tag{C}$$
-$$ (21\gamma-18\sigma)[N(\gamma-1-\sigma)-\gamma(2-\gamma)]
-\le2\gamma^2N.\tag{D}$$
-$$9(\gamma-2\sigma)[N(\gamma-1-\sigma)-\gamma(2-\gamma)]
-\le2\gamma^2(2-\gamma).\tag{E}$$
-$$3N(\gamma-2\sigma)^2
-\le\gamma(2-\gamma)(7\gamma-12\sigma),
-\qquad\sigma\le\gamma/3.\tag{F}$$
-
-The eliminations below use only nonnegative overlap counts. For (A), Lemma 13 implies the group bound $\sum p_A\le\max((q+\Omega)/3,4\Omega+12)$: if $p_A\ge\Omega+4$, it has four disjoint triples and its group-mates have no triples; otherwise all four counts are at most $\Omega+3$. Combine with (6.2)–(6.3).
-
-For (B), (6.3) and (6.5) imply $\kappa\le N(3-\gamma+\sigma)/6$. Combining this with the two displayed bounds on $\beta_3$ cancels $\rho$ and proves (B).
-
-For (C), use (6.3), (6.6) and the $\beta_3$ upper bound, then insert its lower bound. The unreduced conclusion is
-$$N(5\gamma-6-6\sigma)+2\rho+10\rho_n+6\rho_s+10n_1+\iota_e
-\le5\gamma(2-\gamma).$$
-
-For (D), normalize (6.8) and use $I_e+I_n\le3N_1$. Insert the lower bound on $\kappa$ supplied by the $\beta_3$ upper bound, and then the $\beta_3$ lower bound. This gives (D) plus the nonnegative terms
-$$4\gamma\rho+(44\gamma-36\sigma)\rho_n
- +24(\gamma-\sigma)\rho_s+36(\gamma-\sigma)n_1+4\gamma\iota_e,$$
-provided $\sigma<\gamma$.
-
-For (E), normalize (6.9) and insert
-$$\kappa\ge\frac3\gamma\left(L_0+n_1-\frac{\gamma(2-\gamma)}{2}
- +\rho_n+\frac23\rho_s\right).$$
-The total overlap $\rho$ has canceled. The unreduced inequality adds
-$$ (16\gamma-36\sigma)n_1+(24\gamma-36\sigma)\rho_n
- +12(\gamma-2\sigma)\rho_s+2\gamma\iota_e$$
-to the left of (E). These terms are nonnegative when $\sigma\le4\gamma/9$.
-
-For (F), (6.10) and (6.9) give complementary lower and upper bounds on $\kappa$. Eliminating it yields
-$$3N(\gamma-2\sigma)^2+(2\gamma-6\sigma)n_1
- +(12\gamma-18\sigma)\rho_n+6(\gamma-2\sigma)\rho_s+\gamma\iota_e
-\le\gamma(2-\gamma)(7\gamma-12\sigma).$$
-Dropping the nonnegative terms proves (F) only in its stated region. The code respects that condition.
-
-The terms $36k_w,108k_w$ and all bounded corrections are $O(r)$ in the attempted low-coefficient domain, so they vanish after division by $r^2$.
-
-### 6.5 Intersections of unmarked strong hyperedges
-
-The unmarked hyperedges of strong groups must meet one another, and their vertices have little room to do so.
-
-**Lemma 15.** For every $A\in\mathcal N$,
-$$3k_s-1\le2r-q-R_A.$$
-
-*Proof.* Let $v\in A$ have residual degree $j$. If $v$ lies in more than $2-j$ other hyperedges of $\mathcal N$, then, since its degree in $H'$ is at most four, its block consists of $j$ residual points and $4-j$ hyperedges of $\mathcal N$, and contains no distinguished hyperedge. Let $m\le4-j$ be the number of strong groups it meets. Remove these $m$ group blocks. In each of their distinguished hyperedges choose a residual triple disjoint from the block of $v$ and from the triples already chosen; at most $j+3(m-1)\le9$ points are forbidden, so one of the ten disjoint triples is free. The block of $v$ and these $m$ triple blocks are $m+1$ disjoint four-blocks, contradicting maximum cardinality.
-
-So a vertex of residual degree $j$ meets at most $2-j$ other hyperedges of $\mathcal N$; the group vertex, with $j=0$, meets exactly two. Since $p_A=0$, write $n_j$ for the number of vertices of $A$ of residual degree $j\le2$. Then $n_0+n_1+n_2=r$ and $n_1+2n_2=q+R_A$. The other $3k_s-1$ hyperedges of $\mathcal N$ meet $A$, so $3k_s-1\le2n_0+n_1=2r-q-R_A$. $\square$
-
-In particular $k_s\le(2r-q+1)/3$, so $\kappa\le(2-\gamma)/3$. The two lower bounds on $\kappa$ used for (B) and (F) remain valid when the nonnegative terms are dropped. Together with $k_s\le N_c/4$ and the bound $\kappa\le N(3-\gamma+\sigma)/6$ from (B), the certificate uses the necessary condition
-
-$$\max\left(0,\ \frac3\gamma\Bigl(L_0-\frac{\gamma(2-\gamma)}{2}\Bigr),\ \frac{N(\gamma-2\sigma)-2\gamma(2-\gamma)}{\gamma}\right)
-\le\min\left(\frac N4,\ \frac{2-\gamma}{3},\ \frac{N(3-\gamma+\sigma)}{6}\right).\tag{G}$$
-
-## 7. The asymptotic bound
-
-**Theorem 1 (proposed asymptotic result).** Subject to the mathematical lemmas above,
-$$\liminf_{r\to\infty}\frac{g(r)}r\ge3.1108.$$
-
-*Proof.* Suppose there is a sequence with limiting excess $x<0.1108$. Section 4 supplies (4.3), the parameter domain, and the stability estimate. The sparse case $\gamma<1$ is excluded as follows. Since $\lambda<0.0887$,
-$$\frac vN\ge\frac{3-\gamma-3\lambda}{2(3-\gamma)}
-\ge\frac12-\frac{3\lambda}{4}\ge0.433>3/14.$$
-Thus (5.1) implies $\delta\ge K_+/30$. The same baseline handles $K\le0$, giving
-$$x\ge\frac{15\lambda+7-3\gamma}{24}
-\ge\frac{22-18\gamma}{24}>1/6>0.1108.$$
-Therefore $1\le\gamma\le2$.
-
-The remaining necessary inequalities are
-$$\lambda\ge c(\gamma),\quad (A)\text{–}(G),\quad
-x\ge\frac54\bigl(\lambda+\max(R_{\mathrm{rat}},W_{\mathrm{tr}})\bigr)+\frac\sigma4.$$
-The program `code/verify_snd_intersection.py` proves that the last right-hand side is at least $0.1108$ throughout the feasible part of
-$$1\le\gamma\le2,\quad0\le\lambda\le0.08864,\quad0\le\sigma\le0.4432.$$
-Here $\sigma<\gamma$ and $9\sigma<4\gamma$, so the sign requirements for (D) and (E) hold. Constraint (F) is applied only to interval boxes wholly inside $\sigma<\gamma/3$; the rest are handled by the other constraints or subdivision. This contradicts $x<0.1108$. $\square$
-
-The numerical minimum of the same system is about $0.110802$, at $\gamma\approx1.681$, $\lambda=c(\gamma)\approx0.0379$, $\sigma\approx0.254$. The certificate therefore gives four decimals; it does not compute the minimum exactly.
-
-## Verification status
-
-The final minimization is checked with exact rational arithmetic (Appendix A). The incidence lemmas of Section 6 were also tested on 1,200 random finite block systems by `code/audit_snd_finite_systems.py`; these tests do not replace their proofs. The algebra of Sections 3 and 5 is checked symbolically by `code/verify_rainbow_constant.py`. Independent review of the combinatorial chain remains pending.
-
-## Appendix A. The arithmetic certificate
-
-The code's variable `c` denotes $\lambda$; the function `root_lower` computes a rational lower enclosure of $c(\gamma)$ by 32 bisection steps. All interval pruning and acceptance use exact `Fraction` arithmetic. A box is removed only if a proved necessary condition among (A)–(G) fails on the whole box; it is accepted only if its objective lower bound is at least $0.1108$. Remaining boxes are split at rational midpoints. A resource limit causes failure, never acceptance.
-
-The run gives
-```text
-VERIFIED 0.1108
-rational_leaves 1996
-empty 1276
-splits 3271
-```
-The smallest accepted rational lower bound is
-$$\frac{5042199332941370088036015839}{45507211152329020245278720000}>0.1108.$$
-The verifier uses the standard library only and is run with `python3 -S`; optimized Python is rejected because its assertions are part of the check.
+Theorem 1 on every configuration with at most six hyperedges, and at low degree up to nine, and the sharpness family: `code/verify_residual_bound.py`. Lemmas 1, 3 and 5, the $d=0$ structure of §2.3 and the $u=13$, $d=5$ step: `code/verify_local_graphs.py`. Lemmas 10 and 11 on 8, 9 and 10 vertices: `code/verify_rainbow_lemmas.py` and `code/verify_rainbow.c`. Lemma 13, the anchor values and the failure at $d=5$ reported in §4.5: `code/verify_anchor_count.py`. The arithmetic of §2.3, §3.4, §4 and Corollary 3: `code/verify_p5_arithmetic.py`. The runs are recorded in `results/p5_checks.txt`. The non-finite steps have been read but not independently reviewed.
 
 ## Acknowledgements and research status
 
 AI assistance (ChatGPT, OpenAI; Claude, Anthropic) was used for algebra, drafting, programming and internal review. The author is responsible for the mathematical claims. No priority is claimed.
-
 
 ## References
 

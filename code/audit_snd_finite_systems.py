@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Finite sanity checks of the incidence lemmas of [P5, §6] (needs scipy).
+"""Finite sanity checks of the incidence lemmas of [P6, §6] (needs scipy).
 
-COVERS [P5, §6]: on 1,200 random intersecting uniform dual block systems (300 with a
+COVERS [P6, §6]: on 1,200 random intersecting uniform dual block systems (300 with a
 prescribed strong group carrying ten disjoint triples) it checks Lemma 13, Lemma 14,
 (6.2)-(6.10), the SND vertex capacities and Lemma 15 with its summed form.
 A finite sanity check, not a proof of the lemmas.

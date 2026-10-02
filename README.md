@@ -17,13 +17,13 @@ $g(r) \ge ((41-\sqrt{19})/12 - o(1))r$ [arXiv:2606.24878], gives $g(6) \ge 14$. 
 [section 6 of the overview](papers/overview.md) for what that does and does not settle about
 the value determined here.
 
-A fifth paper, [P5], turns to every $r$. It gives proposed proofs that
+Two further papers turn to every $r$. They give proposed proofs that
 $g(r) \ge 3r-3$ for every $r$, answering the question in [arXiv:2606.24878] of whether the
-residual constant $+4$ can be $+3$, and that $g(r) \ge 3r-2$ for every $r \ge 16$. It
-also gives a proposed proof of a new asymptotic lower bound for the Erdős–Lovász problem,
+residual constant $+4$ can be $+3$, and that $g(r) \ge 3r-2$ for every $r \ge 16$. They
+also give a proposed proof of a new asymptotic lower bound for the Erdős–Lovász problem,
 $\liminf g(r)/r \ge 3.1108$, with the final minimisation certified by exact rational
-arithmetic, above the constant $3.0534$ of the same preprint. The asymptotic argument is in
-[P5]; the finite results are in its supplement. These proofs are unreviewed; their finite
+arithmetic, above the constant $3.0534$ of the same preprint. The finite results are in [P5] and the
+asymptotic argument in [P6]. These proofs are unreviewed; their finite
 steps and the final minimisation are checked by the scripts named there.
 
 > **Status.** Research draft. The upper bound is an explicit witness anyone can check in
@@ -60,10 +60,10 @@ $$g(6) = \min \lbrace \lvert F \rvert : F \text{ is 6-uniform, pairwise intersec
 | [P2] | [`papers/paper_2_eleven_card_lemma.md`](papers/paper_2_eleven_card_lemma.md) | every eleven-card family has a four-cover; fifteen cards in two lines |
 | [P3] | [`papers/paper_3_sixteen_cards.md`](papers/paper_3_sixteen_cards.md) | sixteen cards, via 463 cores, SAT, and DRAT certificates |
 | [P4] | [`papers/paper_4_seventeen_card_witness.md`](papers/paper_4_seventeen_card_witness.md) | the explicit seventeen-card family |
-| [P5] | [`papers/paper_5_every_r.md`](papers/paper_5_every_r.md) | $\liminf g(r)/r \ge 3.1108$ (proposed, not reviewed) |
-| [P5] supplement | [`papers/paper_5_finite_supplement.md`](papers/paper_5_finite_supplement.md) | every $r$: $g(r) \ge 3r-3$, and $3r-2$ for $r \ge 16$ (proposed, not reviewed) |
+| [P5] | [`papers/paper_5_every_r.md`](papers/paper_5_every_r.md) | every $r$: $g(r) \ge 3r-3$, and $3r-2$ for $r \ge 16$ (proposed, not reviewed) |
+| [P6] | [`papers/paper_6_asymptotic.md`](papers/paper_6_asymptotic.md) | $\liminf g(r)/r \ge 3.1108$ (proposed, not reviewed) |
 
-The papers are cited as [P1] to [P5]. A bare bracketed number inside a paper is an
+The papers are cited as [P1] to [P6]. A bare bracketed number inside a paper is an
 entry in that paper's own reference list. Each paper numbers its own results from 1.
 
 ## What is trusted, and what is not
@@ -87,7 +87,7 @@ what it settled, and what it could not.
 ## Contents
 
 ```text
-papers/         the overview and the five papers
+papers/         the overview and the six papers
 code/           enumeration, verification, SAT and certification scripts
 data/           the canonical cores, the reduction data, the witness, three CNF/DRAT pairs
 results/        SAT run records, retry chain, certificate summary
@@ -125,7 +125,7 @@ python code/verify_eight_orbits.py
 python code/verify_cnf_regeneration.py
 ```
 
-The checks of [P5], standard library except for one C file and `sympy` for the last one:
+The checks of [P5] and [P6], standard library except for one C file, `sympy` for the algebra and `scipy` for the finite audit:
 
 ```bash
 python code/verify_p5_arithmetic.py
@@ -133,7 +133,9 @@ python code/verify_residual_bound.py
 python code/verify_local_graphs.py
 python code/verify_rainbow_lemmas.py     # compiles code/verify_rainbow.c with cc
 python code/verify_anchor_count.py
-python code/verify_rainbow_constant.py  # the algebra of Theorem 4
+python code/verify_rainbow_constant.py  # the algebra of [P6], §3 and §5
+python -S code/verify_snd_intersection.py  # the final minimisation of [P6]
+python code/audit_snd_finite_systems.py  # finite sanity check of [P6], §6
 ```
 
 To rebuild the PDFs and the site:
@@ -243,15 +245,15 @@ work. Until one has, the right reading of the lower bound is *a reproducible com
 whose reductions are written down and open to review*, not *a theorem*. The upper bound is
 different in kind: it is a witness, and anyone can check it in a few seconds.
 
-The results of [P5] for every $r$ are proposed proofs. Their finite steps are checked
-exhaustively; the steps that are not finite have been read but not independently
-reviewed, and [P5, §7] lists them.
+The results of [P5] and [P6] for every $r$ are proposed proofs. The finite steps of [P5]
+are checked exhaustively and the final minimisation of [P6] with exact rational
+arithmetic; the steps that are not finite have been read but not independently reviewed.
 
 **AI assistance was used throughout, including in the review.** Large language models were
 used as tools: ChatGPT (OpenAI) for algebraic derivation, for much of the code in `code/`,
 and for drafting; Claude (Anthropic) for independent re-running and auditing of the
 computations, for the encoding controls, for the reconstruction of the lost enumeration
-step, and for review and prose. For [P5], the proofs were first drafted with ChatGPT in
+step, and for review and prose. For [P5] and [P6], the proofs were first drafted with ChatGPT in
 sessions the author directed; Claude checked every finite step exhaustively, re-derived the
 arithmetic, shortened the exclusion of the large cases, extended the exclusion from
 $r \ge 19$ to $r \ge 16$ with the swap lemma and the anchor count, and wrote the text. Where the two disagreed, computation settled it and the

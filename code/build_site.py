@@ -91,7 +91,18 @@ PAPERS = [
     ),
     dict(
         slug="paper_5_every_r",
-        title="Paper 5. Lower Bounds for the Erdos-Lovasz Cover Number",
+        title="Paper 5. Lower Bounds for g(r) at Every r: 3r - 3, and 3r - 2 from r = 16",
+        sub="Proposed proofs that g(r) is at least 3r - 3 for every r and at least 3r - 2 from r = 16",
+        abs="In the framework of Sivashankar (arXiv:2606.24878), the cover number of the remainder "
+            "of maximum degree three is bounded by 4 tau <= q + r + 3, answering his question "
+            "whether +4 can be +3; hence g(r) >= 3r - 3 for every r, attained at r = 3 and 4. "
+            "Excluding the equality case gives g(r) >= 3r - 2 for every r >= 16, with one case left "
+            "open at r = 15. Every finite step is checked exhaustively by a named script; the "
+            "proofs are unreviewed.",
+    ),
+    dict(
+        slug="paper_6_asymptotic",
+        title="Paper 6. Lower Bounds for the Erdos-Lovasz Cover Number: 3.1108r for Large r",
         sub="A proposed proof that g(r) is asymptotically at least 3.1108r",
         abs="We study the incidences between a residual hypergraph of maximum degree three and "
             "groups of removed edges chosen as a maximum matching of degree-four blocks. Residual "
@@ -101,16 +112,6 @@ PAPERS = [
             "proposed bound liminf g(r)/r >= 3.1108, above the constant 3.0534 of Sivashankar "
             "(arXiv:2606.24878). The final minimisation is certified with exact rational "
             "arithmetic. The combinatorial lemmas are unreviewed.",
-    ),
-    dict(
-        slug="paper_5_finite_supplement",
-        title="Paper 5, Supplement. Finite Residual Bounds and Equality Exclusion",
-        sub="Proposed proofs that g(r) is at least 3r - 3 for every r and at least 3r - 2 from r = 16",
-        abs="In the framework of Sivashankar, the cover number of the remainder of maximum degree "
-            "three is bounded by 4 tau <= q + r + 3, answering his question whether +4 can be +3; "
-            "hence g(r) >= 3r - 3 for every r, attained at r = 3 and 4. Excluding the equality case "
-            "gives g(r) >= 3r - 2 for every r >= 16, with one case left open at r = 15. Every finite "
-            "step is checked exhaustively by a named script; the proofs are unreviewed.",
     ),
 ]
 

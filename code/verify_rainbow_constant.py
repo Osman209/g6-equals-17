@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Checks the algebra of [P5] §3 and §5 (stability root, budget, rainbow and light-trace bounds).
+"""Checks the algebra of [P6] §3 and §5 (stability root, budget, rainbow and light-trace bounds).
 
-COVERS [P5, §3 and §5]: the budget identity of Lemma 9 and its normalised form; the
+COVERS [P6, §3 and §5]: the budget identity of Lemma 9 and its normalised form; the
 identity K = 2(N - 2M); v/N >= 3/8 and theta <= 4/15; the second allocation term at
 theta = K/(20v) and at the balancing theta (bound (5.1)); the root argument for u <= L
 and convexity of c (3.2); the rearrangement of Lemma 12 with denominator 1 + 7v + 9N;
 and the closed form 3 + (65 - 36 sqrt 2)/138 of the bound from (5.1) alone, which
-earlier versions of [P5] stated as a theorem.   Needs sympy.
+earlier versions of [P6] stated as a theorem.   Needs sympy.
 """
 import sympy as sp, math
 

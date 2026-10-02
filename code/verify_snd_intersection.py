@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Exact rational certificate for the final minimization of [P5] (Theorem 1, Appendix A).
+"""Exact rational certificate for the final minimization of [P6] (Theorem 1, Appendix A).
 
-COVERS [P5, §7 and Appendix A]: on 1 <= gamma <= 2, c(gamma) <= lambda <= (4/5) X_T,
+COVERS [P6, §7 and Appendix A]: on 1 <= gamma <= 2, c(gamma) <= lambda <= (4/5) X_T,
 0 <= sigma <= 4 X_T, every point that satisfies the necessary constraints (A)-(F) and
 the kappa interval (G) has (5/4)(lambda + max(R_rat, W_tr)) + sigma/4 >= X_T = 0.1108.
 Exact Fraction interval arithmetic; boxes are removed only when a proved constraint

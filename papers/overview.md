@@ -18,7 +18,7 @@ offered \$500 for a linear upper bound; Kahn proved one in 1994 (*J. Amer. Math.
 to Barát (arXiv:2011.04444), and the strongest published general lower bound,
 $g(r) \ge ((41-\sqrt{19})/12 - o(1))r$ (arXiv:2606.24878), gives only $g(6) \ge 14$. This overview concerns $r = 6$. What the literature does and does not
 already settle is §6, and it should be read before the value here is quoted anywhere.
-[P5] turns from $r = 6$ to every $r$.
+[P5] and [P6] turn from $r = 6$ to every $r$.
 
 A family of finite sets is **6-uniform** if every member has exactly six elements, and
 **pairwise intersecting** if any two members share an element. We call a member a *card*
@@ -73,14 +73,15 @@ $\binom{17}{2} = 136$ pairs intersecting and none of the $\binom{27}{5} = 80{,}7
 five-symbol sets a transversal. This is a direct finite check and needs nothing from the
 other three papers.
 
-**[P5] Every r.** Proposed proofs for every $r$, in the framework of Sivashankar
-(arXiv:2606.24878): the residual cover bound with constant $+3$, which gives
-$g(r) \ge 3r-3$; the exclusion of equality, which gives $g(r) \ge 3r-2$ for $r \ge 16$; a
-quantitative form with a gain linear in $r$ when the remainder is large; and a new
-asymptotic lower bound, $\liminf g(r)/r \ge 3.1108$, above the constant $3.0534$
-of that preprint. At $r = 6$ they give only
-$g(6) \ge 15$, so [P5] adds nothing to the value above. Its finite steps are checked
-exhaustively; its other steps are unreviewed.
+**[P5] Every r.** Proposed proofs, in the framework of Sivashankar (arXiv:2606.24878):
+the residual cover bound with constant $+3$, which gives $g(r) \ge 3r-3$ for every $r$, and
+the exclusion of equality, which gives $g(r) \ge 3r-2$ for $r \ge 16$. Its finite steps are
+checked exhaustively; its other steps are unreviewed.
+
+**[P6] Large r.** A proposed proof of a new asymptotic lower bound,
+$\liminf g(r)/r \ge 3.1108$, above the constant $3.0534$ of that preprint, with the final
+minimisation certified by exact rational arithmetic. At $r = 6$ these papers give only
+$g(6) \ge 15$, so they add nothing to the value above.
 
 ## 4. What carries the weight
 
@@ -104,7 +105,7 @@ not settle.
 
 ## 5. Citation convention
 
-The papers of this set are cited as [P1] to [P5]. A bare bracketed number inside a
+The papers of this set are cited as [P1] to [P6]. A bare bracketed number inside a
 paper is an entry in that paper's own reference list. Each paper numbers its own results
 from 1.
 
@@ -115,6 +116,7 @@ from 1.
 | [P3] | `paper_3_sixteen_cards.md` |
 | [P4] | `paper_4_seventeen_card_witness.md` |
 | [P5] | `paper_5_every_r.md` |
+| [P6] | `paper_6_asymptotic.md` |
 
 ## 6. Literature boundary
 
