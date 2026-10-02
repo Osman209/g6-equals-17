@@ -18,7 +18,7 @@ abstract: >-
   proof assistant. AI tools were used throughout the work and its review.
   A fifth paper gives proposed proofs, unreviewed outside this project, for every
   r: g(r) >= 3r - 3, g(r) >= 3r - 2 for every r >= 16, and a new asymptotic lower
-  bound liminf g(r)/r >= 3.1024745 (3.1020... in closed form), above the
+  bound liminf g(r)/r >= 3.1108, above the
   constant 3.0534 of Sivashankar (arXiv:2606.24878).
 type: software
 authors:
@@ -28,7 +28,7 @@ authors:
     email: mohamedosmannn2999@gmail.com
 doi: 10.5281/zenodo.22883809
 version: 1.4.0
-date-released: 2026-10-01
+date-released: 2026-10-02
 license: MIT
 license-url: "https://opensource.org/licenses/MIT"
 keywords:

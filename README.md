@@ -21,10 +21,10 @@ A fifth paper, [P5], turns to every $r$. It gives proposed proofs that
 $g(r) \ge 3r-3$ for every $r$, answering the question in [arXiv:2606.24878] of whether the
 residual constant $+4$ can be $+3$, and that $g(r) \ge 3r-2$ for every $r \ge 16$. It
 also gives a proposed proof of a new asymptotic lower bound for the Erdős–Lovász problem,
-$\liminf g(r)/r \ge 3+(65-36\sqrt2)/138 = 3.1020\ldots$ in closed form, raised to
-$\liminf g(r)/r \ge 3.1024745$ with a final minimisation certified by interval arithmetic,
-above the constant $3.0534$ of the same preprint. These proofs are unreviewed; their finite steps are checked
-by the scripts listed in [P5, §7].
+$\liminf g(r)/r \ge 3.1108$, with the final minimisation certified by exact rational
+arithmetic, above the constant $3.0534$ of the same preprint. The asymptotic argument is in
+[P5]; the finite results are in its supplement. These proofs are unreviewed; their finite
+steps and the final minimisation are checked by the scripts named there.
 
 > **Status.** Research draft. The upper bound is an explicit witness anyone can check in
 > seconds. The lower bound is computer-assisted and **has not been independently reviewed
@@ -60,7 +60,8 @@ $$g(6) = \min \lbrace \lvert F \rvert : F \text{ is 6-uniform, pairwise intersec
 | [P2] | [`papers/paper_2_eleven_card_lemma.md`](papers/paper_2_eleven_card_lemma.md) | every eleven-card family has a four-cover; fifteen cards in two lines |
 | [P3] | [`papers/paper_3_sixteen_cards.md`](papers/paper_3_sixteen_cards.md) | sixteen cards, via 463 cores, SAT, and DRAT certificates |
 | [P4] | [`papers/paper_4_seventeen_card_witness.md`](papers/paper_4_seventeen_card_witness.md) | the explicit seventeen-card family |
-| [P5] | [`papers/paper_5_every_r.md`](papers/paper_5_every_r.md) | every $r$: $g(r) \ge 3r-3$, $3r-2$ for $r \ge 16$, and $\liminf g(r)/r \ge 3.1024$ (proposed, not reviewed) |
+| [P5] | [`papers/paper_5_every_r.md`](papers/paper_5_every_r.md) | $\liminf g(r)/r \ge 3.1108$ (proposed, not reviewed) |
+| [P5] supplement | [`papers/paper_5_finite_supplement.md`](papers/paper_5_finite_supplement.md) | every $r$: $g(r) \ge 3r-3$, and $3r-2$ for $r \ge 16$ (proposed, not reviewed) |
 
 The papers are cited as [P1] to [P5]. A bare bracketed number inside a paper is an
 entry in that paper's own reference list. Each paper numbers its own results from 1.

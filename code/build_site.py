@@ -22,7 +22,7 @@ REPO = "https://github.com/Osman209/g6-equals-17"
 SITE = "https://osman209.github.io/g6-equals-17"
 ORCID = "0009-0004-5912-999X"
 DOI = "10.5281/zenodo.22883809"
-DATE = "2026-10-01"
+DATE = "2026-10-02"
 
 CSS = """<style>body{max-width:52rem;margin:2.5rem auto;padding:0 1.2rem;font:16px/1.6 Georgia,"DejaVu Serif",serif;color:#1a1a1a}
 h1{font-size:1.6rem;line-height:1.3;margin-bottom:.2rem}h2{font-size:1.05rem;font-weight:400;color:#555;margin-top:0}
@@ -91,19 +91,26 @@ PAPERS = [
     ),
     dict(
         slug="paper_5_every_r",
-        title="Paper 5. Lower Bounds for g(r): 3r - 3 for Every r, and 3.1024r for Large r",
-        sub="Proposed proofs that g(r) is at least 3r - 3 for every r, at least 3r - 2 from r = 16, and asymptotically at least 3.1024r",
-        abs="In the framework of Sivashankar (arXiv:2606.24878), the cover number of the remainder "
-            "of maximum degree three is bounded by 4 tau <= q + r + 3, answering his question "
-            "whether +4 can be +3; hence g(r) >= 3r - 3 for every r, attained at r = 3 and 4. "
-            "Excluding the equality case gives g(r) >= 3r - 2 for every r >= 16, with one case left "
-            "open at r = 15. A quantitative "
-            "form shows a gain linear in r when the remainder is large, with a closed form at every "
-            "remainder size. A second saving from the deleted cards, using a bound on the last "
-            "steps of the peeling, a budget for the matching numbers of the traces of the deleted cards, and a rainbow matching theorem of Correia, Pokrovskiy and "
-            "Sudakov, gives liminf g(r)/r >= 3 + (65 - 36 sqrt 2)/138 = 3.1020...; using the witnesses of the deleted cards whose traces have small matching number raises this to 3.1024745, with the last minimisation certified by interval arithmetic. Both are above "
-            "the constant 3.0534 of Sivashankar. The proofs are proposed and "
-            "unreviewed; every finite step is checked exhaustively by a named script.",
+        title="Paper 5. Lower Bounds for the Erdos-Lovasz Cover Number",
+        sub="A proposed proof that g(r) is asymptotically at least 3.1108r",
+        abs="We study the incidences between a residual hypergraph of maximum degree three and "
+            "groups of removed edges chosen as a maximum matching of degree-four blocks. Residual "
+            "stability, a budget for the matching numbers of witness traces, a rainbow matching "
+            "theorem of Correia, Pokrovskiy and Sudakov, a recovery step for traces with small "
+            "matching number, and incidence constraints from exchanges of four-blocks give the "
+            "proposed bound liminf g(r)/r >= 3.1108, above the constant 3.0534 of Sivashankar "
+            "(arXiv:2606.24878). The final minimisation is certified with exact rational "
+            "arithmetic. The combinatorial lemmas are unreviewed.",
+    ),
+    dict(
+        slug="paper_5_finite_supplement",
+        title="Paper 5, Supplement. Finite Residual Bounds and Equality Exclusion",
+        sub="Proposed proofs that g(r) is at least 3r - 3 for every r and at least 3r - 2 from r = 16",
+        abs="In the framework of Sivashankar, the cover number of the remainder of maximum degree "
+            "three is bounded by 4 tau <= q + r + 3, answering his question whether +4 can be +3; "
+            "hence g(r) >= 3r - 3 for every r, attained at r = 3 and 4. Excluding the equality case "
+            "gives g(r) >= 3r - 2 for every r >= 16, with one case left open at r = 15. Every finite "
+            "step is checked exhaustively by a named script; the proofs are unreviewed.",
     ),
 ]
 

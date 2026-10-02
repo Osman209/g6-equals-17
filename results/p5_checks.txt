@@ -197,15 +197,16 @@ independent-Poisson value (1 - e^(-1/2))^4 = 0.0240
 DONE: measurement recorded; this is not a proof of any bound.
 exit 0
 
-$ python3 code/verify_rainbow_constant.py   # recorded 2026-10-01
+$ python3 code/verify_rainbow_constant.py   # recorded 2026-10-02
 PASS: gamma_* = 1.8210406321, c_* = 0.0608842047, sigma_* = 0.1039358388
 PASS: closed form checks; constant 3 + x_* = 3.102089215613
 exit 0
 
-$ python3 code/verify_weak_trace_bound.py   # recorded 2026-10-01
-PASS: x >= 204949/2000000 = 0.1024745 on the whole domain; 362290 rational leaves, 123392 empty, 485681 splits, 214s
+$ python3 -S code/verify_snd_intersection.py   # recorded 2026-10-02
+VERIFIED 0.1108 rational_leaves 1996 empty 1276 splits 3271 minimum_leaf_lower 5042199332941370088036015839/45507211152329020245278720000 seconds 8.48
 exit 0
+(the same verifier at TARGET = 11081/100000, above the numerical minimum 0.110802, did not close within 10 minutes)
 
-$ python3 code/verify_weak_trace_bound.py --target=1024746/10000000 --limit=20000   # forced failure, above the minimum
-FAIL: split limit reached, no certificate for 512373/5000000
-exit 1
+$ python3 code/audit_snd_finite_systems.py   # recorded 2026-10-02
+FINITE_SYSTEMS_VERIFIED 1200 STRONG_GROUPS_TESTED 300
+exit 0
