@@ -55,7 +55,7 @@ $$2e - s \le 2r - q + 1 =: d. \qquad\text{(2.2)}$$
 
 **Lemma 1.** *Let F be a simple graph on u vertices with at most three colours, in which disjoint edges always have the same colour. Then $S_F \le \max(12, u+4)$. If every colour has $2e-s \le d$, then $S_F \le \max(12, u+2, d+8)$.*
 
-*Proof.* Suppose a colour has two disjoint edges, on four vertices W. Every other-colour edge lies in W. If no other colour is present, $S_F \le u$. If the other-colour edges have no common vertex, every edge of the first colour meets all of them and lies in W too, giving 12. Otherwise at most two other-colour edges exist, sharing a vertex, with support contribution at most four, giving $u+4$. Fix one of them, g. Every first-colour edge meets g, so $e \ge s-2$, and $2e-s \le d$ gives $s \le d+4$ and $S_F \le d+8$.
+*Proof.* Suppose a colour has two disjoint edges, with endpoint set $Y$ of four vertices. Every other-colour edge lies in $Y$. If no other colour is present, $S_F \le u$. If the other-colour edges have no common vertex, every edge of the first colour meets all of them and lies in $Y$ too, giving 12. Otherwise at most two other-colour edges exist, sharing a vertex, with support contribution at most four, giving $u+4$. Fix one of them, g. Every first-colour edge meets g, so $e \ge s-2$, and $2e-s \le d$ gives $s \le d+4$ and $S_F \le d+8$.
 
 If every colour is internally intersecting, each is a star or part of a triangle. With all supports at most four, the sum is at most 12. Otherwise one colour is a star with at least four leaves, every other-colour edge contains its centre, and simplicity gives $S_F \le u+2$. $\square$
 
@@ -117,6 +117,10 @@ $$c(\gamma) = \frac{20-4\gamma-\sqrt{(20-4\gamma)^2-108(\gamma-1)^2}}{54}. \qqua
 
 If instead $u \le L$, then $\lambda \ge (\gamma-1)/3 - o(1)$, which is at least $c(\gamma)$: with $a = \gamma-1$, c is the smaller root of $27y^2-(16-4a)y+a^2$, whose value at $a/3$ is $\frac{16}{3}a(a-1) \le 0$. For $q \lt r$ the bound $t \ge 0$ gives $\lambda \ge 1-\gamma$ directly. 
 
+
+**Corollary 1 (dense remainders).** *If the degree-four peeling of $H$ leaves a remainder with $q\ge2r-3$, then $\lvert E(H)\rvert\ge\lceil(28r-67)/9\rceil$.*
+
+*Proof.* Here $d\le4$ and $L=12$. For $u\gt12$, (3.1) gives $\ell\ge(u-21)/3$, and with $r=2u-d-2+3\ell$ this is $\ell\ge(r-40)/9$. For $u\le12$, $r\le22+3\ell$ gives the same for $r\ge13$, and for smaller $r$ the bound is negative. So $B\ge(r-40)/9$. With $E_0=n-q-4k\ge0$ and $\xi=k+\tau(J)-r\ge0$, the identity $n=3r-3+E_0+B+4\xi$ gives the claim. $\square$
 
 ## 4. A maximum matching of four-blocks
 

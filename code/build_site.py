@@ -170,15 +170,26 @@ def index():
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Six-Card Cover Problem &mdash; Mohamed Osman</title>
-<meta name="description" content="A computer-assisted determination of g(6), the smallest pairwise intersecting 6-uniform family with transversal number 6. Four papers, nineteen scripts, 463 DRAT certificates and an explicit seventeen-card witness. Not independently reviewed; no priority claimed.">
+<title>The Erdos-Lovasz Cover Number Problem &mdash; Mohamed Osman</title>
+<meta name="description" content="The Erdos-Lovasz cover number g(r): a computer-assisted determination g(6) = 17, and proposed lower bounds g(r) &ge; 3r - 3 for every r, g(r) &ge; 3r - 2 for r &ge; 16, and liminf g(r)/r &ge; 3.1108. Not independently reviewed; no priority claimed.">
 {CSS}</head><body>
-<h1>The Six-Card Cover Problem</h1>
-<h2>A computer-assisted determination of g(6)</h2>
+<h1>The Erdős–Lovász Cover Number Problem</h1>
+<h2>g(6) = 17, and new lower bounds for every r</h2>
 <p class="meta">Mohamed A. Osman &middot; ORCID <a href="https://orcid.org/{ORCID}">{ORCID}</a> &middot; independent researcher</p>
 
+<p>g(r) is the least number of cards in a pairwise intersecting family of r-symbol cards that no
+r &minus; 1 symbols can cover. Two kinds of result are here.</p>
+
 <div class="res"><div class="eq">g(6) = 17</div>
-<div class="note">lower bound computer-assisted and not yet independently reviewed; upper bound an explicit witness</div></div>
+<div class="note">Papers 1&ndash;4. Lower bound computer-assisted and not yet independently reviewed; upper bound an explicit witness</div></div>
+
+<div class="res"><div class="eq">liminf g(r)/r &ge; 3.1108</div>
+<div class="note">Paper 6. Above the previous constant 3.0534 (Sivashankar, arXiv:2606.24878). Proposed proof; the final minimisation is certified with exact rational arithmetic; the combinatorial lemmas are unreviewed</div></div>
+
+<div class="res"><div class="eq">g(r) &ge; 3r &minus; 3 for every r, and &ge; 3r &minus; 2 for r &ge; 16</div>
+<div class="note">Paper 5. Proposed proofs; every finite step checked exhaustively by a script</div></div>
+
+<h3>The case r = 6</h3>
 
 <p>Every card carries six symbols and every two cards share one. A <em>transversal</em> is a set of
 symbols meeting every card, and &tau; is the smallest size of one. The six symbols of any single card
@@ -209,6 +220,7 @@ review.</strong></p>
 <code>python code/verify_k7.py</code> &mdash; the finite lemma, all 294,239,817 cases<br>
 <code>drat-trim data/cnf/core_007.cnf data/cnf/core_007.drat</code> &mdash; one certificate</p>
 <p>The first two need nothing but Python's standard library.</p>
+<p><code>python -S code/verify_snd_intersection.py</code> &mdash; the final minimisation of Paper 6, exact rational arithmetic, a few seconds</p>
 
 <p class="meta">{DISCLAIMER}</p>
 </body></html>
