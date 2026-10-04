@@ -330,11 +330,11 @@ load-bearing.
 §2 recorded that this was not investigated at all. It has now been looked at, and the
 distinction the overview draws in §6 holds up against the primary sources.
 
-The known exact values are $g(3) = 6$, $g(4) = 9$ and $g(5) = 13$, the last due to Barát
-[arXiv:2011.04444]. The strongest published general lower bound, $g(r) \ge ((41-\sqrt{19})/12
+The known exact values are $g(3) = 6$, $g(4) = 9$ and $g(5) = 13$, the first two due to Tripathi
+[arXiv:1409.4610] and the last to Barát and Wanless [arXiv:2011.04444]. The strongest published general lower bound, $g(r) \ge ((41-\sqrt{19})/12
 - o(1))r \approx 3.053r$ [arXiv:2606.24878, June 2026], gives only $g(6) \ge 14$.
 
-The eighteen-edge construction in Barát §7 is a value of a **different** function: the
+The eighteen-edge construction in Barát and Wanless §7 is a value of a **different** function: the
 minimum inside a projective plane, there computed in $PG(2,5)$ on 31 points. It bounds
 $g(6) \le 18$ and is not a determination of $g(6)$. No source was found that determines
 $g(6)$.

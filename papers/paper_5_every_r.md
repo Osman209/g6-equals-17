@@ -14,7 +14,7 @@ Let $g(r)$ be the least number of hyperedges in an intersecting $r$-uniform hype
 
 A hypergraph $H$ is **intersecting** if any two hyperedges meet, and $\tau(H)$ is the least number of vertices meeting every hyperedge. Then
 $$g(r)=\min\lbrace \lvert E(H)\rvert : H \text{ intersecting, } r\text{-uniform, } \tau(H)=r\rbrace .$$
-The problem goes back to Erdős and Lovász [1], and Kahn [3] proved $g(r)=O(r)$. The known values are $g(3)=6$, $g(4)=9$, $g(5)=13$ [4] and $g(6)=17$ ([P1]–[P4] of this set). Against $3r$ these are $3r-3$, $3r-3$, $3r-2$ and $3r-1$.
+The problem goes back to Erdős and Lovász [1], and Kahn [3] proved $g(r)=O(r)$. The known values are $g(3)=6$ and $g(4)=9$ [5], $g(5)=13$ [4] and $g(6)=17$ ([P1]–[P4] of this set). Against $3r$ these are $3r-3$, $3r-3$, $3r-2$ and $3r-1$.
 
 **The reduction of [2].** Repeatedly take a vertex of degree at least four and delete the hyperedges through it. If this takes $k$ steps and leaves a family $J$ of $q$ hyperedges and maximum degree at most three, then
 $$\lvert E(H)\rvert\ge q+4k,\qquad r\le k+\tau(J).$$
@@ -307,4 +307,5 @@ AI assistance (ChatGPT, OpenAI; Claude, Anthropic) was used for algebra, draftin
 1. P. Erdős and L. Lovász, *Problems and results on 3-chromatic hypergraphs and some related questions*, in **Infinite and Finite Sets** (Keszthely, 1973), Colloq. Math. Soc. János Bolyai 10, North-Holland, 1975, 609–627.
 2. V. Sivashankar, *An Improved Lower Bound for the Erdős–Lovász Cover Number Problem*, arXiv:2606.24878v2, 2026. https://arxiv.org/abs/2606.24878
 3. J. Kahn, *On a problem of Erdős and Lovász. II: n(r)=O(r)*, Journal of the American Mathematical Society **7** (1994), 125–143.
-4. J. Barát, *Intersecting and 2-intersecting hypergraphs with maximal covering number: the Erdős–Lovász theme revisited*, arXiv:2011.04444.
+4. J. Barát and I. M. Wanless, *Intersecting and 2-intersecting hypergraphs with maximal covering number: the Erdős–Lovász theme revisited*, J. Combin. Des. 29 (2021), 260–286; arXiv:2011.04444.
+5. A. Tripathi, *A result on intersecting families with maximum transversal size*, arXiv:1409.4610 (2014).

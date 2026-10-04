@@ -443,5 +443,5 @@ AI assistance (ChatGPT, OpenAI; Claude, Anthropic) was used for algebra, draftin
 1. P. Erdős and L. Lovász, *Problems and results on 3-chromatic hypergraphs and some related questions*, in **Infinite and Finite Sets** (Keszthely, 1973), Colloq. Math. Soc. János Bolyai 10, North-Holland, 1975, 609–627.
 2. V. Sivashankar, *An Improved Lower Bound for the Erdős–Lovász Cover Number Problem*, arXiv:2606.24878v2, 2026. https://arxiv.org/abs/2606.24878
 3. J. Kahn, *On a problem of Erdős and Lovász. II: n(r)=O(r)*, Journal of the American Mathematical Society **7** (1994), 125–143.
-4. J. Barát, *Intersecting and 2-intersecting hypergraphs with maximal covering number: the Erdős–Lovász theme revisited*, arXiv:2011.04444.
+4. J. Barát and I. M. Wanless, *Intersecting and 2-intersecting hypergraphs with maximal covering number: the Erdős–Lovász theme revisited*, J. Combin. Des. 29 (2021), 260–286; arXiv:2011.04444.
 5. D. Munhá Correia, A. Pokrovskiy and B. Sudakov, *Short Proofs of Rainbow Matchings Results*, International Mathematics Research Notices **2023**, no. 14, 12441–12476. https://doi.org/10.1093/imrn/rnac180. Journal-version Theorem 1.2: https://people.math.ethz.ch/~sudakovb/rainbow-matchings-short-proofs.pdf

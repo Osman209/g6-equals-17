@@ -349,7 +349,8 @@ The eliminations of §7 are hand arguments. They are not machine-checked.
 
 ## References
 
-1. J. Barát, *Intersecting and 2-intersecting hypergraphs with maximal covering number:
-   the Erdős–Lovász theme revisited*, arXiv:2011.04444.
+1. J. Barát and I. M. Wanless, *Intersecting and 2-intersecting hypergraphs with maximal
+   covering number: the Erdős–Lovász theme revisited*, J. Combin. Des. 29 (2021), 260–286;
+   arXiv:2011.04444.
 2. V. Sivashankar, *An Improved Lower Bound for the Erdős–Lovász Cover Number Problem*,
    arXiv:2606.24878v2.

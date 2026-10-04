@@ -14,8 +14,9 @@ Erdős and Lovász asked in 1974, in the paper that introduced the local lemma, 
 minimum number of edges $g(r)$ in an $r$-uniform intersecting hypergraph whose cover
 number is $r$. Erdős later called it one of his three favourite combinatorial problems and
 offered \$500 for a linear upper bound; Kahn proved one in 1994 (*J. Amer. Math. Soc.* 7,
-125–143). The exact values known are $g(3) = 6$, $g(4) = 9$ and $g(5) = 13$, the last due
-to Barát (arXiv:2011.04444), and the strongest published general lower bound,
+125–143). The exact values known are $g(3) = 6$, $g(4) = 9$ and $g(5) = 13$, the first two due
+to Tripathi (arXiv:1409.4610) and the last to Barát and Wanless (arXiv:2011.04444; *J. Combin.
+Des.* 29 (2021) 260–286), and the strongest published general lower bound,
 $g(r) \ge ((41-\sqrt{19})/12 - o(1))r$ (arXiv:2606.24878), gives only $g(6) \ge 14$. This overview concerns $r = 6$. What the literature does and does not
 already settle is §6, and it should be read before the value here is quoted anywhere.
 [P5] and [P6] turn from $r = 6$ to every $r$.
@@ -130,7 +131,7 @@ literature and priority review should come before any journal submission.
 A wider search was made during the second verification pass and is recorded in
 `AUDIT.md` §4.7. It found the exact values $g(3) = 6$, $g(4) = 9$ and $g(5) = 13$, and
 no source determining $g(6)$; it also confirmed the distinction drawn above against the
-primary text, since Barát's eighteen-edge example is the minimum inside $PG(2,5)$ and is
+primary text, since the eighteen-edge example of Barát and Wanless is the minimum inside $PG(2,5)$ and is
 a value of the projective-plane restricted function, not of $g(6)$. That search was a
 search. It cannot establish that nothing was missed, and the obligation stated in the
 previous paragraph is unchanged.

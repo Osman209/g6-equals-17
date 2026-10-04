@@ -12,7 +12,8 @@ introduced the local lemma: what is the minimum number of edges $g(r)$ in an $r$
 intersecting hypergraph with cover number $r$? Erdős described it as one of his three
 favourite combinatorial problems and offered \$500 for a linear upper bound, which Kahn
 proved in 1994. The exact values known are $g(3) = 6$, $g(4) = 9$ and $g(5) = 13$, the
-last due to Barát [arXiv:2011.04444]; the strongest published general lower bound,
+first two due to Tripathi [arXiv:1409.4610] and the last to Barát and Wanless
+[arXiv:2011.04444]; the strongest published general lower bound,
 $g(r) \ge ((41-\sqrt{19})/12 - o(1))r$ [arXiv:2606.24878], gives $g(6) \ge 14$. See
 [section 6 of the overview](papers/overview.md) for what that does and does not settle about
 the value determined here.

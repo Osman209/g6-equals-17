@@ -175,6 +175,7 @@ Branches A and B are hand arguments on top of Lemma 2.
 
 ## References
 
-1. J. Barát, *Intersecting and 2-intersecting hypergraphs with maximal covering number:
-   the Erdős–Lovász theme revisited*, arXiv:2011.04444. Lemma 2.2 there is the standard
+1. J. Barát and I. M. Wanless, *Intersecting and 2-intersecting hypergraphs with maximal
+   covering number: the Erdős–Lovász theme revisited*, J. Combin. Des. 29 (2021), 260–286;
+   arXiv:2011.04444. Lemma 2.2 there is the standard
    "choose a high-degree symbol and pair the rest" step used in Branch A.
