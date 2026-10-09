@@ -13,6 +13,8 @@ it is a memory, not a measurement.
 |---|---|---|
 | $K_7$ lemma, all four-input quadruples | `code/verify_k7.py` | 840 minimal inputs, 315 targets, 294,239,817 quadruples, 0 counterexamples; batch method compared against literal enumeration on nine bounded subcases |
 | thirteen degree histograms | `code/verify_histograms.py` | exact integer enumeration of the five necessary conditions, plus an independent integer dynamic program |
+| numbers in the hand proofs of [P1, §3, §6] | `code/verify_p1_hand_steps.py` | the matching counts $h$ (sums 57 and 63) of the $K_7$ proof; the deficit rule reproduces the thirteen histograms |
+| eleven-card lemma, degree-three branch, short form ([P2, Lemma 3]) | `code/verify_eleven_cards_petals.py` | SAT model of the petal statement: UNSAT with bound six; controls SAT with bound seven and on ten points |
 | eleven-card lemma, degree-three branch | `code/verify_eleven_cards.py` | 5,373 generated instances over 58 profiles, exact triangle-decomposition search with the size-three matching ban, all UNSAT |
 | the three maximum-degree-three profiles, and 341 kernels | `code/verify_degree3_kernels.py`, `data/degree3_kernels_c*.json` | the card types (5,1,0) and (6,0,0) and c in {0,6,12} are re-derived; every triangle decomposition of each of the three models M = K12+E-F is enumerated, filtered to tau(G)=5, and reduced under Aut(M) |
 | no maximum-degree-three kernel extends | same | the extension criterion of [P3, Prop 2] solved exactly on all 341, under the degree caps; zero admit four covers |
@@ -51,6 +53,9 @@ These are arguments, not computations, and the table does not pretend otherwise.
 | claim | where |
 |---|---|
 | degree bounds and the no-two-degree-two-symbols lemma | [P1, §2] |
+| hand proof of the $K_7$ lemma | [P1, §3] |
+| reduction of Branch C to the petal statement | [P2, §2] |
+| the thirteen histograms by the deficit count | [P1, §6] |
 | elimination of the thirteen histograms | [P1, §7] |
 | branches A and B of the eleven-card lemma | [P2, §2] |
 | the reduction reaches every sixteen-card counterexample | [P3, §1, §2, §2a, §3] |

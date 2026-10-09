@@ -57,7 +57,7 @@ $$g(6) = \min \lbrace \lvert F \rvert : F \text{ is 6-uniform, pairwise intersec
 
 | tag | file | contents |
 |---|---|---|
-| [P1] | [`papers/paper_1_fifteen_cards_histogram_route.md`](papers/paper_1_fifteen_cards_histogram_route.md) | fifteen cards, via a weighted inequality and thirteen degree histograms |
+| [P1] | [`papers/paper_1_fifteen_cards_histogram_route.md`](papers/paper_1_fifteen_cards_histogram_route.md) | fifteen cards by hand, via a weighted inequality and thirteen degree histograms |
 | [P2] | [`papers/paper_2_eleven_card_lemma.md`](papers/paper_2_eleven_card_lemma.md) | every eleven-card family has a four-cover; fifteen cards in two lines |
 | [P3] | [`papers/paper_3_sixteen_cards.md`](papers/paper_3_sixteen_cards.md) | sixteen cards, via 463 cores, SAT, and DRAT certificates |
 | [P4] | [`papers/paper_4_seventeen_card_witness.md`](papers/paper_4_seventeen_card_witness.md) | the explicit seventeen-card family |
@@ -75,8 +75,12 @@ that difference.
 The upper bound is a witness. Seventeen sets, 136 pairs, 80,730 subsets, standard library
 only. Nothing is trusted except arithmetic.
 
-The lower bound is computer-assisted at three points: the finite $K_7$ lemma, the
-eleven-card lemma's third branch, and the sixteen-card exclusion. For the last of those the
+The fifteen-card exclusion, $g(6) \ge 16$, has a hand proof in [P1]: the finite $K_7$
+lemma is proved there by hand, and the thirteen histograms come from a short count. The
+scripts check the same statements independently. The rest of the lower bound is
+computer-assisted at two points: the eleven-card lemma's third branch (now a hand
+reduction to a statement that a SAT solver checks in seconds), and the sixteen-card
+exclusion. For the last of those the
 solver's word `UNSAT` is not the evidence — every CNF has a DRAT proof accepted by
 `drat-trim`, which removes the SAT solver from the trusted base.
 
@@ -117,6 +121,7 @@ The rest of the standard-library checks:
 
 ```bash
 python code/verify_histograms.py
+python code/verify_p1_hand_steps.py
 python code/verify_eleven_cards.py
 python code/verify_degree3_kernels.py --witness
 python code/enumerate_eight_maximal.py
@@ -124,6 +129,12 @@ python code/enumerate_eight_triples.py
 python code/enumerate_eight_cores.py
 python code/verify_eight_orbits.py
 python code/verify_cnf_regeneration.py
+```
+
+One short check needs `python-sat` (`pip install python-sat`):
+
+```bash
+python code/verify_eleven_cards_petals.py
 ```
 
 The checks of [P5] and [P6], standard library except for one C file, `sympy` for the algebra and `scipy` for the finite audit:

@@ -1,4 +1,4 @@
-# [P1] Fifteen cards: the histogram route
+# [P1] Fifteen cards by hand: the histogram route
 
 Mohamed A. Osman — ORCID 0009-0004-5912-999X
 
@@ -9,17 +9,18 @@ Licence: CC BY 4.0. Research draft.
 ## Abstract
 
 No pairwise intersecting 6-uniform family of fifteen cards has transversal number six.
-Degree bounds force every symbol degree into $\lbrace 2,3,4 \rbrace$; an exhaustive
-finite lemma on edge covers of $K_7$ supplies the two hardest degree exclusions; a
-weighted counting inequality reduces the possible degree histograms to thirteen; and the
-thirteen are eliminated by incidence arguments. Hence $g(6) \ge 16$.
+Degree bounds force every symbol degree into $\lbrace 2,3,4 \rbrace$; a finite lemma
+on edge covers of $K_7$ supplies the two hardest degree exclusions; a weighted counting
+inequality reduces the possible degree histograms to thirteen; and the thirteen are
+eliminated by incidence arguments. Hence $g(6) \ge 16$.
 
-This route is superseded by [P2], which proves a stronger lemma and reaches the same
-conclusion in two lines. It is kept because the $K_7$ lemma and the weighted inequality
-were developed here, and because it is an independent second argument for the same
-statement.
+Every step is a hand argument: the $K_7$ lemma has a one-page proof (§3), and the
+thirteen histograms come from a short deficit count (§6). The scripts of §9 check the
+same statements independently. [P2] reaches the same conclusion through its
+eleven-card lemma, one branch of which is a computer search; this paper gives a route
+that does not need that search.
 
-Computer-assisted; not independently reviewed. No priority claimed. See the note at the end.
+Not independently reviewed. No priority claimed. See the note at the end.
 
 ## 1. Setting
 
@@ -94,25 +95,110 @@ the padding convention is justified.
 
 ## 3. The finite $K_7$ lemma
 
-**Lemma 2 (computer-assisted).** *Given any four edge covers of $K_7$, each of size at
-most five, there is a four-edge cover of $K_7$ meeting each of the four in an edge.
-Repetitions among the four inputs are allowed.*
+**Lemma 2.** *Given any four edge covers of $K_7$, each of size at most five, there is a
+four-edge cover of $K_7$ meeting each of the four in an edge. Repetitions among the four
+inputs are allowed.*
 
-It is enough to test inclusion-minimal inputs. A minimal edge cover is a spanning star
-forest, and on seven vertices with at most five edges the component patterns are exactly
-$(3,2,2)$, $(5,2)$ and $(4,3)$: there are $840$ labelled minimal covers — 315 of type
-$P_3 + 2K_2$, 105 of type $K_{1,4} + K_2$, 420 of type $K_{1,3} + K_{1,2}$ — and $315$
-four-edge covers.
+Write $V$ for the seven vertices and $T_1,\dots,T_4$ for the inputs. A four-edge cover of
+$V$ is a vertex $x$, a perfect matching $M$ of $V\setminus\lbrace x\rbrace$, and one more
+edge at $x$. Every $T_i$ has an edge at $x$, so it is enough to find $x$ and $M$ such that
+$M$ meets three of the $T_i$: an edge of the fourth at $x$ completes the cover. Call such
+a pair $(x,M)$ *good* and suppose there is none. Then:
 
-`code/verify_k7.py` fixes one representative of each of the three isomorphism types as
-the first input and certifies every choice of the remaining three. Each representative
-accounts for $\binom{839}{3} = 98{,}079{,}939$ quadruples, so $294{,}239{,}817$ in total,
-with no counterexample. The method is exact: for each fixed triple it intersects, over
-all outputs meeting that triple, the bitsets of inputs each output misses; an empty
-intersection certifies every fourth input at once. The script also compares that batch
-method against literal enumeration on nine bounded subcases.
+**(B)** *If $i \ne j$ and $e \in T_i$, $f \in T_j$ are disjoint, then each other $T_k$
+contains neither $e$ nor $f$, nor an edge inside the three vertices outside $e \cup f$.*
 
-This is a finite computer check, not a claimed hand proof.
+Indeed such an edge $g$ makes $(x,\lbrace e,f,g \rbrace)$ good, with $x$ the remaining
+vertex. If instead $e \in T_k$, take for $g$ any edge on two of the three vertices
+outside $e \cup f$ and for $x$ the third: then $\lbrace e,f,g \rbrace$ meets $T_i$,
+$T_j$ and $T_k$. In particular no edge lies in three of the $T_i$.
+
+**Two-stars.** A graph on seven vertices with at most five edges, no isolated vertex and
+no three disjoint edges is two disjoint stars with five edges ($K_{1,3}+K_{1,2}$ or
+$K_{1,4}+K_2$). Such a graph has at least two components, since a connected graph on
+seven vertices has six edges. A component that is not a star is either a triangle or
+contains a path with three edges. In the second case it has two disjoint edges, and an
+edge of another component makes three. A triangle component leaves four vertices, which
+need at least two more edges; with five edges in all these are two disjoint edges, and
+again there are three disjoint edges. So all components are stars, $c$ of them with
+$7-c \le 5$ edges, and three disjoint edges are absent only if $c = 2$.
+
+*Case 1: no $T_i$ has three disjoint edges.* Then each $T_i$ is a two-star. For a graph
+$T$ and a vertex $x$ let $h_T(x)$ be the number of the 15 perfect matchings of
+$V\setminus\lbrace x\rbrace$ that meet $T$. An edge lies in three of them and two
+disjoint edges in exactly one, and inclusion–exclusion gives:
+
+- $K_{1,3}+K_{1,2}$ with centres $a$, $b$: $h = 6$ at $a$, 8 at each leaf of $a$, 9 at $b$
+  and at each leaf of $b$; in all 57.
+- $K_{1,4}+K_2$ with centre $a$ and edge $bc$: $h = 3$ at $a$, 9 at each leaf of $a$, 12 at
+  $b$ and at $c$; in all 63.
+
+So $\sum_x \sum_i h_{T_i}(x) \ge 4 \cdot 57 = 228 > 7 \cdot 30$, and some $x$ has
+$\sum_i h_{T_i}(x) \ge 31$. Then one of the 15 matchings of $V\setminus\lbrace x\rbrace$
+meets three of the $T_i$, which is a good pair.
+
+*Case 2: $T_1$ has three disjoint edges $e_1,e_2,e_3$.* Let $x$ be the seventh vertex.
+For a vertex $q$ in $e_s$ write $\bar q$ for the other end of $e_s$. Applying (B) to the
+pairs $(xq, e_t)$, $t \ne s$, gives:
+
+**(C)** *If $xq \in T_j$, $j \ne 1$, $q \in e_s$, then each $T_k$ with
+$k \notin \lbrace 1,j \rbrace$ avoids $xq$ and the two $e_t$ with $t \ne s$, and has no
+edge from $\bar q$ to those two $e_t$.*
+
+*Step 1. The edges of $T_2,T_3,T_4$ at $x$ all go into one $e_s$.* If not, there are two
+such edges into different $e_s$ that belong to different graphs: if both belong to one
+$T_j$, an edge of another $T_k$ at $x$ goes into a different $e_s$ from one of them. After
+renaming, $xq \in T_j$, $xr \in T_k$ with $j \ne k$, $q \in e_1$, $r \in e_2$; let $m$ be the third
+index. By (C) for $xq$ and for $xr$, $T_m$ has no edge from $\bar q$ into $e_2 \cup e_3$
+and avoids $e_1$, so $x\bar q \in T_m$; likewise $x\bar r \in T_m$. Now (C) for $x\bar q$
+gives that $T_k$ has no edge from $q$ into $e_2 \cup e_3$, (C) for $x\bar r$ that $T_k$
+avoids $e_1$, and (C) for $xq$ that $T_k$ avoids $xq$. So $q$ is isolated in $T_k$, which
+is impossible.
+
+Rename so that $s = 1$ and $e_1 = p\bar p$, and put $W = e_2 \cup e_3$. For $j = 2,3,4$ let
+$P_j \subseteq \lbrace p, \bar p \rbrace$ be the set of neighbours of $x$ in $T_j$. By (C),
+$T_2, T_3, T_4$ avoid $e_2$ and $e_3$, and
+
+**(D)** *if $q \in P_j$ and $k \notin \lbrace 1,j \rbrace$, then $T_k$ has no edge from
+$\bar q$ into $W$.*
+
+Call an edge between $e_2$ and $e_3$ a cross edge. For a cross edge $h$ in some $T_m$,
+$m \ne 1$, (B) for the pair $(h, e_1)$ gives:
+
+**(O)** *the other two of $T_2,T_3,T_4$ avoid $h$ and the cross edge disjoint from $h$.*
+
+So in $T_2,T_3,T_4$ a vertex of $W$ is joined only to $p$, to $\bar p$, or by cross edges.
+
+*Step 2.* If $P_2 = P_3 = P_4 = \lbrace p \rbrace$, then by (D) no $T_k$ joins $\bar p$ to
+$W$, and $x\bar p \notin T_k$; so $e_1$ lies in $T_2$, $T_3$ and $T_4$, against (B). The
+same holds with $\bar p$. So both $p$ and $\bar p$ occur among $P_2,P_3,P_4$, and since
+each $P_j$ is non-empty there are $j \ne k$ with $p \in P_j$ and $\bar p \in P_k$; let
+$m$ be the third index.
+
+*Step 3.* By (D), $T_k$ and $T_m$ do not join $\bar p$ to $W$, and $T_j$ and $T_m$ do not
+join $p$ to $W$. So $T_m$ covers $W$ by cross edges alone, and contains a perfect
+matching $h_1 = w_1w_1'$, $h_2 = w_2w_2'$ of the 4-cycle of cross edges, where
+$e_2 = w_1w_2$ and $e_3 = w_1'w_2'$. By (O), $T_j$ and $T_k$ contain neither.
+
+The roles of $(p,j)$ and $(\bar p,k)$ are symmetric, so let $xp \in T_m$. By (D), $T_j$
+does not join $\bar p$ to $W$ either, so it covers $W$ by the cross edges
+$h_3 = w_1w_2'$ and $h_4 = w_2w_1'$. By (O), $T_k$ avoids $h_3$ and $h_4$ too. Since
+$p \in P_j$, (D) says $T_k$ does not join $\bar p$ to $W$; so every vertex of $W$ is
+joined to $p$ in $T_k$, in particular $pw_1 \in T_k$.
+
+Finally $T_m$ covers $\bar p$, not from $W$, so $x\bar p \in T_m$ or $p\bar p \in T_m$. In
+the first case $pw_1 \in T_k$, $h_4 \in T_j$ and $x\bar p \in T_m$ are disjoint, against
+(B). In the second $e_1 \in T_1 \cap T_m$ and $h_3 \in T_j$ are disjoint, against (B).
+$\square$
+
+**Computer check.** It is enough to test inclusion-minimal inputs. A minimal edge cover is
+a spanning star forest, and on seven vertices with at most five edges the component
+patterns are $(3,2,2)$, $(5,2)$ and $(4,3)$: 840 labelled minimal covers (315 of type
+$P_3 + 2K_2$, 105 of type $K_{1,4} + K_2$, 420 of type $K_{1,3} + K_{1,2}$) and 315
+four-edge covers. `code/verify_k7.py` fixes one representative of each type as the first
+input and certifies every choice of the remaining three, $294{,}239{,}817$ quadruples
+with no counterexample. The values of $h$ used in Case 1 are checked by
+`code/verify_p1_hand_steps.py`.
 
 ## 4. High symbols and overlap excess
 
@@ -183,8 +269,36 @@ The necessary numerical conditions are
   has $q_A \in \lbrace 3,4,5 \rbrace$;
 - inequality (S).
 
-`code/verify_histograms.py` enumerates these exactly, with no assumed bound on $t$ and no
-assumed bound on $a_2$, and leaves thirteen rows.
+They leave thirteen rows. By hand: put $c_A = q_A - 2 \in \lbrace 0,\dots,4 \rbrace$, so
+$\sum_A c_A = 4t - 30$. Card by card, the left side of (S) is
+$\sum_A (6 + 18.5 c_A - \delta(c_A))$, where the *deficit* $\delta(c_A)$ is
+$0, 6.5, 10, 7.5, 0$ for $c_A = 0,1,2,3,4$. So (S) says
+
+$$\sum_A \delta(c_A) \le B(t) := -3t^2 + 77t - 465 .$$
+
+Call a card *middle* if $q_A \in \lbrace 3,4,5 \rbrace$. Only middle cards have positive
+deficit, at least 6.5 each, and the other cards have $c_A \in \lbrace 0,4 \rbrace$, so the
+values of $c_A$ on the middle cards add up to $4t - 30 \equiv 2 \pmod 4$.
+
+- $B(t) \lt 0$ for $t \le 9$ and $t \ge 16$, and $B(10) = 5$ leaves no middle card, against
+  the congruence. For $t = 11,\dots,15$, $B = 19, 27, 29, 25, 15$.
+- Modulo 3, $2n_2 \equiv 90 - 4t$. At $t = 11$ and $t = 14$ this forces $n_2 \ge 2$, hence
+  at least four middle cards and deficit at least $26 \gt B$. At $t = 12$ and $t = 15$ it
+  gives $n_2 \in \lbrace 0,3,6 \rbrace$, and $n_2 \ge 3$ would need six middle cards (deficit at least 39),
+  so $n_2 = 0$. At $t = 13$ it gives $n_2 = 1$, since $n_2 \ge 4$ needs eight middle cards (deficit
+  at least 52).
+- The multisets of values $c_A$ on the middle cards with sum $\equiv 2 \pmod 4$ and deficit at most 29 are
+  $\lbrace 2 \rbrace$ (10), $\lbrace 1,1 \rbrace$ (13), $\lbrace 3,3 \rbrace$ (15),
+  $\lbrace 1,2,3 \rbrace$ (24), $\lbrace 1,1,1,3 \rbrace$ (27) and
+  $\lbrace 1,3,3,3 \rbrace$ (29); any other has deficit at least 30.
+- The middle cards fix the histogram: $(4t - 30 - \sum c_{\mathrm{middle}})/4$ cards are
+  full and the rest have $q_A = 2$. At $t = 15$ the first three multisets are allowed, at
+  $t = 12$ the first five, and at $t = 13$ (at least two middle cards) the five from
+  $\lbrace 1,1 \rbrace$ on.
+
+This gives the thirteen rows below. `code/verify_histograms.py` enumerates the same
+conditions directly, with no assumed bound on $t$ or $a_2$, and `code/verify_p1_hand_steps.py`
+checks that the count above reproduces its list.
 
 | $(n_2,n_3,n_4)$ | $(a_2,a_3,a_4,a_5,a_6)$ |
 |---|---|
@@ -339,9 +453,11 @@ the same holds for every family of at most fifteen cards. Hence $g(6) \ge 16$.*
 | claim | script |
 |---|---|
 | Lemma 2, all 294,239,817 quadruples | `code/verify_k7.py` |
+| the values of $h$ in §3 and the deficit count of §6 | `code/verify_p1_hand_steps.py` |
 | the thirteen histograms | `code/verify_histograms.py` |
 
-The eliminations of §7 are hand arguments. They are not machine-checked.
+The proofs of §3 and §6 are hand arguments; the scripts check the same statements
+independently. The eliminations of §7 are hand arguments and are not machine-checked.
 
 ---
 

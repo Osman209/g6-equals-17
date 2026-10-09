@@ -10,9 +10,10 @@ Licence: CC BY 4.0. Research draft.
 
 Every pairwise intersecting 6-uniform family of eleven cards has a transversal of size at
 most four. The proof splits on the maximum symbol degree: degree five or more is closed by
-pairing, degree four by the finite $K_7$ lemma, and degree at most three by an exhaustive
-triangle-decomposition search over 5,373 instances. The fifteen-card exclusion of [P1]
-then follows in two lines, and the same lemma pins the maximum degree at exactly four in
+pairing, degree four by the finite $K_7$ lemma (which has a hand proof in [P1]), and
+degree at most three by reduction to a short statement about 3-element sets on eleven
+points, checked by a SAT solver in a few seconds; an earlier exhaustive search over 5,373
+instances is kept as a second check. The fifteen-card exclusion then follows in two lines, and the same lemma pins the maximum degree at exactly four in
 the sixteen-card stage of [P3].
 
 Computer-assisted; not independently reviewed. No priority claimed. See the note at the end.
@@ -59,7 +60,7 @@ Each of the four deleted cards contains $y$, which lies outside $R$, and must me
 seven cards of $R$. Its remaining five symbols therefore induce an edge cover of that
 $K_7$ of size at most five.
 
-**Lemma 2 (computer-assisted, the $K_7$ lemma).** *Given any four edge covers of $K_7$,
+**Lemma 2 (the $K_7$ lemma; [P1, §3] proves it by hand).** *Given any four edge covers of $K_7$,
 each of size at most five, there is a four-edge cover of $K_7$ meeting each of them in an
 edge. Repetitions among the inputs are allowed.*
 
@@ -98,6 +99,32 @@ into triangles, repeats permitted. And that decomposition can contain no matchin
 three: three vertex-disjoint triangles cover nine cards with three symbols, and the
 remaining pair is covered by one more, giving a four-cover.
 
+**Petals.** Fix a card $x$ with $t$ degree-three symbols and $b$ degree-two symbols. Its
+degree-two symbols reach $b \le 6 - t$ other cards, so its triangles reach at least
+$10 - b \ge t + 4$ other cards. In the link of $x$ (one pair of cards for each of its
+triangles) there are $t$ edges on at least $t + 4$ vertices, hence at least four
+components, hence four pairwise disjoint edges. So $x$ lies in four triangles that
+pairwise meet only in $x$; call them petals of $x$. Also $x$ lies in at most six
+triangles.
+
+**Lemma 3 (computer-assisted).** *Let $H$ be a set of 3-element subsets of an 11-element
+set in which every point is the centre of four petals, and let $x$ be a point in at most
+six members of $H$. Then for some petal $P$ of $x$ there are two disjoint members of $H$
+disjoint from $P$.*
+
+Applied to the triangles (repeated triangles counted once, which changes neither petals
+nor the bound six), Lemma 3 gives three vertex-disjoint triangles, which is impossible.
+This closes Branch C.
+
+`code/verify_eleven_cards_petals.py` checks Lemma 3 with a SAT solver in a few seconds,
+with $x$ and its petals fixed as $0$ and $\lbrace 0,1,2 \rbrace$, $\lbrace 0,3,4 \rbrace$,
+$\lbrace 0,5,6 \rbrace$, $\lbrace 0,7,8 \rbrace$. The bound six is used: with seven the
+same model has a solution. On ten points it has a solution too. The script checks both,
+so the lemma has no slack in either parameter. A hand proof is not known to us.
+
+**A second check.** The first version of this branch searched the triangle
+decompositions directly, as follows. It is kept as an independent check of Branch C.
+
 Every $F$ component is a path with $C$ endpoints and $A$ interiors, or a cycle of $A$
 vertices of length at least three. Every $E$ component is a path with $C$ endpoints and
 $D$ interiors, or a cycle of $D$ vertices of length at least two, a two-cycle being a
@@ -130,8 +157,8 @@ remain, padded up to eleven by repeating existing cards if necessary, which chan
 transversal number. Theorem 1 gives a four-cover of them, and with $x$ that is a
 five-cover. Smaller families are handled by the same padding. $\square$
 
-Compare [P1], where the same statement costs a weighted inequality, an exact enumeration
-of thirteen histograms, and nine pages of incidence arguments.
+Compare [P1], where the same statement costs a weighted inequality, a count of thirteen
+histograms, and nine pages of incidence arguments, but uses no computer search.
 
 ## 4. What the lemma gives the sixteen-card stage
 
@@ -165,9 +192,11 @@ stage needs a SAT layer at all.
 | claim | script |
 |---|---|
 | Lemma 2, all 294,239,817 quadruples | `code/verify_k7.py` |
-| Branch C, all 5,373 instances UNSAT | `code/verify_eleven_cards.py` |
+| Lemma 3, with its two controls (bound seven; ten points) | `code/verify_eleven_cards_petals.py` |
+| Branch C again, all 5,373 instances UNSAT | `code/verify_eleven_cards.py` |
 
-Branches A and B are hand arguments on top of Lemma 2.
+Branches A and B are hand arguments on top of Lemma 2, which has a hand proof in [P1, §3].
+In Branch C the reduction to Lemma 3 is a hand argument and Lemma 3 is a SAT check.
 
 ---
 

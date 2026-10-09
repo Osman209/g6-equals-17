@@ -50,10 +50,11 @@ $$g(6) = 17 .$$
 
 ## 3. The papers
 
-**[P1] Fifteen cards: the histogram route.** The original argument. Symbol degrees are
-forced into $\lbrace 2,3,4 \rbrace$; a finite lemma about edge covers of $K_7$ is checked
-exhaustively; a weighted counting inequality cuts the possible degree histograms down to
-thirteen; each of the thirteen is then eliminated by hand.
+**[P1] Fifteen cards by hand: the histogram route.** The original argument, and a hand proof of
+$g(6) \ge 16$. Symbol degrees are forced into $\lbrace 2,3,4 \rbrace$; a finite lemma
+about edge covers of $K_7$ is proved by hand and also checked exhaustively; a weighted
+counting inequality cuts the possible degree histograms down to thirteen, by a short
+count; each of the thirteen is then eliminated by hand.
 
 **[P2] The eleven-card lemma.** A later and shorter route to the same place. It proves
 that *every* pairwise intersecting 6-uniform family of eleven cards has a transversal of
@@ -91,9 +92,11 @@ The two bounds are not of the same kind, and it is worth being plain about that.
 The upper bound is a witness. Anyone can check it with a short script and no libraries:
 seventeen sets, 136 pairs, 80,730 subsets. Nothing is trusted except arithmetic.
 
-The lower bound is computer-assisted at two points. The $K_7$ lemma of [P1] and [P2] is
-a finite exhaustive check (294,239,817 cases). The eleven-card lemma's third branch is
-an exhaustive search over 5,373 instances. The sixteen-card exclusion rests on the
+The fifteen-card stage has a hand proof in [P1]; its $K_7$ lemma is also checked
+exhaustively (294,239,817 cases). Beyond that the lower bound is computer-assisted at two
+points. The eleven-card lemma's third branch reduces by hand to a short statement about
+3-element sets on eleven points, checked by a SAT solver in seconds; the earlier
+exhaustive search over 5,373 instances is kept as a second check. The sixteen-card exclusion rests on the
 reduction to 463 cores and on 463 unsatisfiability results.
 
 For the last of those, the solver's word is not the evidence. Each CNF has a DRAT proof,

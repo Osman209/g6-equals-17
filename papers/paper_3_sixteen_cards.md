@@ -12,7 +12,8 @@ No pairwise intersecting 6-uniform family of sixteen cards has transversal numbe
 A hypothetical counterexample is reduced to one of 463 canonical eight-card cores; for
 each core the completion problem is written as a CNF formula; all 463 are unsatisfiable;
 and each unsatisfiability carries a DRAT certificate accepted by an independent checker.
-With [P2] this gives $g(6) \ge 17$.
+With [P2] this gives $g(6) \ge 17$. The fifteen-card exclusion also has a hand proof in
+[P1]; [P2] is still needed here for its Corollary 2, which fixes the maximum degree at four.
 
 This is the computer-assisted stage of the project. The reduction and the encoding are
 proof obligations that live in the source, not in the certificates.

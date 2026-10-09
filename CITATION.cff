@@ -9,7 +9,8 @@ abstract: >-
   bound gives g(6) >= 14.
   A computer-assisted determination of g(6), the smallest number of blocks in a
   pairwise intersecting 6-uniform family with transversal number 6. Families of at
-  most fifteen cards are excluded by two independent routes; sixteen cards are
+  most fifteen cards are excluded by two independent routes, one of them a hand
+  proof; sixteen cards are
   excluded by a finite reduction to 463 canonical cores whose SAT instances are all
   unsatisfiable with independently checked DRAT certificates; and an explicit
   seventeen-card family on 27 symbols gives the matching upper bound. Hence
@@ -27,8 +28,8 @@ authors:
     orcid: "https://orcid.org/0009-0004-5912-999X"
     email: mohamedosmannn2999@gmail.com
 doi: 10.5281/zenodo.22883809
-version: 1.5.0
-date-released: 2026-10-02
+version: 1.6.0
+date-released: 2026-10-09
 license: MIT
 license-url: "https://opensource.org/licenses/MIT"
 keywords:

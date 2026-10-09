@@ -13,6 +13,7 @@ removes them, so an `-O` run can pass on material that fails.
 | `verify_witness_17.py` | seconds | the seventeen-card witness, [P4] |
 | `verify_k7.py` | seconds | the finite $K_7$ lemma, [P1, §3] |
 | `verify_histograms.py` | seconds | the thirteen degree histograms, [P1, §6] |
+| `verify_p1_hand_steps.py` | seconds | the numbers in the hand proofs of [P1, §3 and §6] |
 | `verify_eleven_cards.py` | minutes | the eleven-card lemma, degree-three branch, [P2, §2] |
 | `verify_degree3_kernels.py` | ~20 min | the second branch of the reduction: 341 maximum-degree-three kernels, none extending, [P3, §2a]. `--witness` also locates the [P4] kernel inside the enumeration; `--enumerate 12` re-derives a profile from scratch |
 | `enumerate_eight_maximal.py` | seconds | step 1 of the reduction, [P3, §3] |
@@ -36,6 +37,7 @@ removes them, so an `-O` run can pass on material that fails.
 | `verify_centre_model.py` | ~1 min, needs scipy | reward formula, fixed-bulk LP optima, splitting and absorption tests |
 | `coefficient_from_certificates.py` | seconds | the one-centre-model coefficient 3.0588; numerical, not a proof |
 | `gr_upper.py` | minutes to days | kernel-plus-extension upper bounds; `python3 code/gr_upper.py 6` reproduces 17 |
+| `verify_eleven_cards_petals.py` | seconds, needs python-sat | [P2, Lemma 3], the short form of Branch C, with two controls |
 | `gr7_select.py` | hours, needs python-sat | exact (SAT) selection step at r = 7 for the 38 kernels with tau = 6 |
 
 The two certificate scripts read `certificates/`, which is a release asset rather than

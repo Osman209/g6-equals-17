@@ -22,7 +22,7 @@ REPO = "https://github.com/Osman209/g6-equals-17"
 SITE = "https://osman209.github.io/g6-equals-17"
 ORCID = "0009-0004-5912-999X"
 DOI = "10.5281/zenodo.22883809"
-DATE = "2026-10-02"
+DATE = "2026-10-09"
 
 CSS = """<style>body{max-width:52rem;margin:2.5rem auto;padding:0 1.2rem;font:16px/1.6 Georgia,"DejaVu Serif",serif;color:#1a1a1a}
 h1{font-size:1.6rem;line-height:1.3;margin-bottom:.2rem}h2{font-size:1.05rem;font-weight:400;color:#555;margin-top:0}
@@ -50,13 +50,13 @@ PAPERS = [
     ),
     dict(
         slug="paper_1_fifteen_cards_histogram_route",
-        title="Paper 1. Fifteen Cards: the Histogram Route",
-        sub="Degree bounds, a finite lemma on edge covers of K7, and thirteen degree histograms",
-        abs="Symbol degrees are forced into {2,3,4}; an exhaustive finite lemma about edge covers "
-            "of K7 supplies the two hardest degree exclusions; a weighted counting inequality cuts "
-            "the possible degree histograms to thirteen; and the thirteen are eliminated by "
-            "incidence arguments. Hence g(6) is at least 16. Superseded by Paper 2, and kept as an "
-            "independent second argument.",
+        title="Paper 1. Fifteen Cards by Hand: the Histogram Route",
+        sub="A hand proof of g(6) >= 16: degree bounds, a lemma on edge covers of K7, and thirteen degree histograms",
+        abs="Symbol degrees are forced into {2,3,4}; a finite lemma about edge covers of K7, proved "
+            "by hand and also checked exhaustively, supplies the two hardest degree exclusions; a "
+            "weighted counting inequality cuts the possible degree histograms to thirteen by a short "
+            "count; and the thirteen are eliminated by incidence arguments. Hence g(6) is at least "
+            "16, with every step a hand argument.",
     ),
     dict(
         slug="paper_2_eleven_card_lemma",
@@ -64,8 +64,9 @@ PAPERS = [
         sub="Every eleven-card family has a four-cover, and fifteen cards then take two lines",
         abs="Every pairwise intersecting 6-uniform family of eleven cards has a transversal of size "
             "at most four. The proof splits on the maximum degree: five or more closes by pairing, "
-            "four by the finite K7 lemma, and three or less by an exhaustive triangle-decomposition "
-            "search over 5,373 instances. The lemma also pins the maximum degree at exactly four in "
+            "four by the K7 lemma (proved by hand in Paper 1), and three or less by a hand reduction "
+            "to a short statement on eleven points, checked by a SAT solver in seconds, with the "
+            "earlier search over 5,373 instances kept as a second check. The lemma also pins the maximum degree at exactly four in "
             "the sixteen-card stage. An explicit eight-card family shows the analogue fails at eight.",
     ),
     dict(
@@ -218,6 +219,7 @@ review.</strong></p>
 <h3>Checking it yourself</h3>
 <p><code>python code/verify_witness_17.py</code> &mdash; the seventeen-card family<br>
 <code>python code/verify_k7.py</code> &mdash; the finite lemma, all 294,239,817 cases<br>
+<code>python code/verify_p1_hand_steps.py</code> &mdash; the numbers in the hand proofs of Paper 1<br>
 <code>drat-trim data/cnf/core_007.cnf data/cnf/core_007.drat</code> &mdash; one certificate</p>
 <p>The first two need nothing but Python's standard library.</p>
 <p><code>python -S code/verify_snd_intersection.py</code> &mdash; the final minimisation of Paper 6, exact rational arithmetic, a few seconds</p>
