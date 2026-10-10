@@ -94,6 +94,7 @@ what it settled, and what it could not.
 ```text
 papers/         the overview and the six papers
 code/           enumeration, verification, SAT and certification scripts
+lean/           Lean 4 proofs of the K7 lemma and the petal lemma, with their generators
 data/           the canonical cores, the reduction data, the witness, three CNF/DRAT pairs
 results/        SAT run records, retry chain, certificate summary
 docs/           GitHub Pages site: landing page, one abstract page and one PDF per paper
@@ -129,6 +130,15 @@ python code/enumerate_eight_triples.py
 python code/enumerate_eight_cores.py
 python code/verify_eight_orbits.py
 python code/verify_cnf_regeneration.py
+```
+
+Two finite lemmas are also proved in Lean 4 ([`lean/README.md`](lean/README.md) has the
+details and what the proofs trust):
+
+```bash
+cd lean
+lean K7.lean
+lean --tstack=4000000 Petals.lean
 ```
 
 One short check needs `python-sat` (`pip install python-sat`):

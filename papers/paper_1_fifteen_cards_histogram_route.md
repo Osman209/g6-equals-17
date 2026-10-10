@@ -198,7 +198,9 @@ $P_3 + 2K_2$, 105 of type $K_{1,4} + K_2$, 420 of type $K_{1,3} + K_{1,2}$) and 
 four-edge covers. `code/verify_k7.py` fixes one representative of each type as the first
 input and certifies every choice of the remaining three, $294{,}239{,}817$ quadruples
 with no counterexample. The values of $h$ used in Case 1 are checked by
-`code/verify_p1_hand_steps.py`.
+`code/verify_p1_hand_steps.py`. The lemma is also proved in Lean 4 (`lean/K7.lean`,
+theorem `k7_lemma`): the tactic `bv_decide` reduces it to SAT and checks the solver's
+certificate with a checker verified in Lean; see `lean/README.md` for what this trusts.
 
 ## 4. High symbols and overlap excess
 
@@ -453,6 +455,7 @@ the same holds for every family of at most fifteen cards. Hence $g(6) \ge 16$.*
 | claim | script |
 |---|---|
 | Lemma 2, all 294,239,817 quadruples | `code/verify_k7.py` |
+| Lemma 2 in Lean 4 | `lean/K7.lean` |
 | the values of $h$ in §3 and the deficit count of §6 | `code/verify_p1_hand_steps.py` |
 | the thirteen histograms | `code/verify_histograms.py` |
 

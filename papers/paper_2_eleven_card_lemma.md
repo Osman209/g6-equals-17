@@ -120,7 +120,10 @@ This closes Branch C.
 with $x$ and its petals fixed as $0$ and $\lbrace 0,1,2 \rbrace$, $\lbrace 0,3,4 \rbrace$,
 $\lbrace 0,5,6 \rbrace$, $\lbrace 0,7,8 \rbrace$. The bound six is used: with seven the
 same model has a solution. On ten points it has a solution too. The script checks both,
-so the lemma has no slack in either parameter. A hand proof is not known to us.
+so the lemma has no slack in either parameter. Lemma 3 is also proved in Lean 4
+(`lean/Petals.lean`, theorem `petals_11_6`), where `bv_decide` checks the solver's
+certificate with a checker verified in Lean; see `lean/README.md`. A hand proof is not
+known to us.
 
 **A second check.** The first version of this branch searched the triangle
 decompositions directly, as follows. It is kept as an independent check of Branch C.
@@ -193,6 +196,8 @@ stage needs a SAT layer at all.
 |---|---|
 | Lemma 2, all 294,239,817 quadruples | `code/verify_k7.py` |
 | Lemma 3, with its two controls (bound seven; ten points) | `code/verify_eleven_cards_petals.py` |
+| Lemma 3 in Lean 4 | `lean/Petals.lean` |
+| Lemma 2 in Lean 4 | `lean/K7.lean` |
 | Branch C again, all 5,373 instances UNSAT | `code/verify_eleven_cards.py` |
 
 Branches A and B are hand arguments on top of Lemma 2, which has a hand proof in [P1, §3].
