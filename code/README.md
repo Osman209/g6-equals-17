@@ -38,6 +38,9 @@ removes them, so an `-O` run can pass on material that fails.
 | `coefficient_from_certificates.py` | seconds | the one-centre-model coefficient 3.0588; numerical, not a proof |
 | `gr_upper.py` | minutes to days | kernel-plus-extension upper bounds; `python3 code/gr_upper.py 6` reproduces 17 |
 | `verify_eleven_cards_petals.py` | seconds, needs python-sat | [P2, Lemma 3], the short form of Branch C, with two controls |
+| `verify_cores_direct.py` | ~1 min, needs numpy and cc | second route for the 463 cores, [P3, §3]; compiles `enumerate_triples_direct.c` |
+| `verify_sixteen_second_encoding.py` | ~3 h; `--control` ~5 min; needs python-sat | second encoding of the 463 completions, no symmetry breaking, [P3, §7] |
+| `verify_degree3_kernels_sat.py` | a few min, needs python-sat | [P3, Lemma 2] by SAT on the 341 shipped kernels; `--control` for the [P4] kernel |
 | `gr7_select.py` | hours, needs python-sat | exact (SAT) selection step at r = 7 for the 38 kernels with tau = 6 |
 
 The two certificate scripts read `certificates/`, which is a release asset rather than

@@ -32,6 +32,9 @@ it is a memory, not a measurement.
 | the encoding is not contradictory on its own | `code/verify_encoding_controls.py` | with the five-cover clauses dropped, models exist and decode into genuine sixteen-card families; with them restored, none do |
 | 463/463 UNSAT | `results/sat_results_cadical195_0.jsonl`, `results/sat_retry*.jsonl` | 460 in the budgeted pass, cores 7, 239, 342 rerun without a budget; no UNKNOWN counted as an exclusion |
 | 463/463 DRAT-verified | `results/certificate_summary.jsonl`, `data/cnf/` | one entry per core id 0 to 462, all verified; three CNF/DRAT pairs shipped so the step can be reproduced without a solver |
+| second route: 129 triple classes and the 463 cores, from the definition | `code/verify_cores_direct.py`, `code/enumerate_triples_direct.c` | all 1,659,224 labelled triple systems satisfying [P3, §3] step 3, no maximal families or orbits; 129 classes, 772 completions; the 463 cores equal the shipped file under all 40,320 relabellings |
+| second route: 463/463 UNSAT | `code/verify_sixteen_second_encoding.py`, `results/second_encoding_cadical153.txt` | a separately written encoding (totalizer, clauses of [P3, Lemma 3] written directly, no symmetry breaking), CaDiCaL 1.5.3; `--control` checks that with the cover clauses removed it is SAT on exactly the cores where `build()` is |
+| second route: no maximum-degree-three kernel extends | `code/verify_degree3_kernels_sat.py` | the 341 shipped kernels re-checked as families; extension test by SAT on a relaxation (at most four covers, repeats allowed), all UNSAT; `--control` with five covers finds the [P4] kernel |
 | DRAT archive integrity | `code/make_certificate_manifest.py`, `code/verify_certificate_markers.py` | SHA-256 over the CNF, DRAT and marker files |
 | 17-card witness, $\tau = 6$ | `code/verify_witness_17.py`, `data/witness_17.json` | 17 distinct cards of size 6; 136/136 pairs; all 80,730 five-subsets by two independent methods; degree histogram; an explicit five-cover after each deletion |
 | [P5, Theorem 1] on small configurations | `code/verify_residual_bound.py` | every irredundant covering of the pairs of a q-set by 2- and 3-blocks for q <= 6 (7,124,433 at q = 6), and the low-degree ones for q = 7, 8, 9; no violation of 4 tau <= q + r + 3; the sharpness family for n = 3 to 11 |
@@ -61,7 +64,7 @@ These are arguments, not computations, and the table does not pretend otherwise.
 | elimination of the thirteen histograms | [P1, §7] |
 | branches A and B of the eleven-card lemma | [P2, §2] |
 | the reduction reaches every sixteen-card counterexample | [P3, §1, §2, §2a, §3] |
-| each CNF clause family means what it is said to mean | [P3, §4] |
+| each CNF clause family means what it is said to mean (the antichain clauses now rest on [P3, Lemma 3]) | [P3, §4] |
 | [P5]: the capacity inequalities (2.1), (2.2), the pointwise capacity (Lemma 4), $M \le S$, the swap lemma (Lemma 8), and the augmentation arguments of Lemmas 6, 9 and 12 | [P5, §2 to §4] |
 
 `AUDIT.md` records which of these were checked by reading during the independent pass, and

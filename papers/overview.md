@@ -105,7 +105,10 @@ What a DRAT proof does **not** establish is that the reduction reaches every pos
 counterexample, or that the CNF says what the mathematics says. Those two obligations
 live in the reduction source and the encoding source, and they are the parts a reader
 should read rather than run. `AUDIT.md` records what an independent re-run did and did
-not settle.
+not settle. Each computation of the sixteen-card stage has also been repeated by
+separately written code — the cores from their definition, the encoding without symmetry
+breaking, the extension test by SAT ([P3, §7]); that repeats the computations, not the
+arguments.
 
 ## 5. Citation convention
 

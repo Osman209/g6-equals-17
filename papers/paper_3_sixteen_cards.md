@@ -12,6 +12,7 @@ No pairwise intersecting 6-uniform family of sixteen cards has transversal numbe
 A hypothetical counterexample is reduced to one of 463 canonical eight-card cores; for
 each core the completion problem is written as a CNF formula; all 463 are unsatisfiable;
 and each unsatisfiability carries a DRAT certificate accepted by an independent checker.
+Each computational step was also repeated by separately written code (§7).
 With [P2] this gives $g(6) \ge 17$. The fifteen-card exclusion also has a hand proof in
 [P1]; [P2] is still needed here for its Corollary 2, which fixes the maximum degree at four.
 
@@ -37,7 +38,8 @@ $F$. And deleting $x$ from any of the four removed cards leaves five symbols mee
 card of $G$, since each card of $G$ meets that card and cannot do so through $x$. $\square$
 
 So the four deleted cards are $\lbrace x \rbrace \cup C_i$ for $i = 1,\dots,4$, where each
-$C_i$ is a five-element transversal of $G$.
+$C_i$ is a five-element transversal of $G$. Every symbol of $C_i$ occurs in $G$: a symbol
+outside $G$ meets no card of $G$, and the other four symbols of $C_i$ would then cover $G$.
 
 **Proposition 2 (extension criterion).** *Four five-covers $C_1,\dots,C_4$ of $G$ produce
 a sixteen-card family with $\tau = 6$ if and only if every five-cover $T$ of $G$ is
@@ -183,8 +185,14 @@ $$8,\quad 280,\quad 1680,\quad 56,\quad 560,\quad 2520,\quad 5040 ,$$
 summing to 10,144. Script: `code/verify_eight_orbits.py`, which rebuilds each orbit from a
 representative and checks it equals the observed class.
 
-**Step 3. Triple systems.** For each of the seven representatives, enumerate the ways of
-assigning to every card a triple of the maximal family containing it. That gives
+**Step 3. Triple systems.** Every card of $H$ holds a degree-three symbol: it must meet the
+other seven cards, and six symbols of degree at most two reach at most six of them. So the
+degree-three symbols cover all eight cards, and by Proposition 4 they lie inside one of the
+maximal families of Step 1. A triple can occur at most three times: a card holding $m$
+copies of one triple reaches the other five cards through $6 - m$ symbols of degree at
+most three, so $2(6 - m) \ge 5$. For each of the seven representatives, enumerate the
+multisets of its triples, each of multiplicity at most three, that cover every card and
+leave every card room for the degree-two symbols its uncovered pairs need. That gives
 **39,768** triple systems in total, distributed over the seven representatives as
 28329, 4932, 1526, 3858, 156, 535, 432. Reducing by the stabiliser leaves **129** symmetry
 classes, whose multiplicities sum back to 39,768.
@@ -222,15 +230,16 @@ last four the $y$-block. The variables are:
 The clauses enforce:
 
 1. **degree caps** — core symbol $v$ with existing support $s$ may take at most $4 - \lvert s \rvert$
-   new cards, and a singleton must take all of them;
+   new cards, and a singleton must take at least one of them, since a symbol of degree one
+   is impossible ([P1, §2]);
 2. **card size** — for each new card $j$, exactly five of the core symbols and fresh
    symbols lie in it, the sixth being $x$ or $y$;
 3. **intersection with the core** — each new card meets every core card;
 4. **cross-block intersection** — each $x$-card and each $y$-card share a core symbol or a
    fresh crossing symbol;
-5. **antichain and support constraints** of the canonical representation, so that no fresh
-   symbol's support contains another's and no core symbol's completed support is contained
-   in another's;
+5. **antichain constraints** from Lemma 3 below: no fresh symbol's support contains
+   another's, no fresh symbol's support lies inside a core symbol's completed support, and
+   no core symbol's completed support lies inside another's (equal supports included);
 6. **no five-cover** — for every four-element and every five-element subset of the symbol
    set that already covers the eight core cards, clauses forbidding it from also meeting
    all eight new cards;
@@ -242,6 +251,23 @@ The clauses enforce:
 Implementation: `code/search_sixteen.py`, function `build`. The same function exports the
 DIMACS files through `code/export_core_cnf.py`, so the CNF a reviewer checks is the one
 the search used.
+
+**Lemma 3 (support containment).** *In a pairwise intersecting 6-uniform family with
+$\tau = 6$, no symbol's support is contained in another symbol's support.*
+
+*Proof.* Suppose every card containing $a$ also contains $b \ne a$, and let $A$ be a card
+containing $a$. Every other card $D$ meets $A$. If $D$ meets $A$ only in $a$, then $D$
+contains $a$, hence $b$, and $b \in A$; so $D$ meets $A \setminus \lbrace a \rbrace$ in
+any case. Then the five symbols of $A \setminus \lbrace a \rbrace$ cover the family. $\square$
+
+Lemma 3 is what the clause families 1 and 5 rest on, and it also fixes the fresh symbols.
+A fresh symbol inside one block would have its support inside the support of $x$ or of
+$y$; a fresh symbol of degree one is impossible; degree five is above the cap; and two
+fresh symbols with the same support are excluded. So the fresh symbols are exactly one
+$z_b$ for each subset $b$ of size 2, 3 or 4 meeting both blocks. For the no-five-cover
+clauses: $x$, $y$ and the fresh symbols meet no core card, and no three core symbols cover
+the core, so a five-cover of the sixteen cards contains at least four core symbols that
+already cover the core. Clause family 6 lists exactly those cases.
 
 **The encoding is part of the mathematics.** A DRAT certificate says the formula has no
 model; it says nothing about whether the formula means what §1 to §3 mean. That reading
@@ -302,6 +328,27 @@ Those three are the reduction and encoding obligations. They are audited through
 source, the canonical data, the structural counts of §3, and the controls recorded in
 `AUDIT.md`. With them accepted, the 463 checked contradictions leave no counterexample.
 
+**A second route for each step.** Each computational step has also been repeated by
+separately written code that shares nothing with the first route except the data it is
+asked to check:
+
+- the cores were rebuilt straight from the definition of Step 3 — every labelled multiset
+  of triples, with no maximal families and no orbits — and canonicalised under all 40,320
+  relabellings. This gives the same 129 classes, the same 772 completions, and the same
+  463 cores, with none extra on either side (`code/verify_cores_direct.py`);
+- the 463 completion problems were encoded again from scratch, with a different
+  cardinality encoding, the clauses of Lemma 3 written directly, and **no symmetry
+  breaking at all**, and solved with a different solver. All 463 are UNSAT. With the
+  no-five-cover clauses removed, the two encodings are satisfiable on exactly the same
+  sample cores (`code/verify_sixteen_second_encoding.py`);
+- the extension test of Lemma 2 was decided again by SAT, on a relaxation (at most four
+  covers, repeats allowed). None of the 341 kernels extends; with five covers allowed, the
+  [P4] kernel does (`code/verify_degree3_kernels_sat.py`).
+
+This does not replace a reading of the reduction. The second route repeats the
+computations, not the arguments of §1 to §3, and the second solve carries no DRAT
+certificate. The enumeration of the 341 kernels themselves has not been repeated.
+
 **Theorem 1 (computer-assisted).** *There is no pairwise intersecting 6-uniform family of
 sixteen cards with transversal number six. With [P2, Cor 1], $g(6) \ge 17$.*
 
@@ -323,6 +370,9 @@ kernels of maximum degree three, and the 463 certified contradictions close the 
 | the encoding is not trivially over-constrained | `code/verify_encoding_controls.py` |
 | 463/463 UNSAT | `results/sat_results_cadical195_0.jsonl`, `results/sat_retry*.jsonl` |
 | 463/463 DRAT-verified | `results/certificate_summary.jsonl`, `data/cnf/` |
+| second route: the 129 classes and the 463 cores from the definition | `code/verify_cores_direct.py`, `code/enumerate_triples_direct.c` |
+| second route: 463/463 UNSAT, other encoding, no symmetry breaking | `code/verify_sixteen_second_encoding.py`, `results/second_encoding_cadical153.txt` |
+| second route: no kernel of maximum degree three extends | `code/verify_degree3_kernels_sat.py` |
 
 ---
 

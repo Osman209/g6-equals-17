@@ -488,3 +488,67 @@ version of the Citation File Format, not the release version, and 1.3.0 is not a
 parser accepts. It is restored, and `code/audit.py` now refuses any other value and checks
 that the release versions in `CITATION.cff` and `.zenodo.json` agree. The gate was forced to
 fail once to confirm it names the defect.
+
+---
+
+## 6. Addendum, 18 October 2026: a second route for the sixteen-card stage
+
+This pass went after the two obligations of §2 by reading [P3] against the code and then
+repeating each computation with separately written code.
+
+**Reading.** The reduction of [P3, §1 to §3] and the encoding of [P3, §4] agree with the
+code. Four steps that the text used without a stated reason now have one, each a line or
+two, added to [P3]:
+
+- *Lemma 3 (support containment):* in an intersecting 6-uniform family with $\tau = 6$, no
+  symbol's support lies inside another's; if it did, a card holding the smaller symbol
+  minus that symbol would be a five-cover. This is the reason behind the antichain clauses,
+  the restriction of fresh symbols to supports of size 2 to 4 meeting both blocks, the
+  single variable per fresh support, and the singleton clause. Degree one ([P1, §2]) is the
+  special case. The seventeen-card witness satisfies it (0 nested pairs among 27 symbols).
+- every card of the eight-card core holds a degree-three symbol (six symbols of degree at
+  most two reach at most six of the other seven cards);
+- a triple occurs at most three times ($2(6 - m) \ge 5$), which is the bound the step-3
+  script uses;
+- in §2a, the four new covers use only symbols of the kernel ($\tau(G) = 5$).
+
+One sentence was wrong and is corrected: [P3, §4] said a singleton core symbol "must take
+all" the new cards; the code requires, correctly, that it take at least one. The step-3
+description in [P3, §3] described an assignment of one triple per card, which is not what
+the script enumerates (multisets of triples of multiplicity at most three); it now
+describes the script.
+
+**Second route, cores.** `code/enumerate_triples_direct.c` enumerates every labelled
+multiset of triples satisfying the step-3 conditions — 1,659,224 of them — directly, with
+no maximal families and no orbits, and keeps one per isomorphism class: 129 classes.
+`code/verify_cores_direct.py` completes them independently (772 completions) and
+canonicalises the result and the shipped file under all 40,320 permutations. The two sets
+of 463 are identical; the 129 triple classes also agree with the shipped ones. This also
+shows that the 463 shipped cores are pairwise non-isomorphic.
+
+**Second route, encoding.** `code/verify_sixteen_second_encoding.py` writes each of the 463
+completion problems again: totalizer cardinality constraints, the clauses of Lemma 3
+written directly, no symmetry breaking at all, CaDiCaL 1.5.3. All 463 are UNSAT
+(`results/second_encoding_cadical153.txt`; about 3 hours on one core in total, the
+hardest core 342 at about 20 minutes). Control: with the no-five-cover clauses removed,
+this encoding and `build()` are satisfiable on exactly the same 5 of 21 sample cores
+(23, 161, 184, 276, 299). The lexicographic chain of [P3, §4] is therefore not needed for
+the result.
+
+**Second route, Lemma 2.** `code/verify_degree3_kernels_sat.py` re-checks each of the 341
+shipped kernels as a family and decides the extension test by SAT, on a relaxation (at most
+four covers, repeats allowed). None extends. Control: with five covers allowed, exactly one
+of the two profile-(6,20) kernels extends — the [P4] kernel. The five-cover counts (296;
+363 to 381; 450 to 490) match [P3, §2a].
+
+**What this does not settle.** The second route repeats computations, not arguments. The
+reduction of [P3, §1 to §3] is still an argument that a reader has to follow, now with the
+missing reasons written in. The second solve has no DRAT certificate. The enumeration of
+the 341 kernels was not repeated by a second route. No human referee or proof assistant has
+checked the lower bound.
+
+| layer | status after this pass |
+|---|---|
+| 463 cores are all of them | computed twice, by two unrelated routes; the argument behind step 3 now written out |
+| encoding is faithful | clause families justified by Lemma 3; a second encoding without symmetry breaking agrees |
+| 341 kernels do not extend | decided twice, by search and by SAT; the kernel enumeration itself done once |
