@@ -34,6 +34,44 @@ Symbols $1,\dots,27$.
 
 Machine-readable copy: `data/witness_17.json`.
 
+The same family as an incidence matrix, in the format used by Barát and Wanless
+(arXiv:2011.04444): one row for each symbol $1,\dots,27$ in order, one column for each card
+$A_1,\dots,A_{17}$ in order, and 1 where the symbol lies in the card. Each column has six
+ones, and each row's weight is the degree of its symbol.
+
+```text
+10011000000000000
+10000110000010000
+10000001100001000
+10000000011000100
+10100000000100010
+01100100000000000
+00101001000000001
+00100010010001000
+00100000101000100
+01001000010010000
+00001010001000001
+00001000100110000
+00010100100000001
+01000010100000010
+00010010000100100
+01000001000100100
+01010000001001000
+00010001010000010
+00000101001010000
+00000100010100001
+11000000000000001
+00110000000010000
+00001100000001110
+00000011000000000
+00000000110000000
+00000000001101010
+00000000000011111
+```
+
+`code/verify_incidence_matrices.py` checks that this matrix is exactly the one built from
+the data file.
+
 ## 2. The verification
 
 **Proposition 1.** *The family above is pairwise intersecting, 6-uniform, and has

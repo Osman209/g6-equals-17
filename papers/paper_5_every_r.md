@@ -297,6 +297,46 @@ At $r=15$ the parameter choices are $(u,d,t)=(9,1,7)$ and $(11,5,5)$. Propositio
 - The arithmetic of §2.3, §3.4 and §4: `code/verify_p5_arithmetic.py`.
 - The 21-hyperedge family for $r=7$ in §1: `code/verify_witness_r7_21.py` (standard library only); its generator is `code/search_symmetric_family.py`.
 
+The 21-hyperedge family for $r=7$, as an incidence matrix in the format of [4]: one row for each vertex $1,\dots,35$ in order, one column for each hyperedge $1,\dots,21$ in order (the cards of `data/witness_r7_21.json`), and 1 where the vertex lies in the hyperedge. Each column has seven ones; the rows have weight 6 (vertices 1–7), 4 (vertices 8–28) and 3 (vertices 29–35). `code/verify_incidence_matrices.py` checks that it is exactly the matrix of the data file.
+
+```text
+111001010000001000000
+011100101000000100000
+101110000100000010000
+010111000010000001000
+001011100001000000100
+100101100000100000010
+110010100000010000001
+100000000001000101000
+010000000000100010100
+001000000000010001010
+000100010000000000101
+000010001000001000010
+000001000100000100001
+000000100010001010000
+010000000001000010010
+001000000000100001001
+000100000000011000100
+000010010000000100010
+000001001000000010001
+000000100100001001000
+100000000010000100100
+000010011000100000000
+000001001100010000000
+000000110110000000000
+100000001011000000000
+010000000101100000000
+001000000010110000000
+000100010001010000000
+000000010000000011000
+000000001000000001100
+000000000100000000110
+000000000010000000011
+000000000001001000001
+000000000000101100000
+000000000000010110000
+```
+
 The runs are recorded in `results/p5_checks.txt`. The steps that are not finite have been read but not independently reviewed.
 
 ## Acknowledgements and research status

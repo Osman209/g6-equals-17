@@ -43,6 +43,7 @@ removes them, so an `-O` run can pass on material that fails.
 | `verify_degree3_kernels_sat.py` | a few min, needs python-sat | [P3, Lemma 2] by SAT on the 341 shipped kernels; `--control` for the [P4] kernel |
 | `gr7_select.py` | hours, needs python-sat | exact (SAT) selection step at r = 7 for the 38 kernels with tau = 6; did not finish on the first kernel, superseded by the witness below |
 | `verify_witness_r7_21.py` | seconds | the 21-card witness for r = 7, so g(7) <= 21; standard library only |
+| `verify_incidence_matrices.py` | seconds | the incidence matrices printed in [P4] and [P5] match the witness data files |
 | `search_symmetric_family.py` | ~2 min, needs python-sat | the generator of that witness: SAT search among cyclically symmetric families |
 
 The two certificate scripts read `certificates/`, which is a release asset rather than
