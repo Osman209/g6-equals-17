@@ -3,7 +3,8 @@
 Checks on data/witness_r7_21.json: 21 distinct cards of size 7 on the symbols 1..35; all
 210 pairs meet; none of the 1,623,160 six-element sets of symbols meets every card, by two
 methods (all six-sets, and a branching search on an uncovered card); the degree histogram;
-and that the stated Z_7 map preserves the family. Since any single card meets every card,
+that the stated Z_7 map preserves the family; and minimality (deleting any card leaves a six-cover,
+which is found and printed). It prints the cards, the degrees and those covers. Since any single card meets every card,
 tau = 7 exactly. The generator is code/search_symmetric_family.py (needs python-sat); this
 script needs nothing but Python. About half a minute.
 """
@@ -59,7 +60,45 @@ for idx, c in enumerate(cards):
     o, k = divmod(idx, 7)
     assert frozenset(g_sym(s) for s in c) == cards[7 * o + (k + 1) % 7], "not Z_7-invariant"
 
-print("RESULT 21 cards of size 7 on 35 symbols; 210/210 pairs meet")
-print("RESULT six-sets checked %d, six-covers 0 (two methods)" % checked)
-print("RESULT degrees: 7 symbols of degree 6, 21 of degree 4, 7 of degree 3; Z_7-invariant")
-print("PASS: tau = 7, so g(7) <= 21")
+# minimality: after deleting any one card, the other 20 have a six-cover (found here)
+def find_cover(fam_masks, left, met, full_):
+    if met == full_:
+        return []
+    if left == 0:
+        return None
+    rest = full_ & ~met
+    i = (rest & -rest).bit_length() - 1
+    for s in sorted(fam_masks):
+        if fam_masks[s] >> i & 1:
+            r = find_cover(fam_masks, left - 1, met | fam_masks[s], full_)
+            if r is not None:
+                return [s] + r
+    return None
+deletion = []
+for i in range(21):
+    keep = [j for j in range(21) if j != i]
+    m2 = {s: sum(1 << a for a, j in enumerate(keep) if s in cards[j]) for s in symbols}
+    T = find_cover(m2, 6, 0, (1 << 20) - 1)
+    assert T is not None and len(T) <= 6, "deleting card %d leaves tau = 7" % (i + 1)
+    deletion.append(T)
+
+meet = Counter(len(cards[i] & cards[j]) for i, j in pairs)
+orbits = [[7 * o + k + 1 for k in range(7)] for o in range(5)]
+orbit_deg = [bin(mask[o[0]]).count("1") for o in orbits]
+
+print("The 21 cards (card number: its 7 symbols)")
+for i, c in enumerate(cards):
+    print("  card %2d:" % (i + 1), " ".join("%2d" % s for s in sorted(c)))
+print("Degree of each symbol (symbol: number of cards containing it)")
+for o, d in zip(orbits, orbit_deg):
+    print("  symbols %2d-%2d: degree %d each" % (o[0], o[-1], d))
+print("cards:", len(cards), " symbols:", len(symbols))
+print("pairs of cards that meet:", sum(meet.values()), "/", len(pairs))
+print("size of the meeting of two cards:", ", ".join("%d in %d pairs" % (k, v) for k, v in sorted(meet.items())))
+print("six-symbol sets checked:", checked, " six-covers found:", 0, "(two methods)")
+print("degree histogram:", ", ".join("degree %d: %d symbols" % (k, v) for k, v in sorted(deg.items())))
+print("Z_7 symmetry: 3 card orbits of 7, 5 symbol orbits of 7, family invariant")
+print("minimality: deleting any one card leaves a six-cover of the other 20:")
+for i, T in enumerate(deletion):
+    print("  without card %2d:" % (i + 1), " ".join("%2d" % s for s in sorted(T)))
+print("PASS: tau = 7 and every proper subfamily has tau <= 6, so g(7) <= 21")
