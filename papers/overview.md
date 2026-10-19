@@ -19,7 +19,8 @@ to Tripathi (arXiv:1409.4610) and the last to Barát and Wanless (arXiv:2011.044
 Des.* 29 (2021) 260–286), and the strongest published general lower bound,
 $g(r) \ge ((41-\sqrt{19})/12 - o(1))r$ (arXiv:2606.24878), gives only $g(6) \ge 14$. This overview concerns $r = 6$. What the literature does and does not
 already settle is §6, and it should be read before the value here is quoted anywhere.
-[P5] and [P6] turn from $r = 6$ to every $r$.
+[P5] and [P6] turn from $r = 6$ to every $r$. For $r = 7$, [P5, §1] records an explicit
+21-card family with cover number 7, so $18 \le g(7) \le 21$.
 
 A family of finite sets is **6-uniform** if every member has exactly six elements, and
 **pairwise intersecting** if any two members share an element. We call a member a *card*

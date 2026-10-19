@@ -14,7 +14,10 @@ favourite combinatorial problems and offered \$500 for a linear upper bound, whi
 proved in 1994. The exact values known are $g(3) = 6$, $g(4) = 9$ and $g(5) = 13$, the
 first two due to Tripathi [arXiv:1409.4610] and the last to Barát and Wanless
 [arXiv:2011.04444]; the strongest published general lower bound,
-$g(r) \ge ((41-\sqrt{19})/12 - o(1))r$ [arXiv:2606.24878], gives $g(6) \ge 14$. See
+$g(r) \ge ((41-\sqrt{19})/12 - o(1))r$ [arXiv:2606.24878], gives $g(6) \ge 14$. For $r = 7$
+this repository also holds a 21-card family with cover number 7, so $g(7) \le 21$
+(`data/witness_r7_21.json`, checked by `code/verify_witness_r7_21.py`); whether that bound is
+already known has not been checked. See
 [section 6 of the overview](papers/overview.md) for what that does and does not settle about
 the value determined here.
 

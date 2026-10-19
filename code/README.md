@@ -41,7 +41,9 @@ removes them, so an `-O` run can pass on material that fails.
 | `verify_cores_direct.py` | ~1 min, needs numpy and cc | second route for the 463 cores, [P3, §3]; compiles `enumerate_triples_direct.c` |
 | `verify_sixteen_second_encoding.py` | ~3 h; `--control` ~5 min; needs python-sat | second encoding of the 463 completions, no symmetry breaking, [P3, §7] |
 | `verify_degree3_kernels_sat.py` | a few min, needs python-sat | [P3, Lemma 2] by SAT on the 341 shipped kernels; `--control` for the [P4] kernel |
-| `gr7_select.py` | hours, needs python-sat | exact (SAT) selection step at r = 7 for the 38 kernels with tau = 6 |
+| `gr7_select.py` | hours, needs python-sat | exact (SAT) selection step at r = 7 for the 38 kernels with tau = 6; did not finish on the first kernel, superseded by the witness below |
+| `verify_witness_r7_21.py` | seconds | the 21-card witness for r = 7, so g(7) <= 21; standard library only |
+| `search_symmetric_family.py` | ~2 min, needs python-sat | the generator of that witness: SAT search among cyclically symmetric families |
 
 The two certificate scripts read `certificates/`, which is a release asset rather than
 repository content. Unpack `g6-certificates-463.zip` into the repository root first.

@@ -552,3 +552,36 @@ checked the lower bound.
 | 463 cores are all of them | computed twice, by two unrelated routes; the argument behind step 3 now written out |
 | encoding is faithful | clause families justified by Lemma 3; a second encoding without symmetry breaking agrees |
 | 341 kernels do not extend | decided twice, by search and by SAT; the kernel enumeration itself done once |
+
+---
+
+## 7. Addendum, 19 October 2026: an upper bound for r = 7
+
+The kernel-plus-extension route of `code/gr_upper.py` stalled at $r = 7$: the exact SAT
+selection of `code/gr7_select.py`, and a second encoding with every domination clause written
+at once, both ran for about two hours on the first of the 38 kernels without an answer.
+
+A different search was used instead. `code/search_symmetric_family.py` looks only at families
+that are invariant under a cyclic group, fixes the orbit sizes of cards and symbols and the
+degree of each symbol orbit, writes the structural conditions (card size, pairwise
+intersection, the support-containment condition of [P3, Lemma 3]) into SAT, and blocks
+$(r-1)$-covers as they appear, each together with all its images under the group.
+
+**Calibration.** Single-orbit families (all cards rotations of one card) were searched
+exhaustively first: they recover the projective planes for $r = 3, 4, 5$ and nothing at the
+minimum values 9, 13 and 17, so that symmetry is too strong. The seventeen-card witness of
+[P4] has a symmetry of order 4 with card orbits 1, 2, 2, 4, 4, 4; given that orbit type and
+its symbol degrees, the script finds a seventeen-card family with $\tau = 6$ in seconds.
+
+**The result.** With a symmetry of order 7, three card orbits of size 7 and degree profile
+6, 4, 4, 4, 3 on five symbol orbits, the script finds 21 cards of size 7 on 35 symbols with no
+six-element cover, in about two minutes, and reproduces the same family on a second run. It
+is shipped as `data/witness_r7_21.json` and checked by `code/verify_witness_r7_21.py`, which
+needs only Python; a separate C program written for this pass agreed (1,623,160 six-sets, no
+cover). The script was forced to fail once on a corrupted family. With [P5, Theorem 1] this
+gives $18 \le g(7) \le 21$.
+
+**Not settled.** Whether $g(7) \le 21$ is already in the literature was not checked beyond
+a short search. A search for twenty cards along the same lines (symmetries of order 10 and
+5) found no family; most degree profiles ended on the time limit rather than with an
+answer, so that search says nothing either way about $g(7) \le 20$.
