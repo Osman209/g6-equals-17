@@ -20,7 +20,8 @@ abstract: >-
   Two further papers give proposed proofs, unreviewed outside this project:
   g(r) >= 3r - 3 for every r and g(r) >= 3r - 2 for every r >= 16, and a new
   asymptotic lower bound liminf g(r)/r >= 3.1108, above the constant 3.0534 of
-  Sivashankar (arXiv:2606.24878).
+  Sivashankar (arXiv:2606.24878). For r = 7 an explicit 21-card family gives
+  g(7) <= 21, so 18 <= g(7) <= 21.
 type: software
 authors:
   - family-names: Osman
@@ -28,8 +29,8 @@ authors:
     orcid: "https://orcid.org/0009-0004-5912-999X"
     email: mohamedosmannn2999@gmail.com
 doi: 10.5281/zenodo.22883809
-version: 1.6.0
-date-released: 2026-10-09
+version: 1.7.0
+date-released: 2026-10-19
 license: MIT
 license-url: "https://opensource.org/licenses/MIT"
 keywords:
