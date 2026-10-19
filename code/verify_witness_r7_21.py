@@ -15,8 +15,16 @@ import json
 import math
 import sys
 
-ROOT = Path(__file__).resolve().parents[1]
-obj = json.loads((ROOT / "data" / "witness_r7_21.json").read_text())
+# the data file: a path given on the command line, else next to this script, else the
+# repository's data/ folder
+HERE = Path(__file__).resolve().parent
+candidates = [Path(a) for a in sys.argv[1:]] + [HERE / "witness_r7_21.json",
+                                                HERE.parent / "data" / "witness_r7_21.json"]
+DATA = next((c for c in candidates if c.is_file()), None)
+if DATA is None:
+    sys.exit("witness_r7_21.json not found; looked in: " + ", ".join(str(c) for c in candidates))
+obj = json.loads(DATA.read_text())
+print("data file:", DATA)
 cards = [frozenset(c) for c in obj["cards"]]
 symbols = sorted(set().union(*cards))
 
