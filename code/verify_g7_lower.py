@@ -7,8 +7,8 @@ NAUTY is a nauty source directory after `./configure && make nauty.a` (nauty.h a
 The C programs are compiled into a temporary directory and run there; the resumable runs
 leave their logs in that directory. Needs python-sat for the two SAT routes.
 
-Quick mode: the calibrations at r = 6, the c = 14 profile by both routes, matching number at
-most 2 for c = 14, and the core step by SAT. Full mode adds the c = 8 and c = 2 profiles by
+Quick mode: Lemma 2 for twelve cards, the calibrations at r = 6, the c = 14 profile by both routes, matching number at
+most 2 for c = 14, and the core step by SAT. Full mode adds Lemma 2 for thirteen cards and with a second solver, its controls, the c = 8 and c = 2 profiles by
 both routes, matching number at most 2 for c = 8 and c = 2, the plain exhaustive search of
 c = 14, and the core enumeration at r = 7. The recorded full run is
 results/g7_lower_checks.txt.
@@ -62,6 +62,15 @@ with tempfile.TemporaryDirectory() as d:
     run(py + [str(CODE / "r7_cores_sat.py"), "6", "8", "3"], d, r": SAT", "r = 6 cores exist (SAT route)")
     if FULL:
         run([C, "6", "8"], d, r"cores up to isomorphism 463 ", "r = 6 cores: the 463 of [P3, §3]")
+
+    # r = 7, [P7, Lemma 2]: twelve and thirteen cards
+    for m_, k_ in ((12, 1), (12, 2)) + (((13, 1), (13, 2)) if FULL else ()):
+        for solver in ("cadical195", "glucose4") if FULL else ("cadical195",):
+            run(py + [str(CODE / "r7_small_families.py"), str(m_), "7", str(k_), solver], d, r": UNSAT",
+                "%d cards: at most %d disjoint triples impossible (%s)" % (m_, k_, solver))
+    if FULL:
+        for m_, k_ in ((13, 3), (12, 3), (12, 4)):
+            run(py + [str(CODE / "r7_small_families.py"), str(m_), "7", str(k_)], d, r": SAT", "control: %d cards, %d disjoint triples" % (m_, k_))
 
     # r = 7, the core step
     run(py + [str(CODE / "r7_cores_sat.py"), "7", "10", "7"], d, r": UNSAT", "r = 7: no core (SAT route)")

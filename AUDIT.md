@@ -612,3 +612,12 @@ not finish even at $r = 6$ and was dropped; it is not used.
 arguments of [P7, §2 to §5], read but not reviewed; and the programs, which carry no proof
 certificates. The recorded runs are `results/g7_lower_checks.txt`; several were split and
 resumed across two-hour stints, which the file states.
+
+**Later the same day: [P7] made independent of [P5].** The first version of [P7] excluded
+symbols of degree five or more through [P5, Theorem 1], a proposed proof. That step is now
+done directly ([P7, Lemma 1]): deleting a symbol of degree $d \ge 5$ leaves at most thirteen
+cards, which are shown to have a cover of size five by pairing and counting for eleven cards
+or fewer, and, for twelve and thirteen, by a small SAT check that three disjoint triples
+always exist ([P7, Lemma 2], `code/r7_small_families.py`). That check was run with two
+solvers and two cardinality encodings, with satisfiable controls, and the runs are recorded
+in `results/g7_lower_checks.txt`. [P7] now uses no result of [P5].

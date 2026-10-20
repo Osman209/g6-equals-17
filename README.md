@@ -67,7 +67,7 @@ $$g(6) = \min \lbrace \lvert F \rvert : F \text{ is 6-uniform, pairwise intersec
 | [P4] | [`papers/paper_4_seventeen_card_witness.md`](papers/paper_4_seventeen_card_witness.md) | the explicit seventeen-card family |
 | [P5] | [`papers/paper_5_every_r.md`](papers/paper_5_every_r.md) | every $r$: $g(r) \ge 3r-3$, and $3r-2$ for $r \ge 16$ (proposed, not reviewed) |
 | [P6] | [`papers/paper_6_asymptotic.md`](papers/paper_6_asymptotic.md) | $\liminf g(r)/r \ge 3.1108$ (proposed, not reviewed) |
-| [P7] | [`papers/paper_7_g7_lower.md`](papers/paper_7_g7_lower.md) | $r = 7$: no family of eighteen cards, so $19 \le g(7) \le 21$ (computer-assisted, uses [P5]) |
+| [P7] | [`papers/paper_7_g7_lower.md`](papers/paper_7_g7_lower.md) | $r = 7$: no family of eighteen cards, so $19 \le g(7) \le 21$ (computer-assisted, independent of [P5]) |
 
 The papers are cited as [P1] to [P7]. A bare bracketed number inside a paper is an
 entry in that paper's own reference list. Each paper numbers its own results from 1.

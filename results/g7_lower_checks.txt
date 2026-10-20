@@ -295,3 +295,18 @@ PASS  r = 7, c = 14: matched route
 PASS  r = 7, c = 14: SAT route
       RESULT n=14 c=14: 6 orbits, 6 recorded UNSAT in second_route_n14_c14.log, none found (219s this run)
 PASS: every step gives its expected answer (quick mode)
+
+## [P7, Lemma 2]: twelve and thirteen cards (code/r7_small_families.py)
+# CaDiCaL with totalizer encoding:
+RESULT m=13 r=7 matching number exactly 2: UNSAT
+RESULT m=13 r=7 matching number exactly 1: UNSAT
+RESULT m=12 r=7 matching number exactly 1: UNSAT
+RESULT m=13 r=7 matching number exactly 3: SAT [(0, 1, 2), (0, 2, 3), 
+RESULT m=12 r=7 matching number exactly 2: UNSAT
+# controls and Glucose with sequential-counter encoding:
+RESULT m=12 r=7 matching number exactly 3: SAT [(0, 1, 2), (0, 1, 3), 
+RESULT m=12 r=7 matching number exactly 4: SAT [(0, 1, 2), (0, 1, 5), 
+RESULT m=13 r=7 matching number exactly 2: UNSAT
+RESULT m=13 r=7 matching number exactly 1: UNSAT
+RESULT m=12 r=7 matching number exactly 2: UNSAT
+RESULT m=12 r=7 matching number exactly 1: UNSAT

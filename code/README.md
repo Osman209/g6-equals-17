@@ -45,8 +45,9 @@ removes them, so an `-O` run can pass on material that fails.
 | `verify_witness_r7_21.py` | seconds | the 21-card witness for r = 7, so g(7) <= 21; standard library only |
 | `verify_incidence_matrices.py` | seconds | the incidence matrices printed in [P4] and [P5] match the witness data files |
 | `verify_g7_lower.py` | quick ~10 min; `--full` hours; needs nauty (`NAUTY=`) and python-sat | every computation of [P7] with its expected answer, and the r = 6 calibrations |
-| `r7_kernel_exhaustive.c`, `r7_kernel_matched.c`, `r7_kernel_sat.py` | via `verify_g7_lower.py` | [P7, Lemma 3], three programs |
-| `r7_cores.c`, `r7_cores_sat.py` | via `verify_g7_lower.py` | [P7, Lemma 5], two programs |
+| `r7_small_families.py` | via `verify_g7_lower.py` | [P7, Lemma 2] |
+| `r7_kernel_exhaustive.c`, `r7_kernel_matched.c`, `r7_kernel_sat.py` | via `verify_g7_lower.py` | [P7, Lemma 4], three programs |
+| `r7_cores.c`, `r7_cores_sat.py` | via `verify_g7_lower.py` | [P7, Lemma 6], two programs |
 | `search_symmetric_family.py` | ~2 min, needs python-sat | the generator of that witness: SAT search among cyclically symmetric families |
 
 The two certificate scripts read `certificates/`, which is a release asset rather than

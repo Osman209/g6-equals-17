@@ -17,9 +17,8 @@ a second deletion leaves a ten-card core, and no core exists. Both finite steps 
 computed twice, by separately written programs, and the programs reproduce the counts of
 [P3] at $r = 6$.
 
-The step that rules out symbols of degree five or more uses [P5, Theorem 1], which is a
-proposed proof. The rest is elementary counting plus computation. Nothing here has been
-reviewed by a human referee or a proof assistant. No priority is claimed. See the note at
+The argument is elementary counting plus computation; it does not use the proposed
+proofs of [P5]. Nothing here has been reviewed by a human referee or a proof assistant. No priority is claimed. See the note at
 the end.
 
 ## 1. Setting
@@ -27,7 +26,7 @@ the end.
 Let $H$ be a pairwise intersecting family of eighteen cards, each a set of seven symbols,
 with $\tau(H) = 7$. We show that no such $H$ exists.
 
-**Theorem 1 (computer-assisted; uses [P5, Theorem 1]).** *There is no pairwise intersecting
+**Theorem 1 (computer-assisted).** *There is no pairwise intersecting
 7-uniform family of eighteen cards with transversal number seven. Hence $g(7) \ge 19$, and
 with [P5, §5], $19 \le g(7) \le 21$.*
 
@@ -38,12 +37,36 @@ set of cards that contain it, and its size is its degree.
 
 **Lemma 1.** *The maximum degree of $H$ is exactly four.*
 
-*Proof.* A symbol of degree at least five is excluded by [P5, §3.1], which uses
-[P5, Theorem 1] and gives at least $3r - 2 = 19$ cards. If every degree were at most three,
-a card would meet the other seventeen through seven symbols reaching at most two cards
-each, and $17 \le 14$ is false. $\square$
+*Proof.* If every degree were at most three, a card would meet the other seventeen through
+seven symbols reaching at most two cards each, and $17 \le 14$ is false.
 
-This is the only place where [P5, Theorem 1] is used.
+Suppose a symbol $x$ has degree $d \ge 5$. Delete its cards and call the remaining
+$m = 18 - d$ cards $F$. A cover of $F$ together with $x$ covers $H$, so $\tau(F) \ge 6$. We
+show $\tau(F) \le 5$.
+
+- $m \le 10$: pair the cards; each pair shares a symbol.
+- $m = 11$: a symbol meeting three cards, with a pairing of the other eight, gives five.
+  If every symbol meets at most two cards, the 55 pairs need 55 different symbols, but the
+  77 incidences allow at most 38.
+- $m = 12$ or $13$: a symbol meeting four or more cards leaves at most nine, and those have
+  a cover of size four (pair them if there are fewer than nine; for nine, argue as for
+  eleven, with 36 pairs against at most 31 symbols), so the total is at most five. Otherwise every symbol meets at most three cards
+  of $F$, and Lemma 2 gives three disjoint triples. They meet nine cards; the other three
+  or four pair off through two more symbols, five in all. $\square$
+
+**Lemma 2 (computer-assisted).** *Let $F$ be twelve or thirteen pairwise intersecting
+cards of size seven in which every symbol meets at most three cards. Then the symbols
+meeting three cards contain three pairwise disjoint triples.*
+
+*How it was checked.* As in Lemma 6 below, each card $p$ needs room: the triples at $p$,
+plus the cards sharing no triple with $p$ (each needs its own symbol of size two), number
+at most seven. Removing repeated copies of a triple keeps this condition and does not
+change which triples are disjoint, so it is enough to consider sets of triples. If the
+largest number of disjoint triples is $k$, fix $k$ disjoint ones (all such placements are
+equivalent); no other triple avoids them all. A SAT model shows that $k = 1$ and $k = 2$
+are impossible for twelve and for thirteen cards, with two solvers (CaDiCaL, Glucose) and
+two cardinality encodings. As controls, the same model is satisfiable with $k = 3$ (twelve
+and thirteen cards) and $k = 4$ (twelve).
 
 ## 3. The first deletion
 
@@ -73,13 +96,13 @@ A triangle holds at most one edge of $E$, so no triangle occurs twice.
 
 ### 4.2 The obstruction
 
-**Lemma 2.** *If $\tau(G) \ge 6$, the triangles of $G$ contain no four that are pairwise
+**Lemma 3.** *If $\tau(G) \ge 6$, the triangles of $G$ contain no four that are pairwise
 disjoint.*
 
 *Proof.* Four disjoint triangles meet twelve cards through four symbols. The two cards
 left meet each other, through a fifth symbol. That is a cover of size five. $\square$
 
-**Lemma 3 (computer-assisted).** *For each $c \in \lbrace 2, 8, 14 \rbrace$, every triangle
+**Lemma 4 (computer-assisted).** *For each $c \in \lbrace 2, 8, 14 \rbrace$, every triangle
 decomposition of $M$ contains four pairwise disjoint triangles.*
 
 *How it was checked.* Let $\nu$ be the largest number of pairwise disjoint triangles.
@@ -100,14 +123,14 @@ a SAT solver, forbidding any four disjoint triangles that appear. Both give the 
 counts, and neither finds a decomposition. For $c = 14$ a third check, a plain exhaustive
 search of the whole profile (600,808,145 nodes), also finds none.
 
-By Lemmas 2 and 3, $\tau(G) \le 5$ in every case, so branch A is empty.
+By Lemmas 3 and 4, $\tau(G) \le 5$ in every case, so branch A is empty.
 
 ## 5. Branch B: a second symbol of degree four
 
 Let $y$ have degree four in $G$. Its cards are not cards of $x$. Delete them as well, and
 let $K$ be the remaining ten cards, the **core**.
 
-**Lemma 4.** *In the core:*
+**Lemma 5.** *In the core:*
 
 1. *every symbol meets at most three cards;*
 2. *any two symbols of size three meet;*
@@ -127,8 +150,8 @@ let $K$ be the remaining ten cards, the **core**.
    These symbols, and the triples at $p$, are all different symbols of $p$, which has
    seven. $\square$
 
-**Lemma 5 (computer-assisted).** *No multiset of 3-subsets of ten points satisfies 2, 3
-and 4 of Lemma 4.*
+**Lemma 6 (computer-assisted).** *No multiset of 3-subsets of ten points satisfies 2, 3
+and 4 of Lemma 5.*
 
 *How it was checked.* Twice. A SAT model of conditions 2 to 4, with each triple allowed up
 to seven times (condition 4 bounds the repetition by seven), is unsatisfiable. A separate
@@ -154,21 +177,23 @@ Each program was run at $r = 6$ before it was used at $r = 7$, where the answers
 
 | claim | script |
 |---|---|
-| Lemma 3, $\nu \le 2$; plain search of $c = 14$ | `code/r7_kernel_exhaustive.c` |
-| Lemma 3, $\nu = 3$, first route | `code/r7_kernel_matched.c` (needs nauty) |
-| Lemma 3, $\nu = 3$, second route | `code/r7_kernel_sat.py` |
-| Lemma 5, enumeration | `code/r7_cores.c` (needs nauty) |
-| Lemma 5, SAT | `code/r7_cores_sat.py` |
+| Lemma 2, twelve and thirteen cards | `code/r7_small_families.py` |
+| Lemma 4, $\nu \le 2$; plain search of $c = 14$ | `code/r7_kernel_exhaustive.c` |
+| Lemma 4, $\nu = 3$, first route | `code/r7_kernel_matched.c` (needs nauty) |
+| Lemma 4, $\nu = 3$, second route | `code/r7_kernel_sat.py` |
+| Lemma 6, enumeration | `code/r7_cores.c` (needs nauty) |
+| Lemma 6, SAT | `code/r7_cores_sat.py` |
 | all of the above with expected answers | `code/verify_g7_lower.py` |
 | the recorded runs | `results/g7_lower_checks.txt` |
 | the upper bound $g(7) \le 21$ | `code/verify_witness_r7_21.py` |
 
 ## 8. What is and is not established
 
-- Lemma 1 uses [P5, Theorem 1], a proposed proof, to exclude degree five and more.
-- The arguments of §3, §4.1, §4.2 and Lemma 4 are short and elementary; they have been read,
+- Nothing from [P5] is used. An earlier version of this paper excluded degree five and more
+  through [P5, Theorem 1]; Lemma 2 now does it directly.
+- The arguments of Lemma 1, §3, §4.1, Lemma 3 and Lemma 5 are short and elementary; they have been read,
   not reviewed.
-- Lemmas 3 and 5 are computations. Each was done by two programs with no code in common,
+- Lemmas 2, 4 and 6 are computations. Each was done by two programs with no code in common,
   and each program reproduces known counts at $r = 6$. They carry no proof certificates.
 - Whether $g(7) \ge 19$ or $g(7) \le 21$ is already known has not been checked beyond a short
   search.

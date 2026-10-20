@@ -123,8 +123,8 @@ PAPERS = [
             "branches: in one, every candidate kernel contains four disjoint triples and so has a "
             "cover of size five; in the other, no ten-card core exists. Both finite steps were "
             "computed twice by separately written programs, calibrated on the known counts at "
-            "r = 6. With a 21-card family this gives 19 <= g(7) <= 21. The exclusion of symbols "
-            "of degree five uses Theorem 1 of Paper 5, a proposed proof; nothing is reviewed.",
+            "r = 6. With a 21-card family this gives 19 <= g(7) <= 21. No result of Paper 5 is "
+            "used. Nothing is reviewed.",
     ),
 ]
 
