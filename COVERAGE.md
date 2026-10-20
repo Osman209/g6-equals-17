@@ -51,6 +51,8 @@ it is a memory, not a measurement.
 | earlier centre route (not in [P5]): 3.0588 in the one-centre model | `code/coefficient_from_certificates.py` | a numerical grid evaluation from the certified bounds; not a proof, and only inside the one-centre model |
 | $g(7) \le 21$, the 21-card witness ([P5, §1]) | `code/verify_witness_r7_21.py`, `data/witness_r7_21.json` | standard library only: 21 distinct 7-cards on 35 symbols, 210/210 pairs meet, all 1,623,160 six-sets fail to cover (two methods), degree histogram, invariance under the stated $Z_7$ map, and minimality (a six-cover of every 20-card subfamily, found and printed); prints the cards and degrees |
 | the incidence matrices printed in [P4, §1] and [P5, §5] | `code/verify_incidence_matrices.py` | each printed 0/1 matrix equals the matrix built from the witness data file (rows = symbols, columns = cards) |
+| [P7, Lemma 3]: every decomposition at r = 7 has four disjoint triangles | `code/r7_kernel_exhaustive.c`, `code/r7_kernel_matched.c`, `code/r7_kernel_sat.py`, driven by `code/verify_g7_lower.py` | matching number at most 2: plain exhaustive search, none, for c = 14, 8, 2; matching number 3: 6, 122, 60 orbits of the fixed matching, completed by a search tree (nauty orbits) and separately by SAT (union-find orbits), none; c = 14 also by a plain search of the whole profile; calibrated at r = 6 against [P3, §2a] |
+| [P7, Lemma 5]: no ten-card core at r = 7 | `code/r7_cores.c`, `code/r7_cores_sat.py` | enumeration (which returns the 463 cores of [P3] at r = 6) finds no triple system; the SAT model is unsatisfiable with repetition up to 7 and satisfiable at r = 6 |
 | the generator of that witness | `code/search_symmetric_family.py` | SAT search among $Z_m$-invariant families with lazily blocked covers; reproduces the shipped witness exactly; on the orbit type and degrees of the [P4] witness it finds a seventeen-card family for r = 6 |
 | g(7) by kernel plus extension (earlier route) | `code/gr_upper.py`, `code/gr7_select.py` | the construction that gives 4r-7 for r = 4, 5, 6; at r = 7 the SAT selection did not finish on the first kernel in about two hours, and is superseded by the witness above |
 
@@ -68,6 +70,7 @@ These are arguments, not computations, and the table does not pretend otherwise.
 | branches A and B of the eleven-card lemma | [P2, §2] |
 | the reduction reaches every sixteen-card counterexample | [P3, §1, §2, §2a, §3] |
 | each CNF clause family means what it is said to mean (the antichain clauses now rest on [P3, Lemma 3]) | [P3, §4] |
+| [P7, Lemmas 1, 2, 4] and the profile count of §4.1 (Lemma 1 uses [P5, Theorem 1]) | [P7, §2 to §5] |
 | [P5]: the capacity inequalities (2.1), (2.2), the pointwise capacity (Lemma 4), $M \le S$, the swap lemma (Lemma 8), and the augmentation arguments of Lemmas 6, 9 and 12 | [P5, §2 to §4] |
 
 `AUDIT.md` records which of these were checked by reading during the independent pass, and

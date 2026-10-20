@@ -1,0 +1,297 @@
+# Recorded runs behind [P7]. Generator: code/verify_g7_lower.py (and the programs it drives).
+# Runs made 2026-10-19/20 on a 2-core Linux machine; several were split and resumed across
+# two-hour stints, so a node count may be the sum over stints (stated where so).
+
+## r = 6 calibrations
+RESULT n=12 c=12 no 4 disjoint triangles: 69120 decompositions (957373 search nodes)
+RESULT n=12 c=6 no 4 disjoint triangles: 558672 decompositions (10204403 search nodes)
+RESULT r=6 n=8 multiplicity<=3: triangle systems 1659224, raw cores 7121296, cores up to isomorphism 463   (r7_cores.c)
+RESULT r=6 n=8 m=3: SAT   (r7_cores_sat.py)
+
+## [P7, Lemma 5]: cores at r = 7
+RESULT r=7 n=10 multiplicity<=3: triangle systems 0, raw cores 0, cores up to isomorphism 0   (r7_cores.c)
+RESULT r=7 n=10 m=3: UNSAT   (r7_cores_sat.py)
+RESULT r=7 n=10 m=7: UNSAT   (r7_cores_sat.py)
+
+## [P7, Lemma 3]: matching number at most 2 (plain exhaustive search)
+RESULT n=14 c=14 no 3 disjoint triangles: 0 decompositions (13614095 search nodes)
+RESULT n=14 c=8 no 3 disjoint triangles: 0 decompositions (26427987 search nodes)
+RESULT n=14 c=2 no 3 disjoint triangles: 0 decompositions (193839399 search nodes)
+
+## [P7, Lemma 3]: c = 14 by a plain exhaustive search of the whole profile
+RESULT n=14 c=14 no 4 disjoint triangles: 0 decompositions (600808145 search nodes)
+
+## [P7, Lemma 3]: matching number 3, first route (r7_kernel_matched.c)
+RESULT n=14 c=14: 266560 placements of 3 disjoint triangles, 6 up to symmetry, 2471412 search nodes, NO decomposition with matching number 3
+RESULT n=14 c=8: 367696 placements of 3 disjoint triangles, 122 up to symmetry, 279766291 search nodes, NO decomposition with matching number 3
+RESULT n=14 c=2: 505120 placements, 60 up to symmetry; all 60 completed with no decomposition, 1085349886 search nodes in total over three stints (per-orbit log below)
+  done 1 41764643
+  done 2 26870554
+  done 3 13232599
+  done 4 18908788
+  done 5 16988351
+  done 6 30248050
+  done 7 21080523
+  done 8 17320809
+  done 9 21053230
+  done 10 31722583
+  done 11 27810421
+  done 12 8922629
+  done 13 11726877
+  done 14 14820534
+  done 15 22268610
+  done 16 16475669
+  done 17 13395039
+  done 18 18503322
+  done 19 16141966
+  done 20 23402671
+  done 21 17603422
+  done 22 12886983
+  done 23 12419540
+  done 24 15446062
+  done 25 10984422
+  done 26 17253931
+  done 27 12651012
+  done 28 14933659
+  done 29 21454247
+  done 30 15267931
+  done 31 20221150
+  done 32 17650304
+  done 33 14333172
+  done 34 17004066
+  done 35 23641686
+  done 36 8737350
+  done 37 10892983
+  done 38 9971890
+  done 39 13225255
+  done 40 12488409
+  done 41 12206303
+  done 42 18264878
+  done 43 18255773
+  done 44 14911277
+  done 45 24032687
+  done 46 8364638
+  done 47 10885268
+  done 48 32415873
+  done 49 27683118
+  done 50 15779285
+  done 51 22860286
+  done 52 18312882
+  done 53 27839106
+  done 54 37592206
+  done 55 15144070
+  done 56 17857011
+  done 57 13121085
+  done 58 11941380
+  done 59 13256618
+  done 60 12900800
+
+## [P7, Lemma 3]: matching number 3, second route (r7_kernel_sat.py)
+RESULT n=14 c=14: 6 orbits, all UNSAT (24831 four-sets blocked), 216s
+RESULT n=14 c=8: 122 orbits (placements 367696), all 122 recorded UNSAT
+RESULT n=14 c=2: 60 orbits (placements 505120), all 60 recorded UNSAT
+  per-orbit logs, c = 8:
+    orbit 0 UNSAT blocked 9419
+    orbit 1 UNSAT blocked 8431
+    orbit 2 UNSAT blocked 6418
+    orbit 3 UNSAT blocked 10732
+    orbit 4 UNSAT blocked 12699
+    orbit 5 UNSAT blocked 9190
+    orbit 6 UNSAT blocked 10693
+    orbit 7 UNSAT blocked 9377
+    orbit 8 UNSAT blocked 14511
+    orbit 9 UNSAT blocked 14523
+    orbit 10 UNSAT blocked 7255
+    orbit 11 UNSAT blocked 7180
+    orbit 12 UNSAT blocked 5712
+    orbit 13 UNSAT blocked 6414
+    orbit 14 UNSAT blocked 8229
+    orbit 15 UNSAT blocked 8477
+    orbit 16 UNSAT blocked 7317
+    orbit 17 UNSAT blocked 6314
+    orbit 18 UNSAT blocked 7044
+    orbit 19 UNSAT blocked 8078
+    orbit 20 UNSAT blocked 8132
+    orbit 21 UNSAT blocked 6357
+    orbit 22 UNSAT blocked 9676
+    orbit 23 UNSAT blocked 7076
+    orbit 24 UNSAT blocked 7438
+    orbit 25 UNSAT blocked 7867
+    orbit 26 UNSAT blocked 5848
+    orbit 27 UNSAT blocked 9004
+    orbit 28 UNSAT blocked 6826
+    orbit 29 UNSAT blocked 7075
+    orbit 30 UNSAT blocked 4850
+    orbit 31 UNSAT blocked 8080
+    orbit 32 UNSAT blocked 5847
+    orbit 33 UNSAT blocked 5829
+    orbit 34 UNSAT blocked 6835
+    orbit 35 UNSAT blocked 6296
+    orbit 36 UNSAT blocked 7581
+    orbit 37 UNSAT blocked 9925
+    orbit 38 UNSAT blocked 8390
+    orbit 39 UNSAT blocked 7575
+    orbit 40 UNSAT blocked 9645
+    orbit 41 UNSAT blocked 7823
+    orbit 42 UNSAT blocked 6521
+    orbit 43 UNSAT blocked 9111
+    orbit 44 UNSAT blocked 7000
+    orbit 45 UNSAT blocked 8013
+    orbit 46 UNSAT blocked 8223
+    orbit 47 UNSAT blocked 6795
+    orbit 48 UNSAT blocked 7189
+    orbit 49 UNSAT blocked 7638
+    orbit 50 UNSAT blocked 10194
+    orbit 51 UNSAT blocked 10161
+    orbit 52 UNSAT blocked 10095
+    orbit 53 UNSAT blocked 10513
+    orbit 54 UNSAT blocked 10847
+    orbit 55 UNSAT blocked 10969
+    orbit 56 UNSAT blocked 8735
+    orbit 57 UNSAT blocked 9251
+    orbit 58 UNSAT blocked 11700
+    orbit 59 UNSAT blocked 12460
+    orbit 60 UNSAT blocked 14658
+    orbit 61 UNSAT blocked 12568
+    orbit 62 UNSAT blocked 11053
+    orbit 63 UNSAT blocked 12819
+    orbit 64 UNSAT blocked 10559
+    orbit 65 UNSAT blocked 15833
+    orbit 66 UNSAT blocked 11192
+    orbit 67 UNSAT blocked 8476
+    orbit 68 UNSAT blocked 9067
+    orbit 69 UNSAT blocked 8653
+    orbit 70 UNSAT blocked 6763
+    orbit 71 UNSAT blocked 11026
+    orbit 72 UNSAT blocked 11752
+    orbit 73 UNSAT blocked 9886
+    orbit 74 UNSAT blocked 7269
+    orbit 75 UNSAT blocked 12806
+    orbit 76 UNSAT blocked 5919
+    orbit 77 UNSAT blocked 11537
+    orbit 78 UNSAT blocked 8777
+    orbit 79 UNSAT blocked 8429
+    orbit 80 UNSAT blocked 7669
+    orbit 81 UNSAT blocked 11381
+    orbit 82 UNSAT blocked 9130
+    orbit 83 UNSAT blocked 13169
+    orbit 84 UNSAT blocked 8818
+    orbit 85 UNSAT blocked 6604
+    orbit 86 UNSAT blocked 9718
+    orbit 87 UNSAT blocked 7587
+    orbit 88 UNSAT blocked 10253
+    orbit 89 UNSAT blocked 7220
+    orbit 90 UNSAT blocked 10013
+    orbit 91 UNSAT blocked 8925
+    orbit 92 UNSAT blocked 8195
+    orbit 93 UNSAT blocked 6431
+    orbit 94 UNSAT blocked 7227
+    orbit 95 UNSAT blocked 7393
+    orbit 96 UNSAT blocked 6506
+    orbit 97 UNSAT blocked 9493
+    orbit 98 UNSAT blocked 7232
+    orbit 99 UNSAT blocked 8535
+    orbit 100 UNSAT blocked 6360
+    orbit 101 UNSAT blocked 10867
+    orbit 102 UNSAT blocked 9127
+    orbit 103 UNSAT blocked 12360
+    orbit 104 UNSAT blocked 9331
+    orbit 105 UNSAT blocked 10786
+    orbit 106 UNSAT blocked 7910
+    orbit 107 UNSAT blocked 14457
+    orbit 108 UNSAT blocked 11999
+    orbit 109 UNSAT blocked 8312
+    orbit 110 UNSAT blocked 12273
+    orbit 111 UNSAT blocked 8511
+    orbit 112 UNSAT blocked 8863
+    orbit 113 UNSAT blocked 14901
+    orbit 114 UNSAT blocked 11557
+    orbit 115 UNSAT blocked 7340
+    orbit 116 UNSAT blocked 13249
+    orbit 117 UNSAT blocked 10235
+    orbit 118 UNSAT blocked 7486
+    orbit 119 UNSAT blocked 9590
+    orbit 120 UNSAT blocked 10391
+    orbit 121 UNSAT blocked 16864
+  per-orbit logs, c = 2:
+    orbit 0 UNSAT blocked 22092
+    orbit 1 UNSAT blocked 15890
+    orbit 2 UNSAT blocked 20589
+    orbit 3 UNSAT blocked 15921
+    orbit 4 UNSAT blocked 16069
+    orbit 5 UNSAT blocked 12560
+    orbit 6 UNSAT blocked 20403
+    orbit 7 UNSAT blocked 24692
+    orbit 8 UNSAT blocked 19445
+    orbit 9 UNSAT blocked 21264
+    orbit 10 UNSAT blocked 15544
+    orbit 11 UNSAT blocked 20131
+    orbit 12 UNSAT blocked 22119
+    orbit 13 UNSAT blocked 27067
+    orbit 14 UNSAT blocked 31495
+    orbit 15 UNSAT blocked 25822
+    orbit 16 UNSAT blocked 27850
+    orbit 17 UNSAT blocked 21885
+    orbit 18 UNSAT blocked 33103
+    orbit 19 UNSAT blocked 36711
+    orbit 20 UNSAT blocked 17155
+    orbit 21 UNSAT blocked 17439
+    orbit 22 UNSAT blocked 14173
+    orbit 23 UNSAT blocked 20351
+    orbit 24 UNSAT blocked 17699
+    orbit 25 UNSAT blocked 13988
+    orbit 26 UNSAT blocked 14002
+    orbit 27 UNSAT blocked 14592
+    orbit 28 UNSAT blocked 13493
+    orbit 29 UNSAT blocked 20802
+    orbit 30 UNSAT blocked 13486
+    orbit 31 UNSAT blocked 13802
+    orbit 32 UNSAT blocked 20239
+    orbit 33 UNSAT blocked 16641
+    orbit 34 UNSAT blocked 16696
+    orbit 35 UNSAT blocked 13344
+    orbit 36 UNSAT blocked 16237
+    orbit 37 UNSAT blocked 16589
+    orbit 38 UNSAT blocked 9708
+    orbit 39 UNSAT blocked 12830
+    orbit 40 UNSAT blocked 17492
+    orbit 41 UNSAT blocked 20372
+    orbit 42 UNSAT blocked 21409
+    orbit 43 UNSAT blocked 17012
+    orbit 44 UNSAT blocked 25256
+    orbit 45 UNSAT blocked 11537
+    orbit 46 UNSAT blocked 19946
+    orbit 47 UNSAT blocked 18096
+    orbit 48 UNSAT blocked 29807
+    orbit 49 UNSAT blocked 11870
+    orbit 50 UNSAT blocked 16122
+    orbit 51 UNSAT blocked 12009
+    orbit 52 UNSAT blocked 19126
+    orbit 53 UNSAT blocked 14798
+    orbit 54 UNSAT blocked 23883
+    orbit 55 UNSAT blocked 17083
+    orbit 56 UNSAT blocked 10228
+    orbit 57 UNSAT blocked 13202
+    orbit 58 UNSAT blocked 11838
+    orbit 59 UNSAT blocked 21842
+
+## code/verify_g7_lower.py, quick mode (2026-10-20)
+PASS  r = 6 kernels, c = 12 ([P3, §2a]: 69,120)
+      RESULT n=12 c=12 no 4 disjoint triangles: 69120 decompositions (957373 search nodes)
+PASS  r = 6 kernels, c = 6 ([P3, §2a]: 558,672)
+      RESULT n=12 c=6 no 4 disjoint triangles: 558672 decompositions (10204403 search nodes)
+PASS  r = 6, matched route finds a kernel
+      RESULT FOUND a decomposition with matching number 3 (representative 2): {0,2,4,} {1,3,6,} {5,7,8,} {0,3,7,} {0,6,8,} {0,5,10,} {0,9,11,} {3,5,9,} {1,2,5,} {5,6,11,} {2,6,10,} {2,8,11,} {2,7,9,} {3,4,11,} {1,7,11,} {3,8,10,} {1,4,8,} {
+PASS  r = 6, SAT route finds a kernel
+      RESULT n=12 c=12: FOUND a decomposition with matching number 3 (orbit 1): [(0, 2, 6), (0, 3, 11), (0, 4, 8), (0, 5, 9), (0, 7, 10), (1, 2, 7), (1, 3, 8), (1, 4, 6), (1, 5, 10), (1, 9, 11), (2, 4, 11), (2, 5, 8), (2, 9, 10), (3, 4, 10)
+PASS  r = 6 cores exist (SAT route)
+      RESULT r=6 n=8 m=3: SAT
+PASS  r = 7: no core (SAT route)
+      RESULT r=7 n=10 m=7: UNSAT
+PASS  r = 7, c = 14: matching number <= 2 impossible
+      RESULT n=14 c=14 no 3 disjoint triangles: 0 decompositions (13614095 search nodes)
+PASS  r = 7, c = 14: matched route
+      RESULT n=14 c=14: 266560 placements of 3 disjoint triangles, 6 up to symmetry, 2471412 search nodes, NO decomposition with matching number 3 among the representatives searched by this process (start 0 step 1)
+PASS  r = 7, c = 14: SAT route
+      RESULT n=14 c=14: 6 orbits, 6 recorded UNSAT in second_route_n14_c14.log, none found (219s this run)
+PASS: every step gives its expected answer (quick mode)

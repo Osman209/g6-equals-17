@@ -585,3 +585,30 @@ gives $18 \le g(7) \le 21$.
 a short search. A search for twenty cards along the same lines (symmetries of order 10 and
 5) found no family; most degree profiles ended on the time limit rather than with an
 answer, so that search says nothing either way about $g(7) \le 20$.
+
+---
+
+## 8. Addendum, 20 October 2026: eighteen cards at r = 7 ([P7])
+
+[P7] excludes eighteen cards at $r = 7$, so $19 \le g(7) \le 21$. The reduction is short
+and is set out in the paper; what this log records is how the two finite steps were checked.
+
+**Calibration first.** Every program was run at $r = 6$ before $r = 7$. The exhaustive kernel
+search returned 69,120 and 558,672 for the profiles of [P3, §2a]; the core enumeration
+returned the 463 cores of [P3, §3] (a third independent route to that number, after the
+original and the one of §6); the two programs with a fixed matching, and the core SAT model,
+found objects where objects exist.
+
+**Two routes for each computation.** For the kernels with matching number three, the first
+route takes orbits of the fixed matching from nauty and completes them with a search tree;
+the second takes orbits by union-find under explicit generators of $\mathrm{Aut}(M)$ and
+completes them with SAT. They share no code, agree on the orbit counts (6, 122, 60), and find
+nothing. The profile $c = 14$ was also searched whole, without the matching (about $6 \times
+10^8$ nodes). For the cores, an enumeration and a SAT model agree that none exists. A first
+attempt that put kernel and extension into a single SAT problem with lazily blocked covers did
+not finish even at $r = 6$ and was dropped; it is not used.
+
+**What it rests on.** [P5, Theorem 1], to exclude degree five and more; the elementary
+arguments of [P7, §2 to §5], read but not reviewed; and the programs, which carry no proof
+certificates. The recorded runs are `results/g7_lower_checks.txt`; several were split and
+resumed across two-hour stints, which the file states.

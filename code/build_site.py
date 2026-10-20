@@ -114,6 +114,18 @@ PAPERS = [
             "(arXiv:2606.24878). The final minimisation is certified with exact rational "
             "arithmetic. The combinatorial lemmas are unreviewed.",
     ),
+    dict(
+        slug="paper_7_g7_lower",
+        title="Paper 7. Seven: No Family of Eighteen Cards, so 19 <= g(7) <= 21",
+        sub="A computer-assisted exclusion of eighteen cards at r = 7",
+        abs="No pairwise intersecting 7-uniform family of eighteen cards has transversal number "
+            "seven. Deleting the cards of a symbol of degree four splits the problem into two "
+            "branches: in one, every candidate kernel contains four disjoint triples and so has a "
+            "cover of size five; in the other, no ten-card core exists. Both finite steps were "
+            "computed twice by separately written programs, calibrated on the known counts at "
+            "r = 6. With a 21-card family this gives 19 <= g(7) <= 21. The exclusion of symbols "
+            "of degree five uses Theorem 1 of Paper 5, a proposed proof; nothing is reviewed.",
+    ),
 ]
 
 DISCLAIMER = (

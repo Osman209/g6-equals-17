@@ -14,7 +14,7 @@ Let $g(r)$ be the least number of hyperedges in an intersecting $r$-uniform hype
 
 A hypergraph $H$ is **intersecting** if any two hyperedges meet, and $\tau(H)$ is the least number of vertices meeting every hyperedge. Then
 $$g(r)=\min\lbrace \lvert E(H)\rvert : H \text{ intersecting, } r\text{-uniform, } \tau(H)=r\rbrace .$$
-The problem goes back to Erdős and Lovász [1], and Kahn [3] proved $g(r)=O(r)$. The known values are $g(3)=6$ and $g(4)=9$ [5], $g(5)=13$ [4] and $g(6)=17$ ([P1]–[P4] of this set). Against $3r$ these are $3r-3$, $3r-3$, $3r-2$ and $3r-1$. For $r=7$, an explicit family of 21 hyperedges with $\tau=7$, found by a computer search among families invariant under a cyclic group of order 7, gives $g(7)\le21$ (`data/witness_r7_21.json`); with Theorem 1, $18\le g(7)\le21$. Whether that upper bound is already known has not been checked.
+The problem goes back to Erdős and Lovász [1], and Kahn [3] proved $g(r)=O(r)$. The known values are $g(3)=6$ and $g(4)=9$ [5], $g(5)=13$ [4] and $g(6)=17$ ([P1]–[P4] of this set). Against $3r$ these are $3r-3$, $3r-3$, $3r-2$ and $3r-1$. For $r=7$, an explicit family of 21 hyperedges with $\tau=7$, found by a computer search among families invariant under a cyclic group of order 7, gives $g(7)\le21$ (`data/witness_r7_21.json`). Theorem 1 gives $g(7)\ge18$, and [P7] excludes eighteen, so $19\le g(7)\le21$. Whether that upper bound is already known has not been checked.
 
 **The reduction of [2].** Repeatedly take a vertex of degree at least four and delete the hyperedges through it. If this takes $k$ steps and leaves a family $J$ of $q$ hyperedges and maximum degree at most three, then
 $$\lvert E(H)\rvert\ge q+4k,\qquad r\le k+\tau(J).$$

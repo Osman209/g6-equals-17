@@ -21,7 +21,7 @@ abstract: >-
   g(r) >= 3r - 3 for every r and g(r) >= 3r - 2 for every r >= 16, and a new
   asymptotic lower bound liminf g(r)/r >= 3.1108, above the constant 3.0534 of
   Sivashankar (arXiv:2606.24878). For r = 7 an explicit 21-card family gives
-  g(7) <= 21, so 18 <= g(7) <= 21.
+  g(7) <= 21, and a computer-assisted exclusion of eighteen cards gives 19 <= g(7) <= 21.
 type: software
 authors:
   - family-names: Osman

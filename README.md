@@ -16,8 +16,9 @@ first two due to Tripathi [arXiv:1409.4610] and the last to Barát and Wanless
 [arXiv:2011.04444]; the strongest published general lower bound,
 $g(r) \ge ((41-\sqrt{19})/12 - o(1))r$ [arXiv:2606.24878], gives $g(6) \ge 14$. For $r = 7$
 this repository also holds a 21-card family with cover number 7, so $g(7) \le 21$
-(`data/witness_r7_21.json`, checked by `code/verify_witness_r7_21.py`); whether that bound is
-already known has not been checked. See
+(`data/witness_r7_21.json`, checked by `code/verify_witness_r7_21.py`), and [P7] excludes
+eighteen cards, so $19 \le g(7) \le 21$; whether these bounds are already known has not been
+checked. See
 [section 6 of the overview](papers/overview.md) for what that does and does not settle about
 the value determined here.
 
@@ -66,8 +67,9 @@ $$g(6) = \min \lbrace \lvert F \rvert : F \text{ is 6-uniform, pairwise intersec
 | [P4] | [`papers/paper_4_seventeen_card_witness.md`](papers/paper_4_seventeen_card_witness.md) | the explicit seventeen-card family |
 | [P5] | [`papers/paper_5_every_r.md`](papers/paper_5_every_r.md) | every $r$: $g(r) \ge 3r-3$, and $3r-2$ for $r \ge 16$ (proposed, not reviewed) |
 | [P6] | [`papers/paper_6_asymptotic.md`](papers/paper_6_asymptotic.md) | $\liminf g(r)/r \ge 3.1108$ (proposed, not reviewed) |
+| [P7] | [`papers/paper_7_g7_lower.md`](papers/paper_7_g7_lower.md) | $r = 7$: no family of eighteen cards, so $19 \le g(7) \le 21$ (computer-assisted, uses [P5]) |
 
-The papers are cited as [P1] to [P6]. A bare bracketed number inside a paper is an
+The papers are cited as [P1] to [P7]. A bare bracketed number inside a paper is an
 entry in that paper's own reference list. Each paper numbers its own results from 1.
 
 ## What is trusted, and what is not
@@ -95,7 +97,7 @@ what it settled, and what it could not.
 ## Contents
 
 ```text
-papers/         the overview and the six papers
+papers/         the overview and the seven papers
 code/           enumeration, verification, SAT and certification scripts
 lean/           Lean 4 proofs of the K7 lemma and the petal lemma, with their generators
 data/           the canonical cores, the reduction data, the witness, three CNF/DRAT pairs
